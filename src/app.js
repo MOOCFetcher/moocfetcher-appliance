@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { square, diag } from './math.js';
-import './app.css';
 
 console.log(square(11)); // 121
 console.log(diag(4, 3)); // 5
