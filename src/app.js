@@ -26,7 +26,7 @@ class ButtonContainer extends React.Component {
 
 ReactDOM.render(
   <div>
-  <h1>This is my app</h1>
+  <ButtonContainer/>
   </div>,
   document.getElementById('app')
 );
