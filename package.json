@@ -1,7 +1,14 @@
 {
+  "name": "moocfetcher-appliance-webapp",
+  "version": "0.0.1",
+  "description": "Web UI frontend for MOOCFetcher appliance",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MOOCFetcher/moocfetcher-appliance"
+  },
+  "license": "MIT",
   "scripts": {
-    "webpack": "webpack --watch",
-    "server": "browser-sync --port 4000 start --server --files \"**/*.html\" \"build/**/*.css\" \"build/**/*.js\" "
+    "webpack": "webpack --watch"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
@@ -9,7 +16,6 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
-    "browser-sync": "^2.13.0",
     "copy-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^2.21.0",
     "webpack": "^1.13.0"
