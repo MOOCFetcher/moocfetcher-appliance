@@ -1,5 +1,6 @@
 var path = require('path')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+var HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: ['./src/app.js'],
@@ -20,6 +21,10 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: './src/static/'
-    }])
+    }]),
+    new HtmlWebPackPlugin({
+      title: 'MOOCFetcher',
+      template: './src/templates/index.html'
+    })
   ]
 }
