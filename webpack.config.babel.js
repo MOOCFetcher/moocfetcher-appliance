@@ -2,6 +2,8 @@ var path = require('path')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebPackPlugin = require('html-webpack-plugin')
 
+const production = process.env.NODE_ENV === 'production'
+
 module.exports = {
   entry: ['./src/app.js'],
   output: {
@@ -25,7 +27,8 @@ module.exports = {
     new HtmlWebPackPlugin({
       title: 'MOOCFetcher',
       template: './src/templates/index.html',
-      inject: false
+      inject: false,
+      production: production
     })
   ]
 }
