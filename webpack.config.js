@@ -24,7 +24,8 @@ module.exports = {
     }]),
     new HtmlWebPackPlugin({
       title: 'MOOCFetcher',
-      template: './src/templates/index.html'
+      template: './src/templates/index.html',
+      inject: false
     })
   ]
 }
