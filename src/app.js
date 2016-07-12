@@ -1,33 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { square, diag } from './math.js';
 
-console.log(square(11)); // 121
-console.log(diag(4, 3)); // 5
-
-class ButtonContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      disabled: false
-    };
-  }
-  onClick = () => {
-    this.setState({ disabled: !this.state.disabled });
-  }
-  render() {
-    return (
-      <div>
-      <h1>This is a test page</h1>
-      <p>Hello World</p>
-      </div>
-    );
-  }
-}
 
 ReactDOM.render(
   <div>
-  <ButtonContainer/>
+  <p className="text-xs-center">Search or browse our catalog of courses and select them to copy onto your own USB pen&nbsp;drive.</p>
   </div>,
   document.getElementById('app')
-);
+)

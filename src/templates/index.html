@@ -10,9 +10,41 @@
   <% }  else { %>
       <link rel="stylesheet" href="/css/bootstrap.min.css">
   <% } %>
-</head>
+  <link rel="stylesheet" href="/css/app.css">
+  </head>
 <body>
-  <div id="app"></div>
+   <nav class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">&#9776;</button>
+      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+      <a class="navbar-brand" href="/">MOOCFetcher</a>
+      <ul class="nav navbar-nav pull-md-right pull-lg-right pull-xl-right">
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help">Help</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+  <div class="container-fluid">
+     <div id="app"></div>
+  </div>
+  <!-- jQuery first, then Bootstrap JS. -->
+  <% if (htmlWebpackPlugin.options.production) { %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <% }  else { %>
+
+    <% } %>
+
   <script src="app_bundle.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tether.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
