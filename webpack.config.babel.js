@@ -24,6 +24,9 @@ module.exports = {
     filename: 'app_bundle.js',
     sourceMapFilename: 'app_bundle.js.map'
   },
+  externals: {
+    jQuery: "jQuery"
+  },
   module: {
     loaders: [{
       loader: 'babel-loader',
