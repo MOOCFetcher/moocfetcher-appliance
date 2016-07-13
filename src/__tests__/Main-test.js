@@ -1,8 +1,8 @@
-jest.unmock('../Main')
-
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import Main from '../Main'
+
+jest.unmock('../Main')
 
 let courses = [
   {
