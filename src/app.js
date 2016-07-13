@@ -2,17 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import SearchBox from './SearchBox.js'
 import CourseList from './CourseList.js'
-import $ from 'jQuery'
 
 class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {}
-  }
-
-  componentDidMount () {
-    $.getJSON('/data/courses.json', (data) => this.loadCourses(data.courses))
   }
 
   loadCourses(courses) {
