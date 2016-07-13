@@ -1,4 +1,4 @@
-import CourseStore, {CourseActions, FILTER_EVENT, FETCH_EVENT} from '../CourseStore'
+import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, FILTER_ACTION, FETCH_ACTION} from '../CourseStore'
 import AppDispatcher from '../AppDispatcher'
 import $ from 'jQuery'
 
@@ -56,14 +56,14 @@ describe("CourseActions", () => {
     expect(AppDispatcher.dispatch.mock.calls.length).toBe(1)
     let action = AppDispatcher.dispatch.mock.calls[0][0]
     expect(action.text).toBe(filter)
-    expect(action.actionType).toBe(FILTER_EVENT)
+    expect(action.actionType).toBe(FILTER_ACTION)
   })
 
-  it("calls the dispatcher with a fetch event", () => {
+  it("calls the dispatcher with a fetch action", () => {
     CourseActions.fetch()
     expect(AppDispatcher.dispatch.mock.calls.length).toBe(1)
     let action = AppDispatcher.dispatch.mock.calls[0][0]
-    expect(action.actionType).toBe(FETCH_EVENT)
+    expect(action.actionType).toBe(FETCH_ACTION)
   })
 })
 
@@ -78,12 +78,12 @@ describe("CourseStore", () => {
       cb(courseData)
     })
     beforeEach(() => {
-      CourseStore.addEventListener(FETCH_EVENT, eventReceiver)
-      callback({ actionType: FETCH_EVENT })
+      CourseStore.addListener(COURSES_UPDATE_EVENT, eventReceiver)
+      callback({ actionType: FETCH_ACTION })
     })
 
     afterEach(() => {
-      CourseStore.removeEventListener(FETCH_EVENT, eventReceiver)
+      CourseStore.removeListener(COURSES_UPDATE_EVENT, eventReceiver)
       eventReceiver.mockClear()
     })
 
@@ -96,12 +96,12 @@ describe("CourseStore", () => {
 
   describe("on receiving filter action", () => {
     beforeEach(() => {
-      CourseStore.addEventListener(FILTER_EVENT, eventReceiver)
-      callback({ actionType: FILTER_EVENT, text: "Philosophy" })
+      CourseStore.addListener(COURSES_UPDATE_EVENT, eventReceiver)
+      callback({ actionType: FILTER_ACTION, text: "Philosophy" })
     })
 
     afterEach(() => {
-      CourseStore.removeEventListener(FILTER_EVENT, eventReceiver)
+      CourseStore.removeListener(COURSES_UPDATE_EVENT, eventReceiver)
       eventReceiver.mockClear()
     })
 

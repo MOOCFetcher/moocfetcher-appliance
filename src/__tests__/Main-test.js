@@ -30,28 +30,29 @@ describe("Main", () => {
 
   it("Displays loading message when no courses are loaded, which disappears on course load.", () => {
     expect(main.refs.loading).toBeDefined()
-    main.coursesLoaded([])
+    main.coursesUpdated([])
     expect(main.refs.loading).not.toBeDefined()
     
   })
 
   it("Updates filtered text when courses are loaded", () => {
-    main.coursesLoaded([])
+    main.coursesUpdated([])
     expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
 
-    main.coursesLoaded(courses.slice(1))
+    main.coursesUpdated(courses.slice(1))
     expect(main.refs.filterLabel.innerHTML).toBe("1 Course Found.")
 
-    main.coursesLoaded(courses)
+    main.coursesUpdated(courses)
     expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
   })
 
   it("Updates filtered text when courses are loaded", () => {
     // First load the courses…
-    main.coursesLoaded(courses)
-    
+    main.coursesUpdated(courses)
+    expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
+
     // Then filter them
-    main.coursesFiltered([])
+    main.coursesUpdated([])
     expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
    })
 })

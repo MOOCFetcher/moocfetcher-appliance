@@ -1,43 +1,28 @@
 import React from 'react'
-import CourseStore, {FILTER_EVENT} from './CourseStore'
+import CourseStore, {COURSES_UPDATE_EVENT} from './CourseStore'
 import CourseItem from './CourseItem'
 
 export default class CourseList extends React.Component {
-
-  static propTypes = {
-    courses: React.PropTypes.array.isRequired
-  }
-
-
   constructor(props) {
     super(props)
-    this.state = { coursesFiltered: false }
+    // We assume an initial list of courses have already loaded.
+    this.state = { courses: CourseStore.getCourses() }
   }
 
-
-  coursesFiltered = (courses) => {
-    this.setState({coursesFiltered: true, filtered: courses})
+  coursesUpdated = (courses) => {
+    this.setState({courses: courses})
   }
 
   componentWillMount() {
-    CourseStore.addEventListener(FILTER_EVENT, this.coursesFiltered)
+    CourseStore.on(COURSES_UPDATE_EVENT, this.coursesUpdated)
   }
 
   componentWillUnmount() {
-    CourseStore.removeEventListener(FILTER_EVENT, this.coursesFiltered)
+    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
   }
 
   render() {
-    let courses
-    if (this.state.coursesFiltered) {
-      console.log("displaying filtered courses")
-      courses = this.filtered
-    } else {
-      console.log("displaying all courses")
-      courses = this.props.courses
-    }
-
-    let courseItems = courses.map( (course) => <CourseItem course={course} key={course.slug}/>)
+    let courseItems = this.state.courses.map( (course) => <CourseItem course={course} key={course.slug}/>)
 
     return (
       <div ref="parent">

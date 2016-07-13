@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseStore, {CourseActions, FETCH_EVENT, FILTER_EVENT} from './CourseStore'
+import CourseStore, {CourseActions, COURSES_UPDATE_EVENT} from './CourseStore'
 import SearchBox from './SearchBox.js'
 import CourseList from './CourseList.js'
 
@@ -7,19 +7,15 @@ export default class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { coursesLoaded: false}
+    this.state = { coursesUpdated: false}
   }
 
-  coursesLoaded = (courses) => {
-    this.setState({coursesLoaded: true, courses: courses})
-  }
-
-  coursesFiltered = (courses) => {
-    this.setState({filtered: courses, coursesFiltered: true})
+  coursesUpdated = (courses) => {
+    this.setState({coursesUpdated: true, courses: courses})
   }
 
   filterLabel() {
-    let l = this.state.coursesFiltered ? this.state.filtered.length : this.state.courses.length
+    let l = this.state.courses.length
     switch(l) {
       case 0:
         return "No Courses Found."
@@ -31,18 +27,16 @@ export default class Main extends React.Component {
   }
 
   componentWillMount() {
-    CourseStore.addEventListener(FETCH_EVENT, this.coursesLoaded)
-    CourseStore.addEventListener(FILTER_EVENT, this.coursesFiltered)
+    CourseStore.addListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
     CourseActions.fetch()
   }
 
   componentWillUnmount() {
-    CourseStore.removeEventListener(FETCH_EVENT, this.coursesLoaded)
-    CourseStore.removeEventListener(FILTER_EVENT, this.coursesFiltered)
+    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
   }
 
   render() {
-    if (!this.state.coursesLoaded) {
+    if (!this.state.coursesUpdated) {
       return <p ref="loading" className='text-xs-center'>Loading Courses…</p>
     }
 
@@ -55,7 +49,7 @@ export default class Main extends React.Component {
             <p ref="filterLabel" className="font-italic lead text-xs-center">{this.filterLabel()}</p>
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <CourseList courses={this.state.courses}/>
+            <CourseList/>
           </div>
         </div>
       </div>

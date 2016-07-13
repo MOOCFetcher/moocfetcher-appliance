@@ -1,6 +1,7 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import CourseList from '../CourseList'
+import CourseStore from '../CourseStore'
 
 jest.unmock('../CourseList')
 jest.unmock('../CourseItem')
@@ -23,11 +24,14 @@ let courses = [
   }
 ]
 
+CourseStore.getCourses = jest.fn(() => {
+  return courses
+})
 
 describe("CourseList", () => {
   let list
   beforeEach(() => {
-    list = TestUtils.renderIntoDocument(<CourseList courses={courses}/>)
+    list = TestUtils.renderIntoDocument(<CourseList/>)
   })
 
   it("displays a list of courses", () => {
