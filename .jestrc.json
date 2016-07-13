@@ -1,0 +1,4 @@
+{
+  "testPathDirs": ["<rootDir>/src"],
+  "verbose": true 
+}

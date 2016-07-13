@@ -2,9 +2,13 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jasmine": true
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "jest": false
+  },
   "rules": {
     "no-console": "warn"
   },
