@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseStore, {CourseActions, FETCH_EVENT} from './CourseStore'
+import CourseStore, {CourseActions, FETCH_EVENT, FILTER_EVENT} from './CourseStore'
 import SearchBox from './SearchBox.js'
 import CourseList from './CourseList.js'
 
@@ -32,7 +32,13 @@ export default class Main extends React.Component {
 
   componentWillMount() {
     CourseStore.addEventListener(FETCH_EVENT, this.coursesLoaded)
+    CourseStore.addEventListener(FILTER_EVENT, this.coursesFiltered)
     CourseActions.fetch()
+  }
+
+  componentWillUnmount() {
+    CourseStore.removeEventListener(FETCH_EVENT, this.coursesLoaded)
+    CourseStore.removeEventListener(FILTER_EVENT, this.coursesFiltered)
   }
 
   render() {

@@ -45,6 +45,15 @@ describe("Main", () => {
     main.coursesLoaded(courses)
     expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
   })
+
+  it("Updates filtered text when courses are loaded", () => {
+    // First load the courses…
+    main.coursesLoaded(courses)
+    
+    // Then filter them
+    main.coursesFiltered([])
+    expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
+   })
 })
 
 
