@@ -2,7 +2,8 @@ import AppDispatcher from './AppDispatcher'
 import EventEmitter from 'events'
 import $ from 'jQuery'
 
-// Private class to manage courses
+// Private class to manage courses.
+// FIXME might be worth extracting it out.
 class Courses {
   constructor() {
     this.courses = []
