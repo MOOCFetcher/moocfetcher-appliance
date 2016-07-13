@@ -32,9 +32,6 @@ module.exports = {
       loader: 'babel-loader',
       exclude: /node_modules/,
       test: /\.js$/,
-      query: {
-        presets: ['es2015', 'react', 'stage-0']
-      }
     }]
   },
   plugins: [
