@@ -7,19 +7,19 @@ export default class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { coursesLoaded: false, numFound: 0}
+    this.state = { coursesLoaded: false}
   }
 
   coursesLoaded = (courses) => {
-    this.setState({coursesLoaded: true, numFound: courses.length})
+    this.setState({coursesLoaded: true, courses: courses})
   }
 
   coursesFiltered = (courses) => {
-    this.setState({numFound: courses.length})
+    this.setState({filtered: courses, coursesFiltered: true})
   }
 
   filterLabel() {
-    let l = this.state.numFound
+    let l = this.state.coursesFiltered ? this.state.filtered.length : this.state.courses.length
     switch(l) {
       case 0:
         return "No Courses Found."
@@ -55,7 +55,7 @@ export default class Main extends React.Component {
             <p ref="filterLabel" className="font-italic lead text-xs-center">{this.filterLabel()}</p>
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <CourseList />
+            <CourseList courses={this.state.courses}/>
           </div>
         </div>
       </div>

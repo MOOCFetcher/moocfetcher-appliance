@@ -6,7 +6,7 @@ import $ from 'jQuery'
 // FIXME might be worth extracting it out.
 class Courses {
   constructor() {
-    this.courses = []
+    this.courses = null
     this.filterText = ''
   }
 

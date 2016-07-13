@@ -5,10 +5,6 @@ export default class CourseItem extends React.Component {
     course: React.PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     let course = this.props.course
     return (
