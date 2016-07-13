@@ -1,4 +1,50 @@
+jest.unmock('../Main')
+
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import Main
-jest.unmock('../Main')
+import Main from '../Main'
+
+let courses = [
+  {
+    "slug": "political-philosophy-2",
+    "courseType": "v2.ondemand",
+    "id": "z_MvXQoVEeWCpyIAC3lAyw",
+    "name": "Revolutionary Ideas:  An Introduction to Legal and Political Philosophy, Part 2",
+    "primaryLanguageCodes": [
+      "en"
+    ]
+  },
+  {
+    "slug": "symmetry",
+    "courseType": "v2.ondemand",
+    "name": "Beauty, Form & Function: An Exploration of Symmetry",
+    "id": "iLI6egl6EeWw4CIACxsM5w"
+  }
+]
+
+describe("Main", () => {
+  let main
+  beforeEach(() => {
+    main = TestUtils.renderIntoDocument(<Main/>)
+  })
+
+  it("Displays loading message when no courses are loaded, which disappears on course load.", () => {
+    expect(main.refs.loading).toBeDefined()
+    main.coursesLoaded([])
+    expect(main.refs.loading).not.toBeDefined()
+    
+  })
+
+  it("Updates filtered text when courses are loaded", () => {
+    main.coursesLoaded([])
+    expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
+
+    main.coursesLoaded(courses.slice(1))
+    expect(main.refs.filterLabel.innerHTML).toBe("1 Course Found.")
+
+    main.coursesLoaded(courses)
+    expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
+  })
+})
+
+
