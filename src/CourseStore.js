@@ -50,7 +50,7 @@ class CourseStore extends EventEmitter {
   getCourses() {
     if (filterText) {
       return filter(filterText)
-    } 
+    }
     return courses
   }
 
