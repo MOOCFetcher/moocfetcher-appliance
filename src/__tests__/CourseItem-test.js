@@ -26,4 +26,20 @@ describe("CourseItem", () => {
     let name = TestUtils.findRenderedDOMComponentWithTag(item, "h4").innerHTML
     expect(name).toBe(course.name)
   })
+
+  it('displays the Select button by default', () => {
+    let title = TestUtils.findRenderedDOMComponentWithTag(item, "a").innerHTML
+    expect(title).toBe('Select')
+  })
+
+  it('displays the title "Selected" after course is selected, which resets itself on clicking again', () => {
+    TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(item, "a"))
+    let title = TestUtils.findRenderedDOMComponentWithTag(item, "a").innerHTML
+    expect(title).toBe('Selected')
+
+
+    TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(item, "a"))
+    title = TestUtils.findRenderedDOMComponentWithTag(item, "a").innerHTML
+    expect(title).toBe('Select')
+  })
 })
