@@ -1,4 +1,4 @@
-import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, FILTER_ACTION, FETCH_ACTION} from '../CourseStore'
+import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT, FILTER_ACTION, FETCH_ACTION, SELECT_ACTION, UNSELECT_ACTION} from '../CourseStore'
 import AppDispatcher from '../AppDispatcher'
 import $ from 'jQuery'
 
@@ -65,6 +65,24 @@ describe("CourseActions", () => {
     let action = AppDispatcher.dispatch.mock.calls[0][0]
     expect(action.actionType).toBe(FETCH_ACTION)
   })
+
+  it("calls the dispatcher with a select action", () => {
+    let selectedCourse = courseData.courses[2]
+    CourseActions.select(selectedCourse)
+    expect(AppDispatcher.dispatch.mock.calls.length).toBe(1)
+    let action = AppDispatcher.dispatch.mock.calls[0][0]
+    expect(action.actionType).toBe(SELECT_ACTION)
+    expect(action.course).toBe(selectedCourse)
+  })
+
+  it("calls the dispatcher with an unselect action", () => {
+    let unselectedCourse = courseData.courses[2]
+    CourseActions.unselect(unselectedCourse)
+    expect(AppDispatcher.dispatch.mock.calls.length).toBe(1)
+    let action = AppDispatcher.dispatch.mock.calls[0][0]
+    expect(action.actionType).toBe(UNSELECT_ACTION)
+    expect(action.course).toBe(unselectedCourse)
+  })
 })
 
 
@@ -111,6 +129,36 @@ describe("CourseStore", () => {
       let filterResult = eventReceiver.mock.calls[0][0]
       expect(filterResult.length).toBe(1)
       expect(filterResult[0].slug).toBe(courseData.courses[0].slug)
+    })
+  })
+
+  describe('on receiving select and unselect actions', () => {
+    let selectedCourse = courseData.courses[2]
+    beforeEach(() => {
+      CourseStore.addListener(COURSE_SELECT_EVENT, eventReceiver)
+      CourseStore.addListener(COURSE_UNSELECT_EVENT, eventReceiver)
+    })
+
+    afterEach(() => {
+      CourseStore.removeListener(COURSE_SELECT_EVENT, eventReceiver)
+      CourseStore.removeListener(COURSE_UNSELECT_EVENT, eventReceiver)
+      eventReceiver.mockClear()
+    })
+
+    it('selects and unselects the courses respectively', () => {
+      // Select
+      callback({ actionType: SELECT_ACTION, course: selectedCourse })
+      expect(eventReceiver.mock.calls.length).toBe(1)
+      let result = eventReceiver.mock.calls[0][0]
+      expect(result.slug).toBe(selectedCourse.slug)
+      expect(CourseStore.getSelected()).toContain(selectedCourse)
+
+      // Unselect
+      callback({ actionType: UNSELECT_ACTION, course: selectedCourse })
+      expect(eventReceiver.mock.calls.length).toBe(2)
+      result = eventReceiver.mock.calls[1][0]
+      expect(result.slug).toBe(selectedCourse.slug)
+      expect(CourseStore.getSelected()).not.toContain(selectedCourse)
     })
   })
 })
