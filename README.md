@@ -1,4 +1,4 @@
-MOOCFetcher frontend app. See it at <https://moocfetcher.com>
+MOOCFetcher appliance frontend, implemented in React.
 
 ## Setup
 * Run `npm install`
