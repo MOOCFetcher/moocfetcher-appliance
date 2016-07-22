@@ -1,42 +1,34 @@
 import React from 'react'
-import CourseStore, {CourseActions, COURSES_UPDATE_EVENT} from './CourseStore'
-import SearchBox from './SearchBox.js'
+import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT} from './CourseStore'
+import SearchBox from './SearchBox'
+import FilterLabel from './FilterLabel'
+import SelectionLabel from './SelectionLabel'
 import CourseList from './CourseList.js'
 
 export default class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { coursesUpdated: false}
+    this.state = { coursesLoaded: false}
   }
 
-  coursesUpdated = () => {
-    this.setState({coursesUpdated: true})
+  coursesLoaded = () => {
+    this.setState({coursesLoaded: true})
+    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesLoaded)
   }
 
-  filterLabel() {
-    let l = CourseStore.getCourses().length
-    switch(l) {
-      case 0:
-        return "No Courses Found."
-      case 1:
-        return "1 Course Found."
-      default:
-        return l + " Courses Found."
-    }
-  }
 
   componentWillMount() {
-    CourseStore.addListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
+    CourseStore.addListener(COURSES_UPDATE_EVENT, this.coursesLoaded)
     CourseActions.fetch()
   }
 
   componentWillUnmount() {
-    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
+    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesLoaded)
   }
 
   render() {
-    if (!this.state.coursesUpdated) {
+    if (!this.state.coursesLoaded) {
       return <p ref="loading" className='text-xs-center'>Loading Courses…</p>
     }
 
@@ -46,7 +38,8 @@ export default class Main extends React.Component {
         <div className="row">
           <div className="col-md-6 col-md-offset-3">
             <SearchBox />
-            <p ref="filterLabel" className="font-italic lead text-xs-center">{this.filterLabel()}</p>
+            <FilterLabel/>
+            <SelectionLabel/>
           </div>
           <div className="col-md-8 col-md-offset-2">
             <CourseList/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import CourseItem from '../CourseItem'
+import CourseStore from '../CourseStore'
 
 jest.unmock('../CourseItem')
 
@@ -17,6 +18,7 @@ let course =  {
 describe("CourseItem", () => {
   let item
   beforeEach(() => {
+    CourseStore.getSelected = jest.fn( () => [])
     item = TestUtils.renderIntoDocument(<CourseItem course={course}/>)
   })
 

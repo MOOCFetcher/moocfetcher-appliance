@@ -31,6 +31,7 @@ CourseStore.getCourses = jest.fn(() => {
 describe("CourseList", () => {
   let list
   beforeEach(() => {
+    CourseStore.getSelected = jest.fn( () => [])
     list = TestUtils.renderIntoDocument(<CourseList/>)
   })
 
