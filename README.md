@@ -10,7 +10,7 @@ MOOCFetcher appliance frontend, implemented in React.
 
 ## Development
 * Run `modd`. This will run in the background and do the following (refer to file `modd.conf` for the exact commands that are run):
-  * Run Webpack in development and watch mode, which will bundle and copy files into `build` folder.
+  * Run Webpack in development and watch mode, which will watch for changes and bundle and copy files into `build` folder.
   * Run the `devd` daemon which serves the files from the `build` folder to access in the browser (along with LiveReload support)
   * Run `eslint` and display output every time a Javascript source file is changed
   * Invoke `jest` which will run all the tests.
