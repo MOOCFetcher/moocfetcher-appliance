@@ -8045,6 +8045,87 @@
       "primaryLanguageCodes": [
         "en"
       ]
+    },
+    {
+      "id": "0czyKe-LEeWLaBLI8fdMlw",
+      "courseType": "v2.ondemand",
+      "name": "Accounting for Business Decision Making: Part 1",
+      "slug": "business-accounting-1",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "6Oh26OW4EeWy1RKsaf3f1w",
+      "slug": "digital-literacy",
+      "name": "Information & Digital Literacy for University Success",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "id": "9h_j5XEiEeWbbw5cIAKQrw",
+      "name": "Advanced Search Engine Optimization Strategies",
+      "courseType": "v2.ondemand",
+      "slug": "advanced-seo-strategies",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "XYsEz8XxEeWIJRKecECAWw",
+      "slug": "pre-calculus",
+      "name": "Pre-Calculus: Functions",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "AvOymAjKEeaZtBIpAxSKuw",
+      "slug": "trigonometry",
+      "name": "Pre-Calculus: Trigonometry",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "id": "X3F5IHK0EeWi0g6YoSAL-w",
+      "courseType": "v2.ondemand",
+      "name": "Securing Investment Returns in the Long Run",
+      "slug": "investment-returns-long-run",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "lswH0jTZEea1ggpF7DR5sw",
+      "slug": "desarrollo-urbano",
+      "name": "Cities are back in town : urban sociology for a globalizing urban world (Spanish)",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "WRmBJpeLEeWiKgp3mpfjeQ",
+      "slug": "magicmiddleages",
+      "name": "Magic in the Middle Ages",
+      "primaryLanguageCodes": [
+        "en"
+      ]
+    },
+    {
+      "courseType": "v2.ondemand",
+      "id": "e8alEup0EeWTQApGcKeRIQ",
+      "slug": "iot-devices",
+      "name": "Introduction to Architecting Smart IoT Devices",
+      "primaryLanguageCodes": [
+        "en"
+      ]
     }
   ]
 }
