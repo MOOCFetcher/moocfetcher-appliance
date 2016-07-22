@@ -10,12 +10,12 @@ export default class Main extends React.Component {
     this.state = { coursesUpdated: false}
   }
 
-  coursesUpdated = (courses) => {
-    this.setState({coursesUpdated: true, courses: courses})
+  coursesUpdated = () => {
+    this.setState({coursesUpdated: true})
   }
 
   filterLabel() {
-    let l = this.state.courses.length
+    let l = CourseStore.getCourses().length
     switch(l) {
       case 0:
         return "No Courses Found."

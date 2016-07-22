@@ -1,6 +1,7 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import Main from '../Main'
+import CourseStore from '../CourseStore'
 
 jest.unmock('../Main')
 
@@ -23,36 +24,43 @@ let courses = [
 ]
 
 describe("Main", () => {
-  let main
+  let main, updatedCourses
   beforeEach(() => {
     main = TestUtils.renderIntoDocument(<Main/>)
+    CourseStore.getCourses = jest.fn(() => updatedCourses)
   })
 
   it("Displays loading message when no courses are loaded, which disappears on course load.", () => {
+    updatedCourses = []
     expect(main.refs.loading).toBeDefined()
-    main.coursesUpdated([])
+    main.coursesUpdated()
     expect(main.refs.loading).not.toBeDefined()
-    
+
   })
 
   it("Updates filtered text when courses are loaded", () => {
-    main.coursesUpdated([])
+    updatedCourses = []
+    main.coursesUpdated()
     expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
 
-    main.coursesUpdated(courses.slice(1))
+    updatedCourses = courses.slice(1)
+    main.coursesUpdated()
     expect(main.refs.filterLabel.innerHTML).toBe("1 Course Found.")
 
-    main.coursesUpdated(courses)
+    updatedCourses = courses
+    main.coursesUpdated()
     expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
   })
 
   it("Updates filtered text when courses are loaded", () => {
     // First load the courses…
-    main.coursesUpdated(courses)
+    updatedCourses = courses
+    main.coursesUpdated()
     expect(main.refs.filterLabel.innerHTML).toBe("2 Courses Found.")
 
     // Then filter them
-    main.coursesUpdated([])
+    updatedCourses = []
+    main.coursesUpdated()
     expect(main.refs.filterLabel.innerHTML).toBe("No Courses Found.")
    })
 })
