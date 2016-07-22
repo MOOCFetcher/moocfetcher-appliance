@@ -1,9 +1,11 @@
 MOOCFetcher appliance frontend, implemented in React.
 
 ## Setup
+* Install [node]
 * Run `npm install`
 * Install [devd] and [modd]
 
+[node]: https://nodejs.org
 [devd]: https://github.com/cortesi/devd
 [modd]: https://github.com/cortesi/modd
 
