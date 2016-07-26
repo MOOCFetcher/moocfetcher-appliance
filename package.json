@@ -21,6 +21,7 @@
     "html-webpack-plugin": "^2.22.0",
     "jest-cli": "^13.2.3",
     "react-addons-test-utils": "^15.2.1",
+    "skin-deep": "^0.16.0",
     "webpack": "^1.13.0"
   },
   "dependencies": {
