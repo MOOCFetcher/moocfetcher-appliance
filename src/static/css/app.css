@@ -2,6 +2,12 @@
   border: 1px solid #ccc;
 }
 
+
+#selectedCoursesModal .modal-body{
+  max-height: calc(80vh);
+  overflow-y:auto;
+}
+
 footer {
-background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
