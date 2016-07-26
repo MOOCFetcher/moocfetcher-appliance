@@ -43,7 +43,6 @@ export class CourseActions {
 
 let courses = null
 let filterText = null
-let selectedCourses = []
 
 function fetch(callback) {
   $.getJSON('/data/courses.json', (data) => {
@@ -65,19 +64,16 @@ function filter(text) {
   })
 }
 
-function select(course) {
-  if (selectedCourses.includes( c => c.slug == course.slug)) {
-    return
-  }
+function selected() {
+  return courses.filter( (c) => c.selected)
+}
 
-  selectedCourses.push(course)
+function select(course) {
+  course.selected = true
 }
 
 function unselect(course) {
-  let idx = selectedCourses.findIndex( (c) => c.slug == course.slug)
-  if (idx != -1) {
-    selectedCourses.splice(idx, 1)
-  }
+  course.selected = false
 }
 
 class CourseStore extends EventEmitter {
@@ -93,7 +89,7 @@ class CourseStore extends EventEmitter {
   }
 
   getSelected() {
-    return selectedCourses
+    return selected()
   }
 }
 
