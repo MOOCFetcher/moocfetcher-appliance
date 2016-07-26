@@ -31,6 +31,6 @@ export default class FilterLabel extends React.Component {
   }
 
   render() {
-     return <p ref="filterLabel" className="font-italic lead text-xs-center">{this.filterLabel(this.state.numCourses)}</p>
+     return <p className="font-italic lead text-xs-center">{this.filterLabel(this.state.numCourses)}</p>
   }
 }

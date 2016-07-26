@@ -4,6 +4,7 @@ import SearchBox from './SearchBox'
 import FilterLabel from './FilterLabel'
 import SelectionLabel from './SelectionLabel'
 import FilteredCourses from './FilteredCourses'
+import SelectedCourses from './SelectedCourses'
 
 export default class Main extends React.Component {
 
@@ -29,7 +30,7 @@ export default class Main extends React.Component {
 
   render() {
     if (!this.state.coursesLoaded) {
-      return <p ref="loading" className='text-xs-center'>Loading Courses…</p>
+      return <p className='text-xs-center'>Loading Courses…</p>
     }
 
     return (
@@ -45,6 +46,7 @@ export default class Main extends React.Component {
             <FilteredCourses/>
           </div>
         </div>
+        <SelectedCourses/>
       </div>
     )
   }

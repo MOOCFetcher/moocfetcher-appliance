@@ -1,19 +1,23 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
 import Main from '../Main'
+import sd from 'skin-deep'
 
 jest.unmock('../Main')
 
 describe("Main", () => {
   let main
   beforeEach(() => {
-    main = TestUtils.renderIntoDocument(<Main/>)
+    main = sd.shallowRender(<Main/>)
   })
 
   it("Displays loading message when no courses are loaded, which disappears on course load.", () => {
-    expect(main.refs.loading).toBeDefined()
-    main.coursesLoaded()
-    expect(main.refs.loading).not.toBeDefined()
+    let loadingText = main.subTree('p').text()
+    expect(loadingText).toMatch("Loading")
+
+    main.getMountedInstance().coursesLoaded()
+    loadingText = main.subTree('p').text()
+    expect(loadingText).not.toMatch("Loading")
+    expect(loadingText).toMatch("Search")
   })
 })
 

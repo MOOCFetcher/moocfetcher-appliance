@@ -10,7 +10,7 @@ export default class SearchBox extends React.Component {
   render() {
     return (
       <form>
-        <input type="text" className="form-control" id="search-box" ref="searchbox" placeholder="e.g. Philosophy" onInput={this.initiateFilter}/>
+        <input type="text" className="form-control" id="search-box" placeholder="e.g. Philosophy" onInput={this.initiateFilter}/>
       </form>
     )
   }

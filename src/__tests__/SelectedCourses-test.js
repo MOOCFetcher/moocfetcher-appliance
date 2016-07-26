@@ -1,10 +1,9 @@
 import React from 'react'
-import FilteredCourses from '../FilteredCourses'
+import TestUtils from 'react-addons-test-utils'
+import SelectedCourses from '../SelectedCourses'
 import CourseStore from '../CourseStore'
-import sd from 'skin-deep'
 
-jest.unmock('../FilteredCourses')
-jest.unmock('../CourseList')
+jest.unmock('../SelectedCourses')
 
 let courses = [
   {
@@ -24,16 +23,18 @@ let courses = [
   }
 ]
 
-CourseStore.getCourses = jest.fn(() => {
+CourseStore.getSelected = jest.fn(() => {
   return courses
 })
 
-describe("FilteredCourses", () => {
+describe("SelectedCourses", () => {
+  const shallowRenderer = TestUtils.createRenderer()
   beforeEach(() => {
-    sd.shallowRender(<FilteredCourses/>)
+    shallowRenderer.render(<SelectedCourses/>)
   })
 
-  it("retrieves a list of courses", () => {
-    expect(CourseStore.getCourses.mock.calls.length).toBe(1)
+  it("retrieves a list of selected courses", () => {
+    expect(CourseStore.getSelected.mock.calls.length).toBe(1)
   })
 })
+
