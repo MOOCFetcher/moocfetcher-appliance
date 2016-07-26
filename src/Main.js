@@ -1,9 +1,9 @@
 import React from 'react'
-import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT} from './CourseStore'
+import CourseStore, {CourseActions, COURSES_UPDATE_EVENT} from './CourseStore'
 import SearchBox from './SearchBox'
 import FilterLabel from './FilterLabel'
 import SelectionLabel from './SelectionLabel'
-import CourseList from './CourseList.js'
+import FilteredCourses from './FilteredCourses'
 
 export default class Main extends React.Component {
 
@@ -42,7 +42,7 @@ export default class Main extends React.Component {
             <SelectionLabel/>
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <CourseList/>
+            <FilteredCourses/>
           </div>
         </div>
       </div>

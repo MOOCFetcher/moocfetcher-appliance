@@ -1,34 +1,14 @@
-import React from 'react'
-import CourseStore, {COURSES_UPDATE_EVENT} from './CourseStore'
+import React, {PropTypes} from 'react'
 import CourseItem from './CourseItem'
 
-export default class CourseList extends React.Component {
-  constructor(props) {
-    super(props)
-    // We assume an initial list of courses have already loaded.
-    this.state = { courses: CourseStore.getCourses() }
-  }
+const CourseList = ({courses}) => (
+  <div>
+    {courses.map( (course) => <CourseItem course={course} key={course.slug}/>)}
+  </div>
+)
 
-  coursesUpdated = (courses) => {
-    this.setState({courses: courses})
-  }
-
-  componentWillMount() {
-    CourseStore.on(COURSES_UPDATE_EVENT, this.coursesUpdated)
-  }
-
-  componentWillUnmount() {
-    CourseStore.removeListener(COURSES_UPDATE_EVENT, this.coursesUpdated)
-  }
-
-  render() {
-    let courseItems = this.state.courses.map( (course) => <CourseItem course={course} key={course.slug}/>)
-
-    return (
-      <div ref="parent">
-        {courseItems}
-      </div>
-    )
-  }
+CourseList.propTypes = {
+  courses: PropTypes.array.isRequired
 }
 
+export default CourseList
