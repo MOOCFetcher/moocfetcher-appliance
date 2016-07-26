@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseStore, {CourseActions} from './CourseStore'
+import {CourseActions} from './CourseStore'
 
 export default class CourseItem extends React.Component {
   static propTypes = {
@@ -8,21 +8,18 @@ export default class CourseItem extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { selected: CourseStore.getSelected().includes(this.props.course) }
   }
 
   selectCourse = (evt)  => {
     evt.preventDefault()
     let course = this.props.course
     CourseActions.select(course)
-    this.setState({selected:true})
   }
 
   unselectCourse = (evt) => {
     evt.preventDefault()
     let course = this.props.course
     CourseActions.unselect(course)
-    this.setState({selected:false})
   }
 
   render() {
@@ -32,8 +29,8 @@ export default class CourseItem extends React.Component {
         <div className="col-xs-10"><h4>{course.name}</h4></div>
         <div className="col-xs-2">
         {
-          this.state.selected ?
-            <a href="#" onClick={this.unselectCourse} className="btn btn-success btn-sm">Selected</a>
+          course.selected ?
+            <a href="#" onClick={this.unselectCourse} className="btn btn-danger btn-sm">Remove</a>
             : <a href="#" onClick={this.selectCourse} className="btn btn-primary btn-sm">Select</a>
         }
         </div>
