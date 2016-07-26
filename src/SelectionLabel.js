@@ -33,11 +33,11 @@ export default class SelectionLabel extends React.Component {
   }
 
    render() {
-     let children = [<span className="font-italic">{this.selectLabel(this.state.numSelected)}</span>]
+     let children = [<span className="font-italic" key="label">{this.selectLabel(this.state.numSelected)}</span>]
      if (this.state.numSelected > 0) {
        children.push(
-         <a href="#" className="p-x-2">View</a>,
-         <a href="#" className="p-x-2 btn btn-primary">Copy</a>
+         <a href="#" className="p-x-2" key="view">View</a>,
+         <a href="#" className="p-x-2 btn btn-primary" key="copy">Copy</a>
        )
      }
      return <p ref="selectLabel" className="text-xs-center lead">
