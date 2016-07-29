@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -109,15 +110,22 @@ func updateCourseSizes(c *cli.Context) error {
 		}
 	}
 
-	fmt.Printf("\nTotal Size: %dMB\n", totalSize/(1<<20))
+	if totalSize == 0 {
+		fmt.Println("Nothing to update")
+		return nil
+	}
 
 	fmt.Println("Updating launched courses")
-
-	file, err := os.Create("launched.json")
-	defer file.Close()
+	b, err := json.Marshal(courses)
 	if err != nil {
 		return err
 	}
 
-	return json.NewEncoder(file).Encode(&courses)
+	_, err = svc.PutObject(&s3.PutObjectInput{
+		Bucket: aws.String(S3_BUCKET_MOOCFETCHER),
+		Key:    aws.String(CACHED_ONDEMAND_LAUNCHED_KEY),
+		Body:   bytes.NewReader(b),
+	})
+
+	return err
 }
