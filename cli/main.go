@@ -48,8 +48,13 @@ func main() {
 		{
 			Name:    "update-sizes",
 			Aliases: []string{"us"},
-			Usage:   "Updates size (in Mb) of courses launched",
-			Action:  updateCourseSizes,
+			Usage:   "Calculates and updates size (no. of bytes) of launched courses.",
+			Flags: []cli.Flag{
+				cli.BoolFlag{Name: "dryrun, r",
+					Usage: "Don’t update remote launched.json file",
+				},
+			},
+			Action: updateCourseSizes,
 		},
 	}
 
@@ -113,6 +118,10 @@ func updateCourseSizes(c *cli.Context) error {
 	if totalSize == 0 {
 		fmt.Println("Nothing to update")
 		return nil
+	}
+
+	if c.Bool("dryrun") {
+		fmt.Println("Dry run…not updating launched courses.")
 	}
 
 	fmt.Println("Updating launched courses")
