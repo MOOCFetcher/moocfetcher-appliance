@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title><%- htmlWebpackPlugin.options.title || 'Webpack App'%></title>
-  <% if (htmlWebpackPlugin.options.production) { %>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  <% }  else { %>
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <% } %>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/app.css">
   </head>
 <body>
@@ -37,15 +33,9 @@
     <p class="text-xs-center">&copy; 2016 MOOCFetcher.</p>
   </footer>
   <!-- jQuery first, then Bootstrap JS. -->
-  <% if (htmlWebpackPlugin.options.production) { %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-    <% }  else { %>
   <script src="js/jquery.min.js"></script>
   <script src="js/tether.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="app_bundle.js"></script>
-    <% } %>
 </body>
 </html>

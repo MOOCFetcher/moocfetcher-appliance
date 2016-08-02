@@ -37,12 +37,12 @@ export default class Main extends React.Component {
       <div>
         <p className="text-xs-center">Search or browse our catalog of courses and select them to copy onto your own USB pen&nbsp;drive.</p>
         <div className="row">
-          <div className="col-md-6 col-md-offset-3">
+          <div className="col-md-6 offset-md-3">
             <SearchBox />
             <FilterLabel/>
             <SelectionLabel/>
           </div>
-          <div className="col-md-8 col-md-offset-2">
+          <div className="col-md-8 offset-md-2">
             <FilteredCourses/>
           </div>
         </div>
