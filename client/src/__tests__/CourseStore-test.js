@@ -3,7 +3,7 @@ import CourseStore, {
   COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT,
   COPY_REQUESTED_EVENT, COPY_PROGRESS_EVENT,
   FILTER_ACTION, FETCH_ACTION, SELECT_ACTION, UNSELECT_ACTION,
-  COPY_ACTION
+  COPY_ACTION, COPY_STATUS_ACTION
 } from '../CourseStore'
 import AppDispatcher from '../AppDispatcher'
 import $ from 'jQuery'
@@ -12,7 +12,7 @@ jest.unmock('../CourseStore')
 jest.unmock('events')
 
 // Mock course data
-let courseData = {
+const courseData = {
   "courses" : [
     {
       "slug": "political-philosophy-2",
@@ -50,6 +50,18 @@ let courseData = {
   ]
 }
 
+const DEFAULT_API_RESPONSES = {
+  "/data/courses.json": courseData,
+
+  [`${API_ROOT}/api/copy`]: {
+    "id": "dummy"
+  },
+
+  [`${API_ROOT}/api/copy-status/dummy`]: {
+    "done": courseData.courses.length,
+    "total": courseData.courses.length,
+  }
+}
 
 describe("CourseActions", () => {
   beforeEach(() => {
@@ -104,18 +116,19 @@ describe("CourseStore", () => {
   // dispatcherCallback registered by CourseStore with AppDispatcher
   let dispatcherCallback = AppDispatcher.register.mock.calls[0][0]
   let eventReceiver = jest.fn()
+  let apiResponses
 
   // Mock jQuery getJSON method.
   $.getJSON = jest.fn((url, cb) => {
-   if (url.endsWith('courses.json')) {
-     cb(courseData)
-     return
-   }
-   cb()
+    cb(apiResponses[url])
   })
 
-  $.ajax = jest.fn(({success}) => {
-    success({ id: "dummy"})
+  $.ajax = jest.fn(({url,success}) => {
+    success(apiResponses[url])
+  })
+
+  beforeEach(() => {
+    apiResponses = {...DEFAULT_API_RESPONSES}
   })
 
   afterEach(() => {
@@ -198,6 +211,7 @@ describe("CourseStore", () => {
     afterEach(() => {
       CourseStore.removeListener(COPY_REQUESTED_EVENT, eventReceiver)
       CourseStore.removeListener(COPY_PROGRESS_EVENT, eventReceiver)
+      dispatcherCallback({ actionType: COPY_STATUS_ACTION, id: "dummy" })
     })
 
     it("calls external API", () => {

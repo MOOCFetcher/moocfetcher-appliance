@@ -1,5 +1,6 @@
 import AppDispatcher from './AppDispatcher'
 import EventEmitter from 'events'
+import CopyProgressPoller from './CopyProgressPoller'
 import $ from 'jQuery'
 
 export const COURSES_UPDATE_EVENT = 'update'
@@ -7,6 +8,7 @@ export const COURSE_SELECT_EVENT = 'select'
 export const COURSE_UNSELECT_EVENT = 'unselect'
 export const COPY_REQUESTED_EVENT = 'copyrequested'
 export const COPY_PROGRESS_EVENT = 'copyprogress'
+export const COPY_FINISH_EVENT = 'copyfinish'
 
 // Exported for testing only
 export const FILTER_ACTION = 'filter'
@@ -14,6 +16,7 @@ export const FETCH_ACTION  = 'fetch'
 export const SELECT_ACTION  = 'select'
 export const UNSELECT_ACTION  = 'unselect'
 export const COPY_ACTION = 'copy'
+export const COPY_STATUS_ACTION = 'copystatus'
 
 export class CourseActions {
   static filter(filter) {
@@ -49,6 +52,13 @@ export class CourseActions {
       courses
     })
   }
+
+  static copyStatus(id) {
+    AppDispatcher.dispatch({
+      actionType: COPY_STATUS_ACTION,
+      id
+    })
+  }
 }
 
 let courses = null
@@ -73,11 +83,19 @@ function copy(selectedCourses, callback) {
     data: JSON.stringify({courses: selectedCourses}),
     dataType: "json",
     contentType: "application/json",
-    success: () => {
-    // TODO start polling for progress
-    //$.getJSON(`${API_ROOT}/copy-status/${data.id}`, (progress) => callback(progress))
+    success: (data) => {
+      // TODO start polling for progress
+      let id = data.id
+      progressPoller = new CopyProgressPoller(id)
+      progressPoller.startPolling()
     callback()
     }})
+}
+
+function copyStatus(id, callback) {
+  $.getJSON(`${API_ROOT}/api/copy-status/${id}`, (data) => {
+    callback(data)
+  })
 }
 
 function filter(text) {
@@ -148,6 +166,21 @@ AppDispatcher.register((action) => {
       courseStore.emit(COPY_REQUESTED_EVENT)
       copy(action.courses, () => courseStore.emit(COPY_PROGRESS_EVENT))
       break
+
+    case COPY_STATUS_ACTION:
+      copyStatus(action.id, (response) => {
+        courseStore.emit(COPY_PROGRESS_EVENT, response)
+        if (response.done == response.total) {
+          if (progressPoller) {
+            progressPoller.stopPolling()
+            progressPoller = null
+          }
+          courseStore.emit(COPY_FINISH_EVENT)
+        }
+        // TODO handle error and cancel scenarios
+      })
+      break
+
     default:
       // Shouldn’t get here.
   }
