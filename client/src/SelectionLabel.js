@@ -37,7 +37,7 @@ export default class SelectionLabel extends React.Component {
      if (this.state.numSelected > 0) {
        children.push(
          <a href="#selectedCoursesModal" className="p-x-2" key="view" data-toggle="modal">View</a>,
-         <a href="#copyCourses" className="p-x-2 btn btn-primary" key="copy" data-toggle="modal">Copy</a>
+         <a href="#copyCoursesModal" className="p-x-2 btn btn-primary" key="copy" data-toggle="modal">Copy</a>
        )
      }
      return <p ref="selectLabel" className="text-xs-center lead">

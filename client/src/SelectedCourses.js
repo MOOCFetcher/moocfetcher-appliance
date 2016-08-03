@@ -41,8 +41,9 @@ export default class SelectedCourses extends React.Component {
               }
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Copy</button>
+              {
+                this.state.courses.length == 0 ? "" : <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#copyCoursesModal" className="btn btn-primary">Copy</button>
+              }
             </div>
           </div>
         </div>

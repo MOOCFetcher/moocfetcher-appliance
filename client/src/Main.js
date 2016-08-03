@@ -5,6 +5,7 @@ import FilterLabel from './FilterLabel'
 import SelectionLabel from './SelectionLabel'
 import FilteredCourses from './FilteredCourses'
 import SelectedCourses from './SelectedCourses'
+import CopyCourses from './CopyCourses'
 
 export default class Main extends React.Component {
 
@@ -46,6 +47,7 @@ export default class Main extends React.Component {
             <FilteredCourses/>
           </div>
         </div>
+        <CopyCourses/>
         <SelectedCourses/>
       </div>
     )
