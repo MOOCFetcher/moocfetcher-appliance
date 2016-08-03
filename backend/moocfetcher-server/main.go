@@ -124,12 +124,22 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Under Construction", http.StatusNotImplemented)
 }
 
+func addCorsHeaders(h http.Handler) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		if r.Method == "OPTIONS" {
+			return
+		}
+		h.ServeHTTP(w, r)
+	}
+}
+
 func main() {
 	// TODO Init application
 	ch := NewCopyHandler()
-	http.Handle("/api/copy", ch)
-	http.Handle("/api/copy-status/", NewCopyStatusHandler(ch.Jobs))
-	http.HandleFunc("/api/stats", statsHandler)
+	http.Handle("/api/copy", addCorsHeaders(ch))
+	http.Handle("/api/copy-status/", addCorsHeaders(NewCopyStatusHandler(ch.Jobs)))
+	http.Handle("/api/stats", addCorsHeaders(http.HandlerFunc(statsHandler)))
 
 	http.ListenAndServe(":8080", nil)
 }
