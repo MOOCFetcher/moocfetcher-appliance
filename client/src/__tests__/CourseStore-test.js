@@ -1,4 +1,10 @@
-import CourseStore, {CourseActions, COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT, FILTER_ACTION, FETCH_ACTION, SELECT_ACTION, UNSELECT_ACTION} from '../CourseStore'
+import CourseStore, {
+  CourseActions,
+  COURSES_UPDATE_EVENT, COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT,
+  COPY_REQUESTED_EVENT, COPY_PROGRESS_EVENT,
+  FILTER_ACTION, FETCH_ACTION, SELECT_ACTION, UNSELECT_ACTION,
+  COPY_ACTION
+} from '../CourseStore'
 import AppDispatcher from '../AppDispatcher'
 import $ from 'jQuery'
 
@@ -47,7 +53,7 @@ let courseData = {
 
 describe("CourseActions", () => {
   beforeEach(() => {
-    AppDispatcher.dispatch.mockClear()    
+    AppDispatcher.dispatch.mockClear()
   })
 
   it("calls the dispatcher with a filter action", () => {
@@ -83,26 +89,49 @@ describe("CourseActions", () => {
     expect(action.actionType).toBe(UNSELECT_ACTION)
     expect(action.course).toBe(unselectedCourse)
   })
+
+  it('calls the dispatcher with a copy action', () => {
+    CourseActions.copy(courseData)
+    expect(AppDispatcher.dispatch.mock.calls.length).toBe(1)
+    let action = AppDispatcher.dispatch.mock.calls[0][0]
+    expect(action.actionType).toBe(COPY_ACTION)
+    expect(action.courses).toBe(courseData)
+  })
 })
 
 
 describe("CourseStore", () => {
-  // Callback registered by CourseStore with AppDispatcher
-  let callback = AppDispatcher.register.mock.calls[0][0]
+  // dispatcherCallback registered by CourseStore with AppDispatcher
+  let dispatcherCallback = AppDispatcher.register.mock.calls[0][0]
   let eventReceiver = jest.fn()
+
+  // Mock jQuery getJSON method.
+  $.getJSON = jest.fn((url, cb) => {
+   if (url.endsWith('courses.json')) {
+     cb(courseData)
+     return
+   }
+   cb()
+  })
+
+  $.ajax = jest.fn(({success}) => {
+    success({ id: "dummy"})
+  })
+
+  afterEach(() => {
+    $.getJSON.mockClear()
+    $.ajax.mockClear()
+    eventReceiver.mockClear()
+  })
+
   describe("on receiving fetch action", () => {
-    // Mock jQuery getJSON method.
-    $.getJSON = jest.fn((url, cb) => {
-      cb(courseData)
-    })
     beforeEach(() => {
       CourseStore.addListener(COURSES_UPDATE_EVENT, eventReceiver)
-      callback({ actionType: FETCH_ACTION })
+      dispatcherCallback({ actionType: FETCH_ACTION })
     })
 
     afterEach(() => {
       CourseStore.removeListener(COURSES_UPDATE_EVENT, eventReceiver)
-      eventReceiver.mockClear()
     })
 
     it("fetches the courses", () => {
@@ -115,16 +144,14 @@ describe("CourseStore", () => {
   describe("on receiving filter action", () => {
     beforeEach(() => {
       CourseStore.addListener(COURSES_UPDATE_EVENT, eventReceiver)
-      callback({ actionType: FILTER_ACTION, text: "Philosophy" })
+      dispatcherCallback({ actionType: FILTER_ACTION, text: "Philosophy" })
     })
 
     afterEach(() => {
       CourseStore.removeListener(COURSES_UPDATE_EVENT, eventReceiver)
-      eventReceiver.mockClear()
     })
 
    it("filters the courses", () => {
-      expect($.getJSON.mock.calls.length).toBe(1)
       expect(eventReceiver.mock.calls.length).toBe(1)
       let filterResult = eventReceiver.mock.calls[0][0]
       expect(filterResult.length).toBe(1)
@@ -142,23 +169,48 @@ describe("CourseStore", () => {
     afterEach(() => {
       CourseStore.removeListener(COURSE_SELECT_EVENT, eventReceiver)
       CourseStore.removeListener(COURSE_UNSELECT_EVENT, eventReceiver)
-      eventReceiver.mockClear()
     })
 
     it('selects and unselects the courses respectively', () => {
       // Select
-      callback({ actionType: SELECT_ACTION, course: selectedCourse })
+      dispatcherCallback({ actionType: SELECT_ACTION, course: selectedCourse })
       expect(eventReceiver.mock.calls.length).toBe(1)
       let result = eventReceiver.mock.calls[0][0]
       expect(result.slug).toBe(selectedCourse.slug)
       expect(CourseStore.getSelected()).toContain(selectedCourse)
 
       // Unselect
-      callback({ actionType: UNSELECT_ACTION, course: selectedCourse })
+      dispatcherCallback({ actionType: UNSELECT_ACTION, course: selectedCourse })
       expect(eventReceiver.mock.calls.length).toBe(2)
       result = eventReceiver.mock.calls[1][0]
       expect(result.slug).toBe(selectedCourse.slug)
       expect(CourseStore.getSelected()).not.toContain(selectedCourse)
+    })
+  })
+
+  describe("on receiving copy action", () => {
+    beforeEach(() => {
+      CourseStore.addListener(COPY_REQUESTED_EVENT, eventReceiver)
+      CourseStore.addListener(COPY_PROGRESS_EVENT, eventReceiver)
+      dispatcherCallback({ actionType: COPY_ACTION, courses: courseData })
+    })
+
+    afterEach(() => {
+      CourseStore.removeListener(COPY_REQUESTED_EVENT, eventReceiver)
+      CourseStore.removeListener(COPY_PROGRESS_EVENT, eventReceiver)
+    })
+
+    it("calls external API", () => {
+      let action
+      expect($.ajax.mock.calls.length).toBe(1)
+
+      action = AppDispatcher.dispatch.mock.calls[0][0]
+      expect(action.actionType).toBe(COPY_ACTION)
+      expect(action.courses).toBe(courseData)
+    })
+
+    it('dispatches two events: COPY_REQUESTED_EVENT and COPY_PROGRESS_EVENT', () => {
+      expect(eventReceiver.mock.calls.length).toBe(2)
     })
   })
 })

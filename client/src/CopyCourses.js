@@ -1,5 +1,8 @@
 import React from 'react'
-import CourseStore, {COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT} from './CourseStore'
+import CourseStore, {
+  COURSE_SELECT_EVENT, COURSE_UNSELECT_EVENT,
+  COPY_PROGRESS_EVENT, COPY_REQUESTED_EVENT,
+  CourseActions} from './CourseStore'
 
 export default class CopyCourses extends React.Component {
   constructor() {
@@ -11,14 +14,41 @@ export default class CopyCourses extends React.Component {
     this.setState({courses: CourseStore.getSelected()})
   }
 
+  copyRequested = () => {
+    this.setState({
+      copy: {latest: COPY_REQUESTED_EVENT}
+    })
+  }
+
+  copyProgressUpdated = (progress) => {
+    this.setState({
+      copy: {latest: COPY_PROGRESS_EVENT, progress}
+    })
+  }
+
   componentWillMount() {
     CourseStore.on(COURSE_SELECT_EVENT, this.courseSelectionUpdated)
     CourseStore.on(COURSE_UNSELECT_EVENT, this.courseSelectionUpdated)
+
+    CourseStore.on(COPY_REQUESTED_EVENT, this.copyRequested)
+    CourseStore.on(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
   }
 
   componentWillUnmount() {
     CourseStore.removeListener(COURSE_SELECT_EVENT, this.courseSelectionUpdated)
     CourseStore.removeListener(COURSE_UNSELECT_EVENT, this.courseSelectionUpdated)
+
+    CourseStore.removeListener(COPY_REQUESTED_EVENT, this.copyRequested)
+    CourseStore.removeListener(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
+  }
+
+  handleStart = (evt) => {
+    evt.preventDefault()
+    CourseActions.copy(this.state.courses)
+  }
+
+  handleCancel = (evt) => {
+    evt.preventDefault()
   }
 
   copyLabel() {
@@ -34,31 +64,43 @@ export default class CopyCourses extends React.Component {
     }
   }
 
-  handleStart = (evt) => {
-    evt.preventDefault()
-    this.setState({
-      copying: "inprogress",
-      progress: {
-        current: "",
-        done:1,
-      }})
+  statusLabel(text) {
+    return  <p className="text-xs-center lead"><span className="font-italic">{text}</span></p>
   }
 
-  handleCancel = (evt) => {
-    evt.preventDefault()
-    this.setState({
-      copying: null
-    })
+  progressBar(value, total) {
+    return <progress className="progress progress-striped progress-animated" value={value} max={total}></progress>
   }
 
-  renderCopyProgress() {
-    switch (this.state.copying) {
-      case "inprogress":
-        return (
-          <progress className="progress progress-striped progress-animated" value={this.state.progress.done} max={this.state.courses.length}></progress>
-        )
-      default:
-        return ""
+  renderModalBody() {
+    if (this.state.copy) {
+      switch(this.state.copy.latest) {
+        case COPY_REQUESTED_EVENT:
+          return this.statusLabel("Waiting for server…")
+        case COPY_PROGRESS_EVENT:
+          if (this.state.copy.progress) {
+            let p = this.state.copy.progress
+            return [
+              this.statusLabel(`${p.done} of ${p.total} copied…`),
+              this.progressBar(p.done, p.total)
+            ]
+          } else {
+            return [
+              this.statusLabel(`0 of ${this.state.courses.length} copied…`),
+              this.progressBar(0, this.state.courses.length)
+            ]
+          }
+      }
+    } else {
+      return this.statusLabel(this.copyLabel())
+    }
+  }
+
+  renderModalFooter() {
+    if (this.state.copy) {
+      return <button type="button" className="btn btn-danger" onClick={this.handleCancel}>Cancel</button>
+    } else {
+      return <button type="button" className="btn btn-primary" onClick={this.handleStart}>Start</button>
     }
   }
 
@@ -74,20 +116,10 @@ export default class CopyCourses extends React.Component {
               <h4 className="modal-title">Copy Courses</h4>
             </div>
             <div className="modal-body m-x-1">
-              <p className="text-xs-center lead"><span className="font-italic">{this.copyLabel()}</span></p>
-              {this.renderCopyProgress()}
+              {this.renderModalBody()}
             </div>
             <div className="modal-footer">
-              { (() => {
-                if (this.state.courses.length == 0) {
-                  return ""
-                } else {
-                  switch(this.state.copying) {
-                    case "inprogress": return <button type="button" className="btn btn-danger" onClick={this.handleCancel}>Cancel</button>
-                    default: return <button type="button" className="btn btn-primary" onClick={this.handleStart}>Start</button>
-                  }
-                }
-              })()}
+              {this.renderModalFooter()}
             </div>
           </div>
         </div>

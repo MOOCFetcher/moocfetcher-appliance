@@ -1,6 +1,9 @@
 {
   "testPathDirs": ["<rootDir>/src"],
   "verbose": true,
+  "globals": {
+    "API_ROOT": "http://localhost.test"
+  },
   "unmockedModulePathPatterns": [
     "<rootDir>/node_modules/react/",
     "<rootDir>/node_modules/react-dom/",
