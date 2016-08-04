@@ -1,38 +1,54 @@
-import React from 'react'
 import {CourseActions} from './CourseStore'
+import React from 'react'
 
 export default class CourseItem extends React.Component {
   static propTypes = {
-    course: React.PropTypes.object.isRequired
+    course: React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      slug: React.PropTypes.string.isRequired,
+      selected: React.PropTypes.bool
+    }).isRequired
   }
 
-  constructor(props) {
-    super(props)
-  }
-
-  selectCourse = (evt)  => {
+  handleSelect = (evt) => {
     evt.preventDefault()
-    let course = this.props.course
+
+    const course = this.props.course
+
     CourseActions.select(course)
   }
 
-  unselectCourse = (evt) => {
+  handleRemove = (evt) => {
     evt.preventDefault()
-    let course = this.props.course
+
+    const course = this.props.course
+
     CourseActions.unselect(course)
   }
 
-  render() {
-    let course = this.props.course
+  render () {
+    const course = this.props.course
+
     return (
-      <div className="row course-box card card-block">
-        <div className="col-xs-10"><h4>{course.name}</h4></div>
-        <div className="col-xs-2">
-        {
-          course.selected ?
-            <a href="#" onClick={this.unselectCourse} className="btn btn-danger btn-sm">Remove</a>
-            : <a href="#" onClick={this.selectCourse} className="btn btn-primary btn-sm">Select</a>
-        }
+      <div className='row course-box card card-block'>
+        <div className='col-xs-10'>
+          <h4>{course.name}</h4>
+        </div>
+        <div className='col-xs-2'>
+          {(() => {
+            if (course.selected) {
+              return (<a className='btn btn-danger btn-sm'
+                  href='#'
+                  onClick={this.handleRemove}
+                      >{'Remove'}</a>)
+            }
+
+            return (<a className='btn btn-primary btn-sm'
+                href='#'
+                onClick={this.handleSelect}
+                    >{'Select'}</a>)
+          }
+          )()}
         </div>
       </div>
     )

@@ -3,12 +3,10 @@ import CourseItem from './CourseItem'
 
 const CourseList = ({courses}) => (
   <div>
-    {courses.map( (course) => <CourseItem course={course} key={course.slug}/>)}
+    {courses.map((course) => <CourseItem course={course} key={course.slug} />)}
   </div>
 )
 
-CourseList.propTypes = {
-  courses: PropTypes.array.isRequired
-}
+CourseList.propTypes = {courses: PropTypes.arrayOf(PropTypes.object).isRequired}
 
 export default CourseList

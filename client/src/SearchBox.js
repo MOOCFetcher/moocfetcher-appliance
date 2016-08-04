@@ -1,16 +1,22 @@
-import React from 'react'
 import {CourseActions} from './CourseStore'
+import React from 'react'
 
 export default class SearchBox extends React.Component {
 
-  initiateFilter = (e) => {
+  handleInput = (e) => {
     CourseActions.filter(e.target.value)
   }
 
-  render() {
+  render () {
     return (
       <form>
-        <input type="text" className="form-control" id="search-box" placeholder="e.g. Philosophy" onInput={this.initiateFilter}/>
+        <input
+            className='form-control'
+            id='search-box'
+            onInput={this.handleInput}
+            placeholder='e.g. Philosophy'
+            type='text'
+        />
       </form>
     )
   }

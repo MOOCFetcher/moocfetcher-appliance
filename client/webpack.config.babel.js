@@ -11,38 +11,40 @@
  *
  */
 
-var path = require('path')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var HtmlWebPackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 const production = process.env.NODE_ENV === 'production'
+
+let buildPath = 'build'
+
+if (production) {
+  buildPath = 'dist'
+}
 
 module.exports = {
   entry: ['./src/app.js'],
   output: {
-    path: path.resolve(__dirname, production ? 'dist' : 'build'),
+    path: path.resolve(__dirname, buildPath),
     filename: 'app_bundle.js',
     sourceMapFilename: 'app_bundle.js.map'
   },
-  externals: {
-    jQuery: "jQuery"
-  },
+  externals: {jQuery: 'jQuery'},
   module: {
     loaders: [{
       loader: 'babel-loader',
       exclude: /node_modules/,
-      test: /\.js$/,
+      test: /\.js$/
     }]
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: './src/static/'
-    }]),
+    new CopyWebpackPlugin([{from: './src/static/'}]),
     new HtmlWebPackPlugin({
       title: 'MOOCFetcher',
       template: './src/templates/index.html',
       inject: false,
-      production: production
+      production
     })
   ]
 }

@@ -1,15 +1,16 @@
-import { CourseActions } from './CourseStore'
+import {CourseActions} from './CourseStore'
 
 const POLLING_DURATION = 1000
 
 export default class CopyProgressPoller {
-  constructor(id) {
+  constructor (id) {
     this.id = id
   }
 
-  startPolling() {
+  startPolling () {
     this.keepPolling = true
-    let poll = () => {
+
+    const poll = () => {
       setTimeout(() => {
         CourseActions.copyStatus(this.id)
         if (this.keepPolling) {
@@ -17,10 +18,11 @@ export default class CopyProgressPoller {
         }
       }, POLLING_DURATION)
     }
+
     poll()
   }
 
-  stopPolling() {
+  stopPolling () {
     this.keepPolling = false
   }
 }
