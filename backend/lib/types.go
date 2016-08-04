@@ -1,27 +1,31 @@
 package moocfetcher
 
 const (
-	// S3 Bucket containing course metadata.
-	S3_BUCKET_MOOCFETCHER = "moocfetcher"
+	// S3BucketMOOCFetcher is the name of the S3 Bucket where course
+	// metadata is stored.
+	S3BucketMOOCFetcher = "moocfetcher"
 
-	// S3 Bucket containing archived courses.
-	S3_BUCKET_MOOCFETCHER_COURSE_ARCHIVE = "moocfetcher-course-archive"
+	// S3BucketMOOCFetcherCourseArchive is the name of the S3 bucket containing
+	// archived courses.
+	S3BucketMOOCFetcherCourseArchive = "moocfetcher-course-archive"
 
-	// S3 Key for file containing metadata for launched on-demand courses.
-	CACHED_ONDEMAND_LAUNCHED_KEY = "coursera/ondemand/launched.json"
+	// OnDemandLaunchedCoursesKey is the S3 Key for the course metadata
+	// of launched courses.
+	OnDemandLaunchedCoursesKey = "coursera/ondemand/launched.json"
 
-	// Prefix for a course directory in S3 Bucket
-	COURSE_S3_FORMAT_STRING = "coursera/%s"
+	// S3CourseURLFormatString can be used to format course archive URLs,
+	// given a slug.
+	S3CourseURLFormatString = "coursera/%s"
 )
 
-// Course data
+// CourseData contains serialized course data
 type CourseData struct {
 	Courses []struct {
-		Id         string   `json:"id"`
-		Name       string   `json:"name"`
-		CourseType string   `json:"courseType"`
-		Slug       string   `json:"slug"`
-		Languages  []string `json:"primaryLanguageCodes"`
-		Size       int64    `json:"size,omitempty"`
+		ID         string   `json:"id"`                   // Course ID
+		Name       string   `json:"name"`                 // Course Name
+		CourseType string   `json:"courseType"`           // Course Type (should be ondemand.v2)
+		Slug       string   `json:"slug"`                 // Course URL slug
+		Languages  []string `json:"primaryLanguageCodes"` // Array containing primary language codes
+		Size       int64    `json:"size,omitempty"`       // Size of the course in bytes
 	} `json:"courses"`
 }

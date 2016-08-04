@@ -43,8 +43,8 @@ func updateCourseSizes(c *cli.Context) error {
 
 	// Retrieve list of courses.
 	resp, err := svc.GetObject(&s3.GetObjectInput{
-		Bucket: aws.String(moocfetcher.S3_BUCKET_MOOCFETCHER),
-		Key:    aws.String(moocfetcher.CACHED_ONDEMAND_LAUNCHED_KEY),
+		Bucket: aws.String(moocfetcher.S3BucketMOOCFetcher),
+		Key:    aws.String(moocfetcher.OnDemandLaunchedCoursesKey),
 	})
 
 	if err != nil {
@@ -72,8 +72,8 @@ func updateCourseSizes(c *cli.Context) error {
 			var totalCourseSize int64
 
 			err := svc.ListObjectsV2Pages(&s3.ListObjectsV2Input{
-				Bucket: aws.String(moocfetcher.S3_BUCKET_MOOCFETCHER_COURSE_ARCHIVE),
-				Prefix: aws.String(fmt.Sprintf(moocfetcher.COURSE_S3_FORMAT_STRING, course.Slug)),
+				Bucket: aws.String(moocfetcher.S3BucketMOOCFetcherCourseArchive),
+				Prefix: aws.String(fmt.Sprintf(moocfetcher.S3CourseURLFormatString, course.Slug)),
 			}, func(page *s3.ListObjectsV2Output, lastPage bool) bool {
 				for _, o := range page.Contents {
 					totalCourseSize += *o.Size
@@ -107,8 +107,8 @@ func updateCourseSizes(c *cli.Context) error {
 	}
 
 	_, err = svc.PutObject(&s3.PutObjectInput{
-		Bucket: aws.String(moocfetcher.S3_BUCKET_MOOCFETCHER),
-		Key:    aws.String(moocfetcher.CACHED_ONDEMAND_LAUNCHED_KEY),
+		Bucket: aws.String(moocfetcher.S3BucketMOOCFetcher),
+		Key:    aws.String(moocfetcher.OnDemandLaunchedCoursesKey),
 		Body:   bytes.NewReader(b),
 	})
 
