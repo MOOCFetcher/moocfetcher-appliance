@@ -22,7 +22,8 @@
     "jest-cli": "^14.1.0",
     "react-addons-test-utils": "^15.3.0",
     "skin-deep": "^0.16.0",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "flux": "^2.1.1",
