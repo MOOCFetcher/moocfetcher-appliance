@@ -33,9 +33,10 @@ type CopyJobProgress struct {
 func (c *CopyJob) Run() {
 	// FIXME totally stubbed out implementation
 	for len(c.finished) < len(c.courseData.Courses) {
-		c.current = c.courseData.Courses[len(c.finished)].Slug
+		current := c.courseData.Courses[len(c.finished)]
+		c.current = c.courseData.Courses[len(c.finished)].Name
 		time.Sleep(5 * time.Second)
-		c.finished = append(c.finished, c.current)
+		c.finished = append(c.finished, current.Slug)
 	}
 	c.current = ""
 
