@@ -173,16 +173,17 @@ AppDispatcher.register((action) => {
 
   case COPY_STATUS_ACTION:
     copyStatus(action.id, (response) => {
-      courseStore.emit(COPY_PROGRESS_EVENT, response)
+      // TODO handle error and cancel scenarios
       if (response.done === response.total) {
-          // If progressPoller is already null, nothing needs to be done
+        // If progressPoller is already null, nothing needs to be done
         if (progressPoller) {
           progressPoller.stopPolling()
           progressPoller = null
           courseStore.emit(COPY_FINISH_EVENT)
         }
+        return
       }
-        // TODO handle error and cancel scenarios
+      courseStore.emit(COPY_PROGRESS_EVENT, response)
     })
     break
 
