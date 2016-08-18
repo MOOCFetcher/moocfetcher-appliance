@@ -142,9 +142,9 @@ func addCorsHeaders(h http.Handler) http.HandlerFunc {
 func main() {
 	// TODO Init application
 	ch := NewCopyHandler()
-	http.Handle("/api/copy", addCorsHeaders(ch))
-	http.Handle("/api/copy-status/", addCorsHeaders(NewCopyStatusHandler(ch.Jobs)))
-	http.Handle("/api/stats", addCorsHeaders(http.HandlerFunc(statsHandler)))
+	http.Handle("/api/copy", ch)
+	http.Handle("/api/copy-status/", NewCopyStatusHandler(ch.Jobs))
+	http.Handle("/api/stats", http.HandlerFunc(statsHandler))
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", addCorsHeaders(http.DefaultServeMux))
 }
