@@ -73,12 +73,15 @@ export default class CopyCourses extends React.Component {
   }
 
   statusLabel (text) {
-    return <p className='text-xs-center lead'><span className='font-italic'>{text}</span></p>
+    return (<p className='text-xs-center lead' key='status'>
+      <span className='font-italic'>{text}</span>
+    </p>)
   }
 
   progressBar (value, total) {
     return (<progress
         className='progress progress-striped progress-animated'
+        key='progress'
         max={total}
         value={value}
             />)
