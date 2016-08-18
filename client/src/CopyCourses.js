@@ -39,7 +39,6 @@ export default class CopyCourses extends React.Component {
   copyRequested = () => {
     this.setState({copy: {latest: COPY_REQUESTED_EVENT}})
   }
-
   copyProgressUpdated = (progress) => {
     this.setState({
       copy: {
@@ -114,8 +113,9 @@ export default class CopyCourses extends React.Component {
           const p = this.state.copy.progress
 
           return [
-            this.statusLabel(`${p.done} of ${p.total} copied…`, 'msg'),
-            this.progressBar(p.done, p.total)
+            this.statusLabel(`${p.done} of ${p.total} copied…`, 'msg1'),
+            this.progressBar(p.done, p.total),
+            this.statusLabel(`Copying ${p.current}…`, 'msg2')
           ]
         }
 
