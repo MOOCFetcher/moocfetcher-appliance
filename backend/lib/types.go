@@ -20,12 +20,15 @@ const (
 
 // CourseData contains serialized course data
 type CourseData struct {
-	Courses []struct {
-		ID         string   `json:"id"`                   // Course ID
-		Name       string   `json:"name"`                 // Course Name
-		CourseType string   `json:"courseType"`           // Course Type (should be ondemand.v2)
-		Slug       string   `json:"slug"`                 // Course URL slug
-		Languages  []string `json:"primaryLanguageCodes"` // Array containing primary language codes
-		Size       int64    `json:"size,omitempty"`       // Size of the course in bytes
-	} `json:"courses"`
+	Courses []Course `json:"courses"`
+}
+
+// A Course contains metadata about a single course.
+type Course struct {
+	ID         string   `json:"id"`                   // Course ID
+	Name       string   `json:"name"`                 // Course Name
+	CourseType string   `json:"courseType"`           // Course Type (should be ondemand.v2)
+	Slug       string   `json:"slug"`                 // Course URL slug
+	Languages  []string `json:"primaryLanguageCodes"` // Array containing primary language codes
+	Size       int64    `json:"size,omitempty"`       // Size of the course in bytes
 }
