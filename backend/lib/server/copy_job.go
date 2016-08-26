@@ -15,6 +15,7 @@ type CopyJob struct {
 	current    string
 	status     string
 	err        error
+	Done       chan bool
 }
 
 type CopyJobProgress struct {
@@ -30,6 +31,7 @@ func NewCopyJob(cd moocfetcher.CourseData) *CopyJob {
 		ID:         id,
 		courseData: cd,
 		status:     "init",
+		Done:       make(chan bool),
 	}
 	return job
 
@@ -45,6 +47,7 @@ func (c *CopyJob) Run() {
 		c.finished = append(c.finished, current.Slug)
 	}
 	c.current = ""
+	c.Done <- true
 }
 
 func (c *CopyJob) Progress() CopyJobProgress {

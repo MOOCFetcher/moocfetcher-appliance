@@ -13,7 +13,6 @@ import (
 var copyStatusPath = regexp.MustCompile("^/api/copy-status/([a-zA-Z0-9\\-]+)$")
 
 type jobs struct {
-	sync.RWMutex
 	list map[string]*CopyJob
 }
 
@@ -31,6 +30,7 @@ type MOOCFetcherApplianceServer struct {
 	stats             stats
 	jobs              jobs
 	currJobId         string
+	sync.Mutex
 }
 
 func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) *MOOCFetcherApplianceServer {
@@ -62,18 +62,35 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 		return
 	}
 
+	s.Lock()
+
+	if s.currJobId != "" {
+		// FIXME Create a JSON Error Object an return it
+		http.Error(w, fmt.Sprintf("Job %s already running.", s.currJobId), http.StatusForbidden)
+		return
+	}
+
 	// TODO Add course data to stats
 
 	job := NewCopyJob(courseData)
-
-	s.jobs.Lock()
+	s.currJobId = job.ID
 	s.jobs.list[job.ID] = job
-	s.jobs.Unlock()
+
+	s.Unlock()
 
 	resp := fmt.Sprintf("{ \"id\": \"%s\"}", job.ID)
 	w.Write([]byte(resp))
 	w.Header().Set("Content-Type", "application/json")
-	go job.Run()
+
+	// Track job
+	go func() {
+		done := job.Done
+		go job.Run()
+		<-done
+		s.Lock()
+		defer s.Unlock()
+		s.currJobId = ""
+	}()
 }
 
 func (s *MOOCFetcherApplianceServer) progressHandler(w http.ResponseWriter, r *http.Request) {
@@ -85,9 +102,7 @@ func (s *MOOCFetcherApplianceServer) progressHandler(w http.ResponseWriter, r *h
 	}
 
 	id := m[1]
-	s.jobs.RLock()
 	job, ok := s.jobs.list[id]
-	s.jobs.RUnlock()
 	if ok {
 		progress := job.Progress()
 		js, err := json.Marshal(progress)
