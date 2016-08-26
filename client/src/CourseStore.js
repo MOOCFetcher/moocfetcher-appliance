@@ -181,6 +181,7 @@ AppDispatcher.register((action) => {
           progressPoller = null
           courseStore.emit(COPY_FINISH_EVENT)
         }
+
         return
       }
       courseStore.emit(COPY_PROGRESS_EVENT, response)
