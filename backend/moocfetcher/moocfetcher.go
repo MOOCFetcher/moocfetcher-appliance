@@ -98,6 +98,7 @@ func updateCourseSizes(c *cli.Context) error {
 
 	if c.Bool("dryrun") {
 		fmt.Println("Dry run…not updating launched courses.")
+		return nil
 	}
 
 	fmt.Println("Updating launched courses")
