@@ -23,6 +23,7 @@ type CopyJobProgress struct {
 	Current string `json:"current,omitempty"`
 	Done    int    `json:"done"`
 	Total   int    `json:"total"`
+	Status  string `json:"status"`
 }
 
 func NewCopyJob(cd moocfetcher.CourseData, copier CourseCopier) *CopyJob {
@@ -48,7 +49,13 @@ func (c *CopyJob) Run() {
 		time.Sleep(5 * time.Second)
 		err := c.copier.Copy(current.Slug)
 		if err != nil {
+			if err == CopyCancelled {
+				c.status = "cancelled"
+				break
+			}
+			c.status = "error"
 			c.err = err
+			break
 		}
 		c.finished = append(c.finished, current.Slug)
 	}
@@ -56,10 +63,16 @@ func (c *CopyJob) Run() {
 	c.Done <- true
 }
 
+func (c *CopyJob) Cancel() {
+	c.status = "cancel_requested"
+	c.copier.Cancel()
+}
+
 func (c *CopyJob) Progress() CopyJobProgress {
 	return CopyJobProgress{
 		Current: c.current,
 		Done:    len(c.finished),
 		Total:   len(c.courseData.Courses),
+		Status:  c.status,
 	}
 }

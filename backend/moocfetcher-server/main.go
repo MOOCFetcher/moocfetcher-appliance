@@ -43,11 +43,16 @@ func main() {
 			Name:  "courses-dir, d",
 			Usage: "Location of courses on filesystem. Load courses from `DIRECTORY`.",
 		},
+		cli.StringFlag{
+			Name:  "static-files-dir, s",
+			Usage: "Load static files to be served from `DIRECTORY`",
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
 		courseMetadataFile := c.String("course-metadata")
 		coursesDir := c.String("courses-dir")
+		staticFilesDir := c.String("static-files-dir")
 
 		if courseMetadataFile == "" {
 			return errors.New("course-metadata is required")
@@ -55,6 +60,10 @@ func main() {
 
 		if coursesDir == "" {
 			return errors.New("courses-directory is required")
+		}
+
+		if staticFilesDir == "" {
+			return errors.New("static-files-dir is required")
 		}
 
 		// Parse Course Metadata
@@ -71,6 +80,10 @@ func main() {
 		}
 
 		s := server.NewServer(coursesDir, courseMetadata)
+
+		// Add handler for static content
+		s.Handle("/", http.FileServer(http.Dir(staticFilesDir)))
+
 		http.ListenAndServe(":8080", addCorsHeaders(s))
 		return nil
 	}

@@ -3,6 +3,8 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
 	"regexp"
 	"sync"
@@ -12,15 +14,7 @@ import (
 )
 
 var copyStatusPath = regexp.MustCompile("^/api/copy-status/([a-zA-Z0-9\\-]+)$")
-
-type jobs struct {
-	list map[string]*CopyJob
-}
-
-type stats struct {
-	sync.RWMutex
-	courseCounts map[string]int
-}
+var copyCancelPath = regexp.MustCompile("^/api/copy/([a-zA-Z0-9\\-]+)$")
 
 // MOOCFetcherApplianceServer take request from the MOOCFetcher Appliance frontend app
 // and performs copy operations, provides status updates etc.
@@ -28,8 +22,8 @@ type MOOCFetcherApplianceServer struct {
 	*http.ServeMux
 	courseFoldersPath string
 	courseMetadata    moocfetcher.CourseData
-	stats             stats
-	jobs              jobs
+	stats             map[string]int
+	jobs              map[string]*CopyJob
 	currJobId         string
 	Copier            CourseCopier
 	sync.Mutex
@@ -40,11 +34,11 @@ func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) 
 		ServeMux:          http.NewServeMux(),
 		courseFoldersPath: courseFoldersPath,
 		courseMetadata:    courseMetadata,
-		stats:             stats{courseCounts: make(map[string]int)},
-		jobs:              jobs{list: make(map[string]*CopyJob)},
+		stats:             make(map[string]int),
+		jobs:              make(map[string]*CopyJob),
 	}
 
-	// TODO Read stats data from file
+	m.readStats()
 
 	m.Handle("/api/copy", http.HandlerFunc(m.copyHandler))
 	m.Handle("/api/copy-status/", http.HandlerFunc(m.progressHandler))
@@ -54,6 +48,21 @@ func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) 
 }
 
 func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		s.copyStartHandler(w, r)
+		return
+	case "PUT":
+		s.copyCancelHandler(w, r)
+		return
+	default:
+		http.NotFound(w, r)
+		return
+	}
+
+}
+
+func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *http.Request) {
 	s.Lock()
 	defer s.Unlock()
 	// Get request JSON and parse
@@ -62,27 +71,32 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 	defer r.Body.Close()
 	err := json.NewDecoder(r.Body).Decode(&courseData)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		httpJSONError(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
 	if s.currJobId != "" {
-		// FIXME Create a JSON Error Object and return it
-		http.Error(w, fmt.Sprintf("Job %s already running.", s.currJobId), http.StatusForbidden)
+		httpJSONError(w, fmt.Sprintf("Job %s already running.", s.currJobId), http.StatusForbidden)
 		return
 	}
 
-	// TODO Add course data to stats
+	for _, c := range courseData.Courses {
+		s.stats[c.Slug]++
+	}
 
 	// Detect USB media
 	drives, err := usbdrivedetecter.Detect()
 	if err != nil {
-		http.Error(w, fmt.Sprintf("Error trying to detect USB: %s", err.Error()), http.StatusInternalServerError)
+		httpJSONError(w, fmt.Sprintf("Error trying to detect USB: %s", err.Error()), http.StatusInternalServerError)
 		return
 	}
 
 	// TODO write code to select most likely candidate
 	drivePath := drives[len(drives)-1]
+
+	if !checkFreeSpace(drivePath, calcSpaceRequired(courseData)) {
+		httpJSONError(w, fmt.Sprintf("Not enough free space on USB media %s", drivePath), http.StatusInternalServerError)
+	}
 
 	copier := s.Copier
 	if copier == nil {
@@ -91,7 +105,7 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 
 	job := NewCopyJob(courseData, copier)
 	s.currJobId = job.ID
-	s.jobs.list[job.ID] = job
+	s.jobs[job.ID] = job
 
 	resp := fmt.Sprintf("{ \"id\": \"%s\"}", job.ID)
 	w.Write([]byte(resp))
@@ -102,22 +116,39 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 		done := job.Done
 		go job.Run()
 		<-done
+		s.writeStats()
 		s.Lock()
 		defer s.Unlock()
 		s.currJobId = ""
 	}()
 }
 
+func (s *MOOCFetcherApplianceServer) copyCancelHandler(w http.ResponseWriter, r *http.Request) {
+	s.Lock()
+	defer s.Unlock()
+
+	var job *CopyJob
+	// Check the job ID
+	if m := copyCancelPath.FindStringSubmatch(r.URL.Path); m == nil || m[1] != s.currJobId {
+		http.Error(w, "404 page not found", http.StatusNotFound)
+		return
+	} else {
+		job = s.jobs[m[1]]
+	}
+
+	job.Cancel()
+}
+
 func (s *MOOCFetcherApplianceServer) progressHandler(w http.ResponseWriter, r *http.Request) {
 	// Get the job ID
 	m := copyStatusPath.FindStringSubmatch(r.URL.Path)
 	if m == nil {
-		http.NotFound(w, r)
+		http.Error(w, "404 page not found", http.StatusNotFound)
 		return
 	}
 
 	id := m[1]
-	job, ok := s.jobs.list[id]
+	job, ok := s.jobs[id]
 	if ok {
 		progress := job.Progress()
 		js, err := json.Marshal(progress)
@@ -135,4 +166,30 @@ func (s *MOOCFetcherApplianceServer) progressHandler(w http.ResponseWriter, r *h
 
 func (s *MOOCFetcherApplianceServer) statsHandler(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Under Construction", http.StatusNotImplemented)
+}
+
+func (s *MOOCFetcherApplianceServer) readStats() {
+	file, err := ioutil.ReadFile("./stats.json")
+	if err != nil {
+		log.Printf("Unable to read stats file: %s\n", err)
+		return
+	}
+
+	// Read stats data from file
+	var stats map[string]int
+	err = json.Unmarshal(file, &stats)
+	if err != nil {
+		log.Printf("Error reading stats file %s\n", err)
+		return
+	}
+	s.stats = stats
+}
+
+func (s *MOOCFetcherApplianceServer) writeStats() {
+	stats, err := json.Marshal(s.stats)
+	if err != nil {
+		log.Printf("Error writing stats file: %s\n", err)
+		return
+	}
+	ioutil.WriteFile("./stats.json", stats, 0644)
 }

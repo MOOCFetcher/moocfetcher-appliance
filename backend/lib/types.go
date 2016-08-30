@@ -30,5 +30,5 @@ type Course struct {
 	CourseType string   `json:"courseType"`           // Course Type (should be ondemand.v2)
 	Slug       string   `json:"slug"`                 // Course URL slug
 	Languages  []string `json:"primaryLanguageCodes"` // Array containing primary language codes
-	Size       int64    `json:"size,omitempty"`       // Size of the course in bytes
+	Size       uint64   `json:"size,omitempty"`       // Size of the course in bytes
 }
