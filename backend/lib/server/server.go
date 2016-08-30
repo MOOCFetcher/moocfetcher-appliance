@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"sync"
 
+	usbdrivedetecter "github.com/deepakjois/gousbdrivedetector"
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
 )
 
@@ -30,6 +31,7 @@ type MOOCFetcherApplianceServer struct {
 	stats             stats
 	jobs              jobs
 	currJobId         string
+	Copier            CourseCopier
 	sync.Mutex
 }
 
@@ -52,6 +54,8 @@ func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) 
 }
 
 func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.Request) {
+	s.Lock()
+	defer s.Unlock()
 	// Get request JSON and parse
 	var courseData moocfetcher.CourseData
 
@@ -62,21 +66,32 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 		return
 	}
 
-	s.Lock()
-
 	if s.currJobId != "" {
-		// FIXME Create a JSON Error Object an return it
+		// FIXME Create a JSON Error Object and return it
 		http.Error(w, fmt.Sprintf("Job %s already running.", s.currJobId), http.StatusForbidden)
 		return
 	}
 
 	// TODO Add course data to stats
 
-	job := NewCopyJob(courseData)
+	// Detect USB media
+	drives, err := usbdrivedetecter.Detect()
+	if err != nil {
+		http.Error(w, fmt.Sprintf("Error trying to detect USB: %s", err.Error()), http.StatusInternalServerError)
+		return
+	}
+
+	// TODO write code to select most likely candidate
+	drivePath := drives[len(drives)-1]
+
+	copier := s.Copier
+	if copier == nil {
+		copier = NewFileSystemCopier(s.courseFoldersPath, drivePath)
+	}
+
+	job := NewCopyJob(courseData, copier)
 	s.currJobId = job.ID
 	s.jobs.list[job.ID] = job
-
-	s.Unlock()
 
 	resp := fmt.Sprintf("{ \"id\": \"%s\"}", job.ID)
 	w.Write([]byte(resp))

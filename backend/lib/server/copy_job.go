@@ -16,6 +16,7 @@ type CopyJob struct {
 	status     string
 	err        error
 	Done       chan bool
+	copier     CourseCopier
 }
 
 type CopyJobProgress struct {
@@ -24,7 +25,7 @@ type CopyJobProgress struct {
 	Total   int    `json:"total"`
 }
 
-func NewCopyJob(cd moocfetcher.CourseData) *CopyJob {
+func NewCopyJob(cd moocfetcher.CourseData, copier CourseCopier) *CopyJob {
 	id := uuid.NewV4().String()
 
 	job := &CopyJob{
@@ -32,6 +33,7 @@ func NewCopyJob(cd moocfetcher.CourseData) *CopyJob {
 		courseData: cd,
 		status:     "init",
 		Done:       make(chan bool),
+		copier:     copier,
 	}
 	return job
 
@@ -44,6 +46,10 @@ func (c *CopyJob) Run() {
 		current := c.courseData.Courses[len(c.finished)]
 		c.current = c.courseData.Courses[len(c.finished)].Name
 		time.Sleep(5 * time.Second)
+		err := c.copier.Copy(current.Slug)
+		if err != nil {
+			c.err = err
+		}
 		c.finished = append(c.finished, current.Slug)
 	}
 	c.current = ""
