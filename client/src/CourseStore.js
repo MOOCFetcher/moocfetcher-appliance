@@ -9,6 +9,7 @@ export const COURSE_UNSELECT_EVENT = 'unselect'
 export const COPY_REQUESTED_EVENT = 'copyrequested'
 export const COPY_PROGRESS_EVENT = 'copyprogress'
 export const COPY_FINISH_EVENT = 'copyfinish'
+export const COPY_ERROR_EVENT = 'copyerror'
 
 // Exported for testing only
 export const FILTER_ACTION = 'filter'
@@ -88,6 +89,11 @@ const copy = function (selectedCourses, callback) {
       progressPoller = new CopyProgressPoller(id)
       progressPoller.startPolling()
       callback()
+    },
+    error: (resp) => {
+      const error = resp.responseJSON
+
+      callback(error)
     }
   })
 }
@@ -168,23 +174,34 @@ AppDispatcher.register((action) => {
 
   case COPY_ACTION:
     courseStore.emit(COPY_REQUESTED_EVENT)
-    copy(action.courses, () => courseStore.emit(COPY_PROGRESS_EVENT))
+    copy(action.courses, (err) => {
+      if (err) {
+        courseStore.emit(COPY_ERROR_EVENT, err)
+      } else {
+        courseStore.emit(COPY_PROGRESS_EVENT)
+      }
+    })
     break
 
   case COPY_STATUS_ACTION:
     copyStatus(action.id, (response) => {
       // TODO handle error and cancel scenarios
-      if (response.done === response.total) {
+      if (response.status === 'finished' ||
+        response.status === 'error' ||
+        response.status === 'cancelled') {
         // If progressPoller is already null, nothing needs to be done
         if (progressPoller) {
           progressPoller.stopPolling()
           progressPoller = null
-          courseStore.emit(COPY_FINISH_EVENT)
         }
 
         return
       }
-      courseStore.emit(COPY_PROGRESS_EVENT, response)
+      if (response.status === 'finished') {
+        courseStore.emit(COPY_FINISH_EVENT)
+      } else {
+        courseStore.emit(COPY_PROGRESS_EVENT, response)
+      }
     })
     break
 

@@ -1,4 +1,5 @@
 import CourseStore, {
+  COPY_ERROR_EVENT,
   COPY_FINISH_EVENT,
   COPY_PROGRESS_EVENT,
   COPY_REQUESTED_EVENT,
@@ -20,6 +21,7 @@ export default class CopyCourses extends React.Component {
 
     CourseStore.on(COPY_REQUESTED_EVENT, this.copyRequested)
     CourseStore.on(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
+    CourseStore.on(COPY_ERROR_EVENT, this.copyError)
     CourseStore.on(COPY_FINISH_EVENT, this.copyFinished)
   }
 
@@ -29,6 +31,7 @@ export default class CopyCourses extends React.Component {
 
     CourseStore.removeListener(COPY_REQUESTED_EVENT, this.copyRequested)
     CourseStore.removeListener(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
+    CourseStore.remove(COPY_ERROR_EVENT, this.copyError)
     CourseStore.remove(COPY_FINISH_EVENT, this.copyFinished)
   }
 
@@ -39,11 +42,21 @@ export default class CopyCourses extends React.Component {
   copyRequested = () => {
     this.setState({copy: {latest: COPY_REQUESTED_EVENT}})
   }
+
   copyProgressUpdated = (progress) => {
     this.setState({
       copy: {
         latest: COPY_PROGRESS_EVENT,
         progress
+      }
+    })
+  }
+
+  copyError = (error) => {
+    this.setState({
+      copy: {
+        latest: COPY_ERROR_EVENT,
+        error
       }
     })
   }
@@ -94,6 +107,12 @@ export default class CopyCourses extends React.Component {
     </p>)
   }
 
+  errorLabel (text, key) {
+    return (<p className='text-xs-center text-danger lead' key={key}>
+      <span className='font-italic'>{text}</span>
+    </p>)
+  }
+
   progressBar (value, total) {
     return (<progress
         className='progress progress-striped progress-animated'
@@ -122,6 +141,10 @@ export default class CopyCourses extends React.Component {
         return [
           this.statusLabel(`0 of ${this.state.courses.length} copied…`, 'msg'),
           this.progressBar(0, this.state.courses.length)
+        ]
+      case COPY_ERROR_EVENT:
+        return [
+          this.errorLabel(this.state.copy.error.Error, 'msg')
         ]
       case COPY_FINISH_EVENT:
         return [
@@ -153,6 +176,12 @@ export default class CopyCourses extends React.Component {
       case COPY_FINISH_EVENT:
         return (<button
             className='btn btn-success'
+            onClick={this.handleDone}
+            type='button'
+                >{"Done"}</button>)
+      case COPY_ERROR_EVENT:
+        return (<button
+            className='btn btn-danger'
             onClick={this.handleDone}
             type='button'
                 >{"Done"}</button>)
