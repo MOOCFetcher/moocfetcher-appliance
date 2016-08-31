@@ -49,7 +49,7 @@ func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) 
 
 func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
-	case "GET":
+	case "POST":
 		s.copyStartHandler(w, r)
 		return
 	case "PUT":
@@ -91,11 +91,17 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 		return
 	}
 
+	if len(drives) == 0 {
+		httpJSONError(w, "Could not locate USB Pen Drive", http.StatusInternalServerError)
+		return
+	}
+
 	// TODO write code to select most likely candidate
 	drivePath := drives[len(drives)-1]
 
 	if !checkFreeSpace(drivePath, calcSpaceRequired(courseData)) {
 		httpJSONError(w, fmt.Sprintf("Not enough free space on USB media %s", drivePath), http.StatusInternalServerError)
+		return
 	}
 
 	copier := s.Copier

@@ -1,7 +1,7 @@
 package server
 
 import (
-	"time"
+	"log"
 
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
 
@@ -42,11 +42,10 @@ func NewCopyJob(cd moocfetcher.CourseData, copier CourseCopier) *CopyJob {
 
 func (c *CopyJob) Run() {
 	c.status = "running"
-	// FIXME totally stubbed out implementation
+	log.Printf("Copying %d courses\n", len(c.courseData.Courses))
 	for len(c.finished) < len(c.courseData.Courses) {
 		current := c.courseData.Courses[len(c.finished)]
 		c.current = c.courseData.Courses[len(c.finished)].Name
-		time.Sleep(5 * time.Second)
 		err := c.copier.Copy(current.Slug)
 		if err != nil {
 			if err == CopyCancelled {
@@ -54,12 +53,16 @@ func (c *CopyJob) Run() {
 				break
 			}
 			c.status = "error"
+			log.Printf("Error while copying: %s\n", err)
 			c.err = err
 			break
 		}
 		c.finished = append(c.finished, current.Slug)
 	}
 	c.current = ""
+	if len(c.finished) == len(c.courseData.Courses) {
+		c.status = "finished"
+	}
 	c.Done <- true
 }
 

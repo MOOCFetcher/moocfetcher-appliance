@@ -30,8 +30,8 @@ func NewFileSystemCopier(from, to string) *FileSystemCopier {
 }
 
 func (f *FileSystemCopier) Copy(courseSlug string) error {
-	fromDir := fmt.Sprintf("%s/%s", f.from, courseSlug)
-	toDir := fmt.Sprintf("%s/%s", f.to, courseSlug)
+	fromDir := fmt.Sprintf("%s/%s", strings.TrimSuffix(f.from, "/"), courseSlug)
+	toDir := fmt.Sprintf("%s/%s", strings.TrimSuffix(f.to, "/"), courseSlug)
 	if err := os.MkdirAll(toDir, 0700); err != nil {
 		return err
 	}
@@ -69,15 +69,13 @@ func CopyFile(src, dst string) (err error) {
 		// symlinks, devices, etc.)
 		return fmt.Errorf("CopyFile: non-regular source file %s (%q)", sfi.Name(), sfi.Mode().String())
 	}
+
 	dfi, err := os.Stat(dst)
 	if err != nil {
 		if !os.IsNotExist(err) {
 			return
 		}
 	} else {
-		if !(dfi.Mode().IsRegular()) {
-			return fmt.Errorf("CopyFile: non-regular destination file %s (%q)", dfi.Name(), dfi.Mode().String())
-		}
 		if os.SameFile(sfi, dfi) {
 			return
 		}
