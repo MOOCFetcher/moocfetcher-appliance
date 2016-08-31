@@ -41,6 +41,7 @@ func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) 
 	m.readStats()
 
 	m.Handle("/api/copy", http.HandlerFunc(m.copyHandler))
+	m.Handle("/api/copy/", http.HandlerFunc(m.copyHandler))
 	m.Handle("/api/copy-status/", http.HandlerFunc(m.progressHandler))
 	m.Handle("/api/stats", http.HandlerFunc(m.statsHandler))
 
@@ -141,8 +142,9 @@ func (s *MOOCFetcherApplianceServer) copyCancelHandler(w http.ResponseWriter, r 
 	} else {
 		job = s.jobs[m[1]]
 	}
-
-	job.Cancel()
+	if job.status == "running" {
+		go job.Cancel()
+	}
 }
 
 func (s *MOOCFetcherApplianceServer) progressHandler(w http.ResponseWriter, r *http.Request) {
