@@ -10,6 +10,7 @@ export const COPY_REQUESTED_EVENT = 'copyrequested'
 export const COPY_PROGRESS_EVENT = 'copyprogress'
 export const COPY_FINISH_EVENT = 'copyfinish'
 export const COPY_ERROR_EVENT = 'copyerror'
+export const COPY_CANCELLED_EVENT = 'copycancelled'
 
 // Exported for testing only
 export const FILTER_ACTION = 'filter'
@@ -18,6 +19,7 @@ export const SELECT_ACTION = 'select'
 export const UNSELECT_ACTION = 'unselect'
 export const COPY_ACTION = 'copy'
 export const COPY_STATUS_ACTION = 'copystatus'
+export const COPY_CANCEL_ACTION = 'cancel'
 
 export class CourseActions {
   static filter (filterTxt) {
@@ -57,6 +59,10 @@ export class CourseActions {
       actionType: COPY_STATUS_ACTION,
       id
     })
+  }
+
+  static copyCancel () {
+    AppDispatcher.dispatch({actionType: COPY_CANCEL_ACTION})
   }
 }
 
@@ -101,6 +107,20 @@ const copy = function (selectedCourses, callback) {
 const copyStatus = function (id, callback) {
   $.getJSON(`${API_ROOT}/api/copy-status/${id}`, (data) => {
     callback(data)
+  })
+}
+
+const copyCancel = function () {
+  if (!progressPoller) {
+    // Nothing to do
+    return
+  }
+
+  const id = progressPoller.id
+
+  $.ajax({
+    type: 'PUT',
+    url: `${API_ROOT}/api/copy/${id}`
   })
 }
 
@@ -185,7 +205,6 @@ AppDispatcher.register((action) => {
 
   case COPY_STATUS_ACTION:
     copyStatus(action.id, (response) => {
-      // TODO handle error and cancel scenarios
       if (response.status === 'finished' ||
         response.status === 'error' ||
         response.status === 'cancelled') {
@@ -194,17 +213,28 @@ AppDispatcher.register((action) => {
           progressPoller.stopPolling()
           progressPoller = null
         }
-
-        return
       }
-      if (response.status === 'finished') {
+
+      switch (response.status) {
+      case 'finished':
         courseStore.emit(COPY_FINISH_EVENT)
-      } else {
+        break
+      case 'error':
+        courseStore.emit(COPY_ERROR_EVENT, response, response)
+        break
+      case 'cancelled':
+        courseStore.emit(COPY_CANCELLED_EVENT, response)
+        break
+      default:
         courseStore.emit(COPY_PROGRESS_EVENT, response)
       }
     })
+
     break
 
+  case COPY_CANCEL_ACTION:
+    copyCancel()
+    break
   default:
       // Shouldn’t get here.
   }

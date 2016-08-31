@@ -1,4 +1,5 @@
 import CourseStore, {
+  COPY_CANCELLED_EVENT,
   COPY_ERROR_EVENT,
   COPY_FINISH_EVENT,
   COPY_PROGRESS_EVENT,
@@ -23,6 +24,7 @@ export default class CopyCourses extends React.Component {
     CourseStore.on(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
     CourseStore.on(COPY_ERROR_EVENT, this.copyError)
     CourseStore.on(COPY_FINISH_EVENT, this.copyFinished)
+    CourseStore.on(COPY_CANCELLED_EVENT, this.copyCancelled)
   }
 
   componentWillUnmount () {
@@ -33,6 +35,7 @@ export default class CopyCourses extends React.Component {
     CourseStore.removeListener(COPY_PROGRESS_EVENT, this.copyProgressUpdated)
     CourseStore.remove(COPY_ERROR_EVENT, this.copyError)
     CourseStore.remove(COPY_FINISH_EVENT, this.copyFinished)
+    CourseStore.remove(COPY_CANCELLED_EVENT, this.copyCancelled)
   }
 
   courseSelectionUpdated = () => {
@@ -52,11 +55,12 @@ export default class CopyCourses extends React.Component {
     })
   }
 
-  copyError = (error) => {
+  copyError = (error, progress) => {
     this.setState({
       copy: {
         latest: COPY_ERROR_EVENT,
-        error
+        error,
+        progress
       }
     })
   }
@@ -70,6 +74,16 @@ export default class CopyCourses extends React.Component {
     })
   }
 
+  copyCancelled = (progress) => {
+    this.setState({
+      copy: {
+        latest: COPY_CANCELLED_EVENT,
+        progress
+      }
+    })
+  }
+
+
   handleStart = (evt) => {
     evt.preventDefault()
     CourseActions.copy(this.state.courses)
@@ -77,6 +91,7 @@ export default class CopyCourses extends React.Component {
 
   handleCancel = (evt) => {
     evt.preventDefault()
+    CourseActions.copyCancel()
   }
 
   handleDone = (evt) => {
@@ -122,20 +137,41 @@ export default class CopyCourses extends React.Component {
             />)
   }
 
+  progress () {
+    if (this.state.copy.progress) {
+      const p = this.state.copy.progress
+      const body = [
+        this.statusLabel(`${p.done} of ${p.total} copied…`, 'msg1'),
+        this.progressBar(p.done, p.total)
+      ]
+
+      switch (p.status) {
+      case 'cancel_requested':
+        body.push(this.errorLabel('Cancel requested…', 'msg2'))
+        break
+      case 'running':
+        body.push(this.statusLabel(`Copying ${p.current}…`, 'msg2'))
+        break
+      default:
+        break
+      }
+
+      return body
+    }
+
+    return []
+  }
+
   renderModalBody () {
+    let body = []
+
     if (this.state.copy) {
       switch (this.state.copy.latest) {
       case COPY_REQUESTED_EVENT:
-        return this.statusLabel('Waiting for server…', 'msg')
+        return this.statusLabel('Waiting for process…', 'msg')
       case COPY_PROGRESS_EVENT:
         if (this.state.copy.progress) {
-          const p = this.state.copy.progress
-
-          return [
-            this.statusLabel(`${p.done} of ${p.total} copied…`, 'msg1'),
-            this.progressBar(p.done, p.total),
-            this.statusLabel(`Copying ${p.current}…`, 'msg2')
-          ]
+          return this.progress()
         }
 
         return [
@@ -143,9 +179,18 @@ export default class CopyCourses extends React.Component {
           this.progressBar(0, this.state.courses.length)
         ]
       case COPY_ERROR_EVENT:
-        return [
-          this.errorLabel(this.state.copy.error.Error, 'msg')
-        ]
+        body = this.progress()
+        body.push([
+          this.errorLabel(this.state.copy.error.Error, 'msg2')
+        ])
+
+        return body
+      case COPY_CANCELLED_EVENT:
+        body = this.progress()
+        body.push([
+          this.errorLabel('Copy cancelled successfully.', 'msg2')])
+
+        return body
       case COPY_FINISH_EVENT:
         return [
           this.statusLabel('Copy Finished.', 'msg1'),
@@ -163,39 +208,43 @@ export default class CopyCourses extends React.Component {
   }
 
   renderModalFooter () {
-    const copyStatus = this.state.copy
+    let btnTitle = ''
+    let classNames = ''
+    let onClickHandler = null
+    let latest = ''
 
-    if (copyStatus) {
-      switch (copyStatus.latest) {
-      case COPY_PROGRESS_EVENT:
-        return (<button
-            className='btn btn-danger'
-            onClick={this.handleCancel}
-            type='button'
-                >{"Cancel"}</button>)
-      case COPY_FINISH_EVENT:
-        return (<button
-            className='btn btn-success'
-            onClick={this.handleDone}
-            type='button'
-                >{"Done"}</button>)
-      case COPY_ERROR_EVENT:
-        return (<button
-            className='btn btn-danger'
-            onClick={this.handleDone}
-            type='button'
-                >{"Done"}</button>)
-      default:
-        break
+    if (this.state.copy) {
+      latest = this.state.copy.latest
+    }
 
-      }
+    switch (latest) {
+    case COPY_PROGRESS_EVENT:
+      classNames = 'btn btn-danger'
+      btnTitle = 'Cancel'
+      onClickHandler = this.handleCancel
+      break
+    case COPY_FINISH_EVENT:
+      classNames = 'btn btn-success'
+      btnTitle = 'Done'
+      onClickHandler = this.handleDone
+      break
+    case COPY_ERROR_EVENT:
+    case COPY_CANCELLED_EVENT:
+      classNames = 'btn btn-danger'
+      btnTitle = 'Done'
+      onClickHandler = this.handleDone
+      break
+    default:
+      classNames = 'btn btn-primary'
+      btnTitle = 'Start'
+      onClickHandler = this.handleStart
     }
 
     return (<button
-        className='btn btn-primary'
-        onClick={this.handleStart}
+        className={classNames}
+        onClick={onClickHandler}
         type='button'
-            >{"Start"}</button>)
+            >{btnTitle}</button>)
   }
 
   render () {
