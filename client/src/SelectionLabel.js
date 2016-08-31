@@ -36,7 +36,7 @@ export default class SelectionLabel extends React.Component {
   }
 
   render () {
-    let children = [
+    const children = [
       <span className='font-italic' key='label'>{this.selectLabel(this.state.numSelected)}</span>
     ]
 
