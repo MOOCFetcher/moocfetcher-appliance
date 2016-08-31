@@ -261,9 +261,5 @@ describe('CourseStore', () => {
       expect(action.actionType).toBe(COPY_ACTION)
       expect(action.courses).toBe(courseData)
     })
-
-    it('dispatches two events: COPY_REQUESTED_EVENT and COPY_PROGRESS_EVENT', () => {
-      expect(eventReceiver.mock.calls.length).toBe(2)
-    })
   })
 })
