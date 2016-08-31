@@ -89,7 +89,6 @@ const copy = function (selectedCourses, callback) {
     dataType: 'json',
     contentType: 'application/json',
     success: (data) => {
-      // TODO start polling for progress
       const id = data.id
 
       progressPoller = new CopyProgressPoller(id)
