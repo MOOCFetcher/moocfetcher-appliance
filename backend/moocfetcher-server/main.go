@@ -35,6 +35,11 @@ func main() {
 	app.Usage = "MOOCFetcher Appliance Server"
 
 	app.Flags = []cli.Flag{
+		cli.IntFlag{
+			Name:  "port, p",
+			Value: 8080,
+			Usage: "Run server on `PORT`",
+		},
 		cli.StringFlag{
 			Name:  "course-metadata, m",
 			Usage: "Load course metadata in JSON format from `FILE`",
@@ -53,6 +58,7 @@ func main() {
 		courseMetadataFile := c.String("course-metadata")
 		coursesDir := c.String("courses-dir")
 		staticFilesDir := c.String("static-files-dir")
+		port := c.Int("port")
 
 		if courseMetadataFile == "" {
 			return errors.New("course-metadata is required")
@@ -84,7 +90,7 @@ func main() {
 		// Add handler for static content
 		s.Handle("/", http.FileServer(http.Dir(staticFilesDir)))
 
-		http.ListenAndServe(":8080", addCorsHeaders(s))
+		http.ListenAndServe(fmt.Sprintf(":%d", port), addCorsHeaders(s))
 		return nil
 	}
 
