@@ -8,14 +8,16 @@ import (
 	"net/http"
 	"os"
 
-	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
+	"github.com/NYTimes/gziphandler"
+	"github.com/justinas/alice"
+	"github.com/moocfetcher/moocfetcher-appliance/backend/lib/server"
 	"github.com/urfave/cli"
 
-	"github.com/moocfetcher/moocfetcher-appliance/backend/lib/server"
+	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
 )
 
-func addCorsHeaders(h http.Handler) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+func addCorsHeaders(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if origin := r.Header.Get("Origin"); origin != "" {
 			w.Header().Set("Access-Control-Allow-Origin", origin)
 		}
@@ -26,7 +28,7 @@ func addCorsHeaders(h http.Handler) http.HandlerFunc {
 			return
 		}
 		h.ServeHTTP(w, r)
-	}
+	})
 }
 
 func main() {
@@ -90,7 +92,7 @@ func main() {
 		// Add handler for static content
 		s.Handle("/", http.FileServer(http.Dir(staticFilesDir)))
 
-		http.ListenAndServe(fmt.Sprintf(":%d", port), addCorsHeaders(s))
+		http.ListenAndServe(fmt.Sprintf(":%d", port), alice.New(gziphandler.GzipHandler, addCorsHeaders).Then(s))
 		return nil
 	}
 
