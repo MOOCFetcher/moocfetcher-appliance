@@ -29,12 +29,8 @@ if (production) {
 module.exports = {
   devServer: {
     quiet: false,
-    stats: { colors: false },
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8080'
-      }
-    },
+    stats: {colors: false},
+    proxy: {'/api': {target: 'http://localhost:8080'}},
     contentBase: 'build/',
     inline: true,
     port: 8081
@@ -54,11 +50,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV' : nodeEnv
-      }
-    }),
+    new webpack.DefinePlugin({'process.env': {NODE_ENV: nodeEnv}}),
     new CopyWebpackPlugin([{from: './src/static/'}]),
     new HtmlWebPackPlugin({
       title: 'MOOCFetcher',
