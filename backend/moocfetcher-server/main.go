@@ -1,10 +1,10 @@
+//go:generate esc -o static.go -prefix=../../client/dist ../../client/dist/
 package main
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"os"
 
@@ -15,6 +15,8 @@ import (
 
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
 )
+
+const courseMetadataFile = "/data/courses.json"
 
 func addCorsHeaders(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -43,46 +45,23 @@ func main() {
 			Usage: "Run server on `PORT`",
 		},
 		cli.StringFlag{
-			Name:  "course-metadata, m",
-			Usage: "Load course metadata in JSON format from `FILE`",
-		},
-		cli.StringFlag{
 			Name:  "courses-dir, d",
 			Usage: "Location of courses on filesystem. Load courses from `DIRECTORY`.",
-		},
-		cli.StringFlag{
-			Name:  "static-files-dir, s",
-			Usage: "Load static files to be served from `DIRECTORY`",
 		},
 	}
 
 	app.Action = func(c *cli.Context) error {
-		courseMetadataFile := c.String("course-metadata")
 		coursesDir := c.String("courses-dir")
-		staticFilesDir := c.String("static-files-dir")
 		port := c.Int("port")
-
-		if courseMetadataFile == "" {
-			return errors.New("course-metadata is required")
-		}
 
 		if coursesDir == "" {
 			return errors.New("courses-directory is required")
 		}
 
-		if staticFilesDir == "" {
-			return errors.New("static-files-dir is required")
-		}
-
 		// Parse Course Metadata
-		cm, err := ioutil.ReadFile(courseMetadataFile)
-
-		if err != nil {
-			return errors.New(fmt.Sprintf("Error reading course metadata: %s", err))
-		}
-
+		cm := FSMustByte(false, courseMetadataFile)
 		var courseMetadata moocfetcher.CourseData
-		err = json.Unmarshal(cm, &courseMetadata)
+		err := json.Unmarshal(cm, &courseMetadata)
 		if err != nil {
 			return errors.New(fmt.Sprintf("Error parsing course metadata: %s", err))
 		}
@@ -90,7 +69,7 @@ func main() {
 		s := server.NewServer(coursesDir, courseMetadata)
 
 		// Add handler for static content
-		s.Handle("/", http.FileServer(http.Dir(staticFilesDir)))
+		s.Handle("/", http.FileServer(FS(false)))
 
 		http.ListenAndServe(fmt.Sprintf(":%d", port), alice.New(gziphandler.GzipHandler, addCorsHeaders).Then(s))
 		return nil
