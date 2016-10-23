@@ -3,9 +3,9 @@ package server
 import (
 	"encoding/json"
 	"net/http"
-	"syscall"
 
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
+	"github.com/ricochet2200/go-disk-usage/du"
 )
 
 func httpJSONError(w http.ResponseWriter, error string, code int) {
@@ -18,12 +18,9 @@ func httpJSONError(w http.ResponseWriter, error string, code int) {
 }
 
 func checkFreeSpace(path string, required uint64) bool {
-	var stat syscall.Statfs_t
+	usage := du.NewDiskUsage(path)
 
-	syscall.Statfs(path, &stat)
-
-	// Available blocks * size per block = available space in bytes
-	freespace := stat.Bavail * uint64(stat.Bsize)
+	freespace := usage.Free()
 
 	return freespace >= required
 
