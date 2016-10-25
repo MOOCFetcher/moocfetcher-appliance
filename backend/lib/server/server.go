@@ -6,7 +6,10 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
+	"runtime"
+	"strings"
 	"sync"
 
 	usbdrivedetecter "github.com/deepakjois/gousbdrivedetector"
@@ -90,6 +93,24 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 	if err != nil {
 		httpJSONError(w, fmt.Sprintf("Error trying to detect USB: %s", err.Error()), http.StatusInternalServerError)
 		return
+	}
+
+	// Filter out drive containing courses (if required)
+	for i := len(drives) - 1; i >= 0; i-- {
+		drive := drives[i]
+		if strings.Contains(s.courseFoldersPath, drive) {
+			drives = append(drives[:i], drives[i+1:]...)
+		}
+	}
+
+	// FIXME Ugly hack for Windows, hardcoded for our setup.
+	// Try E:\
+	if len(drives) == 0 && runtime.GOOS == "windows" {
+		log.Println("Last ditch effort on Windows to detect USB Drive")
+		_, err := os.Open("E:\\")
+		if err != nil {
+			drives = []string{"E:\\"}
+		}
 	}
 
 	if len(drives) == 0 {
