@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -48,9 +49,24 @@ func main() {
 			Name:  "courses-dir, d",
 			Usage: "Location of courses on filesystem. Load courses from `DIRECTORY`.",
 		},
+		cli.StringFlag{
+			Name:  "log-file, l",
+			Usage: "If set, log all output to `FILE`",
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
+		logFile := c.String("log-file")
+		if logFile != "" {
+			f, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+			if err != nil {
+				log.Fatalf("error opening log file: %v", err)
+			}
+			defer f.Close()
+
+			log.SetOutput(f)
+		}
+
 		coursesDir := c.String("courses-dir")
 		port := c.Int("port")
 
