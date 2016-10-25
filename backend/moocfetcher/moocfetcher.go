@@ -3,9 +3,11 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
 
@@ -14,6 +16,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/urfave/cli"
 )
+
+var svc = s3.New(session.New(aws.NewConfig().WithRegion("us-east-1")))
 
 func main() {
 	app := cli.NewApp()
@@ -32,14 +36,30 @@ func main() {
 			},
 			Action: updateCourseSizes,
 		},
+		{
+			Name:    "filter-courses",
+			Aliases: []string{"fc"},
+			Usage:   "Filters the list of launched courses to only include courses that are present on local disk",
+			Flags: []cli.Flag{
+				cli.BoolFlag{Name: "dryrun, r",
+					Usage: "Don’t create a filtered courses.json file",
+				},
+				cli.StringFlag{Name: "courses-dir, d",
+					Usage: "Location of courses on filesystem. Locate courses in `DIRECTORY`.",
+				},
+				cli.BoolFlag{Name: "english-only, e",
+					Usage: "Filter English language courses only",
+				},
+			},
+			Action: filterCourses,
+		},
 	}
 
 	app.Run(os.Args)
 }
 
-func updateCourseSizes(c *cli.Context) error {
+func fetchCourses() (*moocfetcher.CourseData, error) {
 	fmt.Println("Retrieving launched courses…")
-	svc := s3.New(session.New(aws.NewConfig().WithRegion("us-east-1")))
 
 	// Retrieve list of courses.
 	resp, err := svc.GetObject(&s3.GetObjectInput{
@@ -48,35 +68,46 @@ func updateCourseSizes(c *cli.Context) error {
 	})
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	var courses moocfetcher.CourseData
-	err = json.Unmarshal(body, &courses)
+	var courses *moocfetcher.CourseData = &moocfetcher.CourseData{}
+	err = json.Unmarshal(body, courses)
+	if err != nil {
+		return nil, err
+	}
+
+	return courses, nil
+}
+
+func updateCourseSizes(c *cli.Context) error {
+
+	courses, err := fetchCourses()
+
 	if err != nil {
 		return err
 	}
 
-	var totalSize int64
+	var totalSize uint64
 	for i, course := range courses.Courses {
 		if course.Size == 0 {
 			fmt.Printf("Finding size of %s…", course.Slug)
 
-			var totalCourseSize int64
+			var totalCourseSize uint64
 
 			err := svc.ListObjectsV2Pages(&s3.ListObjectsV2Input{
 				Bucket: aws.String(moocfetcher.S3BucketMOOCFetcherCourseArchive),
 				Prefix: aws.String(fmt.Sprintf(moocfetcher.S3CourseURLFormatString, course.Slug)),
 			}, func(page *s3.ListObjectsV2Output, lastPage bool) bool {
 				for _, o := range page.Contents {
-					totalCourseSize += *o.Size
+					totalCourseSize += uint64(*o.Size)
 				}
 				return !lastPage
 			})
@@ -114,4 +145,81 @@ func updateCourseSizes(c *cli.Context) error {
 	})
 
 	return err
+}
+
+func filterCourses(c *cli.Context) error {
+	coursesDir := c.String("courses-dir")
+
+	if coursesDir == "" {
+		return errors.New("courses-directory is required")
+	}
+
+	courses, err := fetchCourses()
+
+	if err != nil {
+		return err
+	}
+
+	var filtered moocfetcher.CourseData
+
+	for _, course := range courses.Courses {
+		path := filepath.Join(coursesDir, course.Slug)
+		fmt.Printf("Checking for %s…", path)
+
+		var found bool
+		if info, err := os.Stat(path); err == nil {
+			if info.Mode().IsDir() {
+				found = true
+				filtered.Courses = append(filtered.Courses, course)
+			}
+		}
+
+		var status string
+		if found {
+			status = "found"
+		} else {
+			status = "NOT FOUND"
+		}
+		fmt.Printf("%s\n", status)
+	}
+
+	fmt.Printf("%d courses found\n", len(filtered.Courses))
+
+	// Filter only English language courses, if required
+	if c.Bool("english-only") {
+		var english moocfetcher.CourseData
+		for _, course := range filtered.Courses {
+			langs := course.Languages
+			var en bool
+			for _, l := range langs {
+				if l == "en" {
+					en = true
+				}
+			}
+			if en {
+				english.Courses = append(english.Courses, course)
+			}
+		}
+		fmt.Printf("%d English courses found\n", len(english.Courses))
+		filtered = english
+	}
+
+	if c.Bool("dryrun") {
+		fmt.Println("Dry run…not writing to file.")
+		return nil
+	}
+
+	fmt.Println("Writing to courses.json")
+
+	output, err := json.MarshalIndent(&filtered, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile("courses.json", output, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
