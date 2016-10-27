@@ -64,6 +64,7 @@ func (c *CopyJob) Run() {
 	if len(c.finished) == len(c.courseData.Courses) {
 		c.status = "finished"
 	}
+	log.Printf("Job status: %s\n", c.status)
 	c.Done <- true
 }
 
