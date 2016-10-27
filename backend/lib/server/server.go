@@ -67,8 +67,8 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 }
 
 func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *http.Request) {
-	s.Lock()
-	defer s.Unlock()
+	//s.Lock()
+	//defer s.Unlock()
 	// Get request JSON and parse
 	var courseData moocfetcher.CourseData
 
@@ -145,15 +145,15 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 		go job.Run()
 		<-done
 		s.writeStats()
-		s.Lock()
-		defer s.Unlock()
+		//s.Lock()
+		//defer s.Unlock()
 		s.currJobId = ""
 	}()
 }
 
 func (s *MOOCFetcherApplianceServer) copyCancelHandler(w http.ResponseWriter, r *http.Request) {
-	s.Lock()
-	defer s.Unlock()
+	//s.Lock()
+	//defer s.Unlock()
 
 	var job *CopyJob
 	// Check the job ID
