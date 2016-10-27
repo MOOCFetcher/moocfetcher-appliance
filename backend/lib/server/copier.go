@@ -41,7 +41,7 @@ func (f *FileSystemCopier) Copy(courseSlug string) error {
 		case <-f.cancel:
 			return CopyCancelled
 		default:
-			if fi.IsDir() {
+			if fi == nil || fi.IsDir() {
 				return nil
 			}
 			baseFilePath := strings.TrimPrefix(fromFilePath, fromDir)
