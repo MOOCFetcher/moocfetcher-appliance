@@ -30,8 +30,8 @@ func NewFileSystemCopier(from, to string) *FileSystemCopier {
 }
 
 func (f *FileSystemCopier) Copy(courseSlug string) error {
-	fromDir := fmt.Sprintf("%s/%s", strings.TrimSuffix(f.from, "/"), courseSlug)
-	toDir := fmt.Sprintf("%s/%s", strings.TrimSuffix(f.to, "/"), courseSlug)
+	fromDir := filepath.Join(f.from, courseSlug)
+	toDir := filepath.Join(f.to, courseSlug)
 	if err := os.MkdirAll(toDir, 0700); err != nil {
 		return err
 	}
@@ -45,8 +45,7 @@ func (f *FileSystemCopier) Copy(courseSlug string) error {
 				return nil
 			}
 			baseFilePath := strings.TrimPrefix(fromFilePath, fromDir)
-			baseFilePath = strings.TrimPrefix(baseFilePath, "/")
-			toFilePath := fmt.Sprintf("%s/%s", toDir, baseFilePath)
+			toFilePath := filepath.Join(toDir, baseFilePath)
 			return CopyFile(fromFilePath, toFilePath)
 		}
 	})
