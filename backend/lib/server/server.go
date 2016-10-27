@@ -144,6 +144,7 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 		done := job.Done
 		go job.Run()
 		<-done
+		log.Println("Copy job complete")
 		s.writeStats()
 		//s.Lock()
 		//defer s.Unlock()
