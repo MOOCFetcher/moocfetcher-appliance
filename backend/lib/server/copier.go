@@ -59,6 +59,11 @@ func (f *FileSystemCopier) Cancel() {
 // the same, then return success. Otherise, attempt to create a hard link
 // between the two files. If that fail, copy the file contents from src to dst.
 func CopyFile(src, dst string) (err error) {
+	toDir, _ := filepath.Split(dst)
+	if err := os.MkdirAll(toDir, 0700); err != nil {
+		return err
+	}
+
 	sfi, err := os.Stat(src)
 	if err != nil {
 		return
