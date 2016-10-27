@@ -108,7 +108,7 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 	if len(drives) == 0 && runtime.GOOS == "windows" {
 		log.Println("Last ditch effort on Windows to detect USB Drive")
 		_, err := os.Open("E:\\")
-		if err != nil {
+		if err == nil {
 			drives = []string{"E:\\"}
 		}
 	}
