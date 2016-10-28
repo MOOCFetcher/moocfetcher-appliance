@@ -13,7 +13,9 @@ func httpJSONError(w http.ResponseWriter, error string, code int) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 
-	resp, _ := json.Marshal(struct{ Error string }{error})
+	resp, _ := json.Marshal(struct {
+		Error string `json:"error,omitempty"`
+	}{error})
 	w.Write(resp)
 }
 

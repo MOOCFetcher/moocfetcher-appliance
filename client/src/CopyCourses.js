@@ -181,7 +181,7 @@ export default class CopyCourses extends React.Component {
       case COPY_ERROR_EVENT:
         body = this.progress()
         body.push([
-          this.errorLabel(this.state.copy.error.Error, 'msg2')
+          this.errorLabel(this.state.copy.error.error, 'msg2')
         ])
 
         return body
