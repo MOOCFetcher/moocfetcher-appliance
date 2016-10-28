@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -41,7 +42,12 @@ func (f *FileSystemCopier) Copy(courseSlug string) error {
 		case <-f.cancel:
 			return CopyCancelled
 		default:
-			if fi == nil || fi.IsDir() {
+			if err != nil {
+				log.Printf("Error traversing folder %s: %s\n", fromFilePath, err)
+				return nil
+			}
+
+			if fi.IsDir() {
 				return nil
 			}
 			baseFilePath := strings.TrimPrefix(fromFilePath, fromDir)
