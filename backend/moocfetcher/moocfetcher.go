@@ -97,6 +97,20 @@ func updateCourseSizes(c *cli.Context) error {
 
 	var totalSize uint64
 	for i, course := range courses.Courses {
+		// Check if course is English
+		langs := course.Languages
+		var en bool
+		for _, l := range langs {
+			if l == "en" {
+				en = true
+			}
+		}
+
+		// Don’t do anything if course is not English
+		if !en {
+			continue
+		}
+
 		if course.Size == 0 {
 			fmt.Printf("Finding size of %s…", course.Slug)
 
