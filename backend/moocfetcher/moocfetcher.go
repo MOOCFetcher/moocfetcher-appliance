@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/csv"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -219,21 +220,52 @@ func filterCourses(c *cli.Context) error {
 	}
 
 	if c.Bool("dryrun") {
-		fmt.Println("Dry run…not writing to file.")
+		fmt.Println("Dry run…not writing to files.")
 		return nil
 	}
 
 	fmt.Println("Writing to courses.json")
 
-	output, err := json.MarshalIndent(&filtered, "", "  ")
+	out, err := json.MarshalIndent(&filtered, "", "  ")
 	if err != nil {
 		return err
 	}
 
-	err = ioutil.WriteFile("courses.json", output, 0644)
+	err = ioutil.WriteFile("courses.json", out, 0644)
 	if err != nil {
 		return err
 	}
+
+	fmt.Println("Writing to courses.csv")
+
+	file, err := os.Create("courses.csv")
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	writer := csv.NewWriter(file)
+
+	writer.Write([]string{
+		"Course Name",
+		"Folder on Disk",
+		"Course URL",
+	})
+
+	for _, course := range filtered.Courses {
+		record := []string{
+			course.Name,
+			course.Slug,
+			fmt.Sprintf("https://coursera.org/learn/%s", course.Slug),
+		}
+
+		err := writer.Write(record)
+		if err != nil {
+			return err
+		}
+	}
+
+	defer writer.Flush()
 
 	return nil
 }
