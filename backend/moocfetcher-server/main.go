@@ -1,4 +1,4 @@
-//go:generate esc -o static.go -modtime=1483228800  -prefix=../../client/dist ../../client/dist/
+//go:generate esc -o static.go -modtime=1483228800 -ignore=moocfetcher-server  -prefix=../../client/dist ../../client/dist/
 package main
 
 import (
