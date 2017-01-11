@@ -11,11 +11,11 @@ export default class SearchBox extends React.Component {
     return (
       <form>
         <input
-            className='form-control'
-            id='search-box'
-            onInput={this.handleInput}
-            placeholder='e.g. Philosophy'
-            type='text'
+          className='form-control'
+          id='search-box'
+          onInput={this.handleInput}
+          placeholder='e.g. Philosophy'
+          type='text'
         />
       </form>
     )

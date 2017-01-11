@@ -172,69 +172,69 @@ const courseStore = new CourseStore()
 
 AppDispatcher.register((action) => {
   switch (action.actionType) {
-  case FILTER_ACTION:
-    filterText = action.text.trim()
-    courseStore.emit(COURSES_UPDATE_EVENT, courseStore.getCourses())
-    break
+    case FILTER_ACTION:
+      filterText = action.text.trim()
+      courseStore.emit(COURSES_UPDATE_EVENT, courseStore.getCourses())
+      break
 
-  case FETCH_ACTION:
-    fetch(() => courseStore.emit(COURSES_UPDATE_EVENT, courseStore.getCourses()))
-    break
+    case FETCH_ACTION:
+      fetch(() => courseStore.emit(COURSES_UPDATE_EVENT, courseStore.getCourses()))
+      break
 
-  case SELECT_ACTION:
-    select(action.course)
-    courseStore.emit(COURSE_SELECT_EVENT, action.course)
-    break
+    case SELECT_ACTION:
+      select(action.course)
+      courseStore.emit(COURSE_SELECT_EVENT, action.course)
+      break
 
-  case UNSELECT_ACTION:
-    unselect(action.course)
-    courseStore.emit(COURSE_UNSELECT_EVENT, action.course)
-    break
+    case UNSELECT_ACTION:
+      unselect(action.course)
+      courseStore.emit(COURSE_UNSELECT_EVENT, action.course)
+      break
 
-  case COPY_ACTION:
-    courseStore.emit(COPY_REQUESTED_EVENT)
-    copy(action.courses, (err) => {
-      if (err) {
-        courseStore.emit(COPY_ERROR_EVENT, err)
-      } else {
-        courseStore.emit(COPY_PROGRESS_EVENT)
-      }
-    })
-    break
+    case COPY_ACTION:
+      courseStore.emit(COPY_REQUESTED_EVENT)
+      copy(action.courses, (err) => {
+        if (err) {
+          courseStore.emit(COPY_ERROR_EVENT, err)
+        } else {
+          courseStore.emit(COPY_PROGRESS_EVENT)
+        }
+      })
+      break
 
-  case COPY_STATUS_ACTION:
-    copyStatus(action.id, (response) => {
-      if (response.status === 'finished' ||
+    case COPY_STATUS_ACTION:
+      copyStatus(action.id, (response) => {
+        if (response.status === 'finished' ||
         response.status === 'error' ||
         response.status === 'cancelled') {
         // If progressPoller is already null, nothing needs to be done
-        if (progressPoller) {
-          progressPoller.stopPolling()
-          progressPoller = null
+          if (progressPoller) {
+            progressPoller.stopPolling()
+            progressPoller = null
+          }
         }
-      }
 
-      switch (response.status) {
-      case 'finished':
-        courseStore.emit(COPY_FINISH_EVENT)
-        break
-      case 'error':
-        courseStore.emit(COPY_ERROR_EVENT, response, response)
-        break
-      case 'cancelled':
-        courseStore.emit(COPY_CANCELLED_EVENT, response)
-        break
-      default:
-        courseStore.emit(COPY_PROGRESS_EVENT, response)
-      }
-    })
+        switch (response.status) {
+          case 'finished':
+            courseStore.emit(COPY_FINISH_EVENT)
+            break
+          case 'error':
+            courseStore.emit(COPY_ERROR_EVENT, response, response)
+            break
+          case 'cancelled':
+            courseStore.emit(COPY_CANCELLED_EVENT, response)
+            break
+          default:
+            courseStore.emit(COPY_PROGRESS_EVENT, response)
+        }
+      })
 
-    break
+      break
 
-  case COPY_CANCEL_ACTION:
-    copyCancel()
-    break
-  default:
+    case COPY_CANCEL_ACTION:
+      copyCancel()
+      break
+    default:
       // Shouldn’t get here.
   }
 })

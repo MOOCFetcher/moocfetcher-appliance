@@ -21,18 +21,18 @@ export default class FilterLabel extends React.Component {
 
   filterLabel (l) {
     switch (l) {
-    case 0:
-      return 'No Courses Found.'
-    case 1:
-      return '1 Course Found.'
-    default:
-      return `${l} Courses Found.`
+      case 0:
+        return 'No Courses Found.'
+      case 1:
+        return '1 Course Found.'
+      default:
+        return `${l} Courses Found.`
     }
   }
 
   render () {
     return (<p
-        className='font-italic lead text-xs-center'
+      className='font-italic lead text-xs-center'
             >{this.filterLabel(this.state.numCourses)}</p>)
   }
 }

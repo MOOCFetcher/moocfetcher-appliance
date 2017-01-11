@@ -54,11 +54,11 @@ export default class SelectedCourses extends React.Component {
                 }
 
                 return (<button
-                    className='btn btn-primary'
-                    data-dismiss='modal'
-                    data-target='#copyCoursesModal'
-                    data-toggle='modal'
-                    type='button'
+                  className='btn btn-primary'
+                  data-dismiss='modal'
+                  data-target='#copyCoursesModal'
+                  data-toggle='modal'
+                  type='button'
                         >{'Copy'}</button>)
               })()}
             </div>
@@ -68,5 +68,4 @@ export default class SelectedCourses extends React.Component {
     )
   }
 }
-
 

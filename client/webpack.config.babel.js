@@ -11,37 +11,28 @@
  *
  */
 
-const path = require('path')
-const webpack = require('webpack')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-
-const production = process.env.NODE_ENV === 'production'
-
-let buildPath = 'build'
-let nodeEnv = JSON.stringify('development')
-
-if (production) {
-  buildPath = 'dist'
-  nodeEnv = JSON.stringify('production')
-}
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import path from 'path'
 
 module.exports = {
-  devServer: {
-    quiet: false,
-    stats: {colors: false},
-    proxy: {'/api': {target: 'http://localhost:8080'}},
-    contentBase: 'build/',
-    inline: true,
-    port: 8081
-  },
-  entry: ['./src/app.js'],
+  context: `${__dirname}/src`,
+  target: 'web',
+  entry: './app.js',
   output: {
-    path: path.resolve(__dirname, buildPath),
-    filename: 'app_bundle.js',
-    sourceMapFilename: 'app_bundle.js.map'
+    path: `${__dirname}/dist`,
+    filename: 'index.js'
   },
-  externals: {jQuery: 'jQuery'},
+  plugins: [
+    new CopyWebpackPlugin([{from: 'static/'}]),
+    new HtmlWebpackPlugin({
+      template: 'templates/index.ejs',
+      minify: {
+        html5: true,
+        removeComments: true,
+        collapseWhitespace: true
+      }
+    })],
   module: {
     loaders: [{
       loader: 'babel-loader',
@@ -49,14 +40,11 @@ module.exports = {
       test: /\.js$/
     }]
   },
-  plugins: [
-    new webpack.DefinePlugin({'process.env': {NODE_ENV: nodeEnv}}),
-    new CopyWebpackPlugin([{from: './src/static/'}]),
-    new HtmlWebPackPlugin({
-      title: 'MOOCFetcher',
-      template: './src/templates/index.html',
-      inject: false,
-      production
-    })
-  ]
+  externals: {jQuery: 'jQuery'},
+  devServer: {
+    proxy: {'/api': {target: 'http://localhost:8080'}},
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8081
+  }
 }

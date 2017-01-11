@@ -38,14 +38,14 @@ export default class CourseItem extends React.Component {
           {(() => {
             if (course.selected) {
               return (<a className='btn btn-danger btn-sm'
-                  href='#'
-                  onClick={this.handleRemove}
+                href='#'
+                onClick={this.handleRemove}
                       >{'Remove'}</a>)
             }
 
             return (<a className='btn btn-primary btn-sm'
-                href='#'
-                onClick={this.handleSelect}
+              href='#'
+              onClick={this.handleSelect}
                     >{'Select'}</a>)
           }
           )()}

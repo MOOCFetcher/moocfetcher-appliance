@@ -1,5 +1,0 @@
-src/static/*
-node_modules/*
-coverage/*
-build/*
-dist/*

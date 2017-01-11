@@ -26,12 +26,12 @@ export default class SelectionLabel extends React.Component {
 
   selectLabel (l) {
     switch (l) {
-    case 0:
-      return 'No Courses Selected.'
-    case 1:
-      return '1 Course Selected.'
-    default:
-      return `${l} Courses Selected.`
+      case 0:
+        return 'No Courses Selected.'
+      case 1:
+        return '1 Course Selected.'
+      default:
+        return `${l} Courses Selected.`
     }
   }
 
@@ -43,16 +43,16 @@ export default class SelectionLabel extends React.Component {
     if (this.state.numSelected > 0) {
       children.push(
         <a
-            className='p-x-2'
-            data-toggle='modal'
-            href='#selectedCoursesModal'
-            key='view'
+          className='p-x-2'
+          data-toggle='modal'
+          href='#selectedCoursesModal'
+          key='view'
         >{'View'}</a>,
         <a
-            className='p-x-2 btn btn-primary'
-            data-toggle='modal'
-            href='#copyCoursesModal'
-            key='copy'
+          className='p-x-2 btn btn-primary'
+          data-toggle='modal'
+          href='#copyCoursesModal'
+          key='copy'
         >{'Copy'}</a>
        )
     }

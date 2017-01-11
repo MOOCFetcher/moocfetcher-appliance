@@ -83,7 +83,6 @@ export default class CopyCourses extends React.Component {
     })
   }
 
-
   handleStart = (evt) => {
     evt.preventDefault()
     CourseActions.copy(this.state.courses)
@@ -107,12 +106,12 @@ export default class CopyCourses extends React.Component {
     const l = this.state.courses.length
 
     switch (l) {
-    case 0:
-      return 'No Courses Selected.'
-    case 1:
-      return `1 course to be copied (${size} MB total).`
-    default:
-      return `${l} courses to be copied (${size} MB total).`
+      case 0:
+        return 'No Courses Selected.'
+      case 1:
+        return `1 course to be copied (${size} MB total).`
+      default:
+        return `${l} courses to be copied (${size} MB total).`
     }
   }
 
@@ -130,10 +129,10 @@ export default class CopyCourses extends React.Component {
 
   progressBar (value, total) {
     return (<progress
-        className='progress progress-striped progress-animated'
-        key='progress'
-        max={total}
-        value={value}
+      className='progress progress-striped progress-animated'
+      key='progress'
+      max={total}
+      value={value}
             />)
   }
 
@@ -146,14 +145,14 @@ export default class CopyCourses extends React.Component {
       ]
 
       switch (p.status) {
-      case 'cancel_requested':
-        body.push(this.errorLabel('Cancel requested…', 'msg2'))
-        break
-      case 'running':
-        body.push(this.statusLabel(`Copying ${p.current}…`, 'msg2'))
-        break
-      default:
-        break
+        case 'cancel_requested':
+          body.push(this.errorLabel('Cancel requested…', 'msg2'))
+          break
+        case 'running':
+          body.push(this.statusLabel(`Copying ${p.current}…`, 'msg2'))
+          break
+        default:
+          break
       }
 
       return body
@@ -167,37 +166,37 @@ export default class CopyCourses extends React.Component {
 
     if (this.state.copy) {
       switch (this.state.copy.latest) {
-      case COPY_REQUESTED_EVENT:
-        return this.statusLabel('Waiting for process…', 'msg')
-      case COPY_PROGRESS_EVENT:
-        if (this.state.copy.progress) {
-          return this.progress()
-        }
+        case COPY_REQUESTED_EVENT:
+          return this.statusLabel('Waiting for process…', 'msg')
+        case COPY_PROGRESS_EVENT:
+          if (this.state.copy.progress) {
+            return this.progress()
+          }
 
-        return [
-          this.statusLabel(`0 of ${this.state.courses.length} copied…`, 'msg'),
-          this.progressBar(0, this.state.courses.length)
-        ]
-      case COPY_ERROR_EVENT:
-        body = this.progress()
-        body.push([
-          this.errorLabel(this.state.copy.error.error, 'msg2')
-        ])
+          return [
+            this.statusLabel(`0 of ${this.state.courses.length} copied…`, 'msg'),
+            this.progressBar(0, this.state.courses.length)
+          ]
+        case COPY_ERROR_EVENT:
+          body = this.progress()
+          body.push([
+            this.errorLabel(this.state.copy.error.error, 'msg2')
+          ])
 
-        return body
-      case COPY_CANCELLED_EVENT:
-        body = this.progress()
-        body.push([
-          this.errorLabel('Copy cancelled successfully.', 'msg2')])
+          return body
+        case COPY_CANCELLED_EVENT:
+          body = this.progress()
+          body.push([
+            this.errorLabel('Copy cancelled successfully.', 'msg2')])
 
-        return body
-      case COPY_FINISH_EVENT:
-        return [
-          this.statusLabel('Copy Finished.', 'msg1'),
-          this.statusLabel('Eject USB Pen Drive and Press Done.', 'msg2')
-        ]
-      default:
-        break
+          return body
+        case COPY_FINISH_EVENT:
+          return [
+            this.statusLabel('Copy Finished.', 'msg1'),
+            this.statusLabel('Eject USB Pen Drive and Press Done.', 'msg2')
+          ]
+        default:
+          break
       }
     }
 
@@ -218,32 +217,32 @@ export default class CopyCourses extends React.Component {
     }
 
     switch (latest) {
-    case COPY_PROGRESS_EVENT:
-      classNames = 'btn btn-danger'
-      btnTitle = 'Cancel'
-      onClickHandler = this.handleCancel
-      break
-    case COPY_FINISH_EVENT:
-      classNames = 'btn btn-success'
-      btnTitle = 'Done'
-      onClickHandler = this.handleDone
-      break
-    case COPY_ERROR_EVENT:
-    case COPY_CANCELLED_EVENT:
-      classNames = 'btn btn-danger'
-      btnTitle = 'Done'
-      onClickHandler = this.handleDone
-      break
-    default:
-      classNames = 'btn btn-primary'
-      btnTitle = 'Start'
-      onClickHandler = this.handleStart
+      case COPY_PROGRESS_EVENT:
+        classNames = 'btn btn-danger'
+        btnTitle = 'Cancel'
+        onClickHandler = this.handleCancel
+        break
+      case COPY_FINISH_EVENT:
+        classNames = 'btn btn-success'
+        btnTitle = 'Done'
+        onClickHandler = this.handleDone
+        break
+      case COPY_ERROR_EVENT:
+      case COPY_CANCELLED_EVENT:
+        classNames = 'btn btn-danger'
+        btnTitle = 'Done'
+        onClickHandler = this.handleDone
+        break
+      default:
+        classNames = 'btn btn-primary'
+        btnTitle = 'Start'
+        onClickHandler = this.handleStart
     }
 
     return (<button
-        className={classNames}
-        onClick={onClickHandler}
-        type='button'
+      className={classNames}
+      onClick={onClickHandler}
+      type='button'
             >{btnTitle}</button>)
   }
 
@@ -254,9 +253,9 @@ export default class CopyCourses extends React.Component {
           <div className='modal-content' >
             <div className='modal-header'>
               <button aria-label='Close' className='close' data-dismiss='modal' type='button'>
-                <span aria-hidden='true' >{"\u00d7"}</span>
+                <span aria-hidden='true' >{'\u00d7'}</span>
               </button>
-              <h4 className='modal-title'>{"Copy Courses"}</h4>
+              <h4 className='modal-title'>{'Copy Courses'}</h4>
             </div>
             <div className='modal-body m-x-1'>
               {this.renderModalBody()}
