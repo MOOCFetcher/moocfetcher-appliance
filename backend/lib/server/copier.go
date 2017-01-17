@@ -4,10 +4,10 @@ import (
 	"errors"
 	"log"
 	"os"
-	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
+
+	"github.com/pkg/fileutils"
 )
 
 var CopyCancelled = errors.New("Copy cancelled")
@@ -87,13 +87,6 @@ func CopyFile(src, dst string) (err error) {
 		}
 	}
 
-	cmd := "cp"
-	args := []string{src, dst}
-	if runtime.GOOS == "windows" {
-		cmd = "copy"
-	}
-
-	err = exec.Command(cmd, args...).Run()
-
+	err = fileutils.CopyFile(dst, src)
 	return
 }
