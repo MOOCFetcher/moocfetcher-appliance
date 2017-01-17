@@ -14,12 +14,14 @@ var CopyCancelled = errors.New("Copy cancelled")
 
 type CourseCopier interface {
 	Copy(courseSlug string) error
+	Progress() int
 	Cancel()
 }
 
 type FileSystemCopier struct {
 	from, to string
 	cancel   chan bool
+	copied   int
 }
 
 func NewFileSystemCopier(from, to string) *FileSystemCopier {
@@ -27,6 +29,7 @@ func NewFileSystemCopier(from, to string) *FileSystemCopier {
 		from,
 		to,
 		make(chan bool),
+		0,
 	}
 }
 
@@ -52,13 +55,21 @@ func (f *FileSystemCopier) Copy(courseSlug string) error {
 			}
 			baseFilePath := strings.TrimPrefix(fromFilePath, fromDir)
 			toFilePath := filepath.Join(toDir, baseFilePath)
-			return CopyFile(fromFilePath, toFilePath)
+			err := CopyFile(fromFilePath, toFilePath)
+			if err == nil {
+				f.copied++
+			}
+			return err
 		}
 	})
 }
 
 func (f *FileSystemCopier) Cancel() {
 	f.cancel <- true
+}
+
+func (f *FileSystemCopier) Progress() int {
+	return f.copied
 }
 
 // CopyFile copies a file from src to dst. If src and dst files exist, and are

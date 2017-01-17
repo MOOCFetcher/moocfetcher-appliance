@@ -25,6 +25,7 @@ type CopyJobProgress struct {
 	Total   int    `json:"total"`
 	Status  string `json:"status"`
 	Error   error  `json:"error,omitempty"`
+	Copied  int    `json:"copied"`
 }
 
 func NewCopyJob(cd moocfetcher.CourseData, copier CourseCopier) *CopyJob {
@@ -80,5 +81,6 @@ func (c *CopyJob) Progress() CopyJobProgress {
 		Total:   len(c.courseData.Courses),
 		Status:  c.status,
 		Error:   c.err,
+		Copied:  c.copier.Progress(),
 	}
 }
