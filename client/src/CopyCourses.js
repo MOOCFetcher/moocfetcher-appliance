@@ -209,6 +209,7 @@ export default class CopyCourses extends React.Component {
   renderModalFooter () {
     let btnTitle = ''
     let classNames = ''
+    let attributes = {}
     let onClickHandler = null
     let latest = ''
 
@@ -225,6 +226,7 @@ export default class CopyCourses extends React.Component {
       case COPY_FINISH_EVENT:
         classNames = 'btn btn-success'
         btnTitle = 'Done'
+        attributes = {'data-dismiss': 'modal'}
         onClickHandler = this.handleDone
         break
       case COPY_ERROR_EVENT:
@@ -243,6 +245,7 @@ export default class CopyCourses extends React.Component {
       className={classNames}
       onClick={onClickHandler}
       type='button'
+      {...attributes}
             >{btnTitle}</button>)
   }
 
