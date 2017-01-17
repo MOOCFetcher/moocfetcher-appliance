@@ -1,20 +1,29 @@
 MOOCFetcher appliance frontend, implemented in React.
 
 ## Setup
-* Install [node]
-* Run `npm install`
-* Install [devd] and [modd]
+* Install [node] and [yarn]
+* Run `yarn`
 
 [node]: https://nodejs.org
-[devd]: https://github.com/cortesi/devd
-[modd]: https://github.com/cortesi/modd
+[yarn]: https://yarnpkg.com
 
 
 ## Development
-* Run `modd`. This will run in the background and do the following (refer to file `modd.conf` for the exact commands that are run):
-  * Run Webpack in development and watch mode, which will watch for changes and bundle and copy files into `build` folder.
-  * Run the `devd` daemon which serves the files from the `build` folder to access in the browser (along with LiveReload support)
-  * Run `eslint` and display output every time a Javascript source file is changed
-  * Invoke `jest` which will run all the tests.
-* Access the app in your browser at the location specified by the output of `devd` command (usually at `localhost:8000`)
 
+### Linting
+
+```bash
+yarn lint
+```
+
+This will check the source code for any syntax errors, and fix any stylistic errors if applicable.
+
+### Development Server
+
+```bash
+yarn serve
+```
+
+This will run `webpack-dev-server` and serve the app at `localhost:8081`. In development mode, the `/api` endpoint is proxied to `localhost:8080`, where the app is expecting the API backend to be running. See the [backend] folder for details.
+
+[backend]: https://github.com/MOOCFetcher/moocfetcher-appliance/tree/master/backend
