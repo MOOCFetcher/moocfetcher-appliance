@@ -216,6 +216,10 @@ AppDispatcher.register((action) => {
 
         switch (response.status) {
           case 'finished':
+            let selected = courseStore.getSelected()
+            for (let course of selected) {
+              CourseActions.unselect(course)
+            }
             courseStore.emit(COPY_FINISH_EVENT)
             break
           case 'error':
