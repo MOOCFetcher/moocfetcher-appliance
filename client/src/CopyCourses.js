@@ -140,7 +140,7 @@ export default class CopyCourses extends React.Component {
     if (this.state.copy.progress) {
       const p = this.state.copy.progress
       const body = [
-        this.statusLabel(`${p.done} of ${p.total} copied…`, 'msg1'),
+        this.statusLabel(`${p.done} of ${p.total} copied (${p.copied} files)…`, 'msg1'),
         this.progressBar(p.done, p.total)
       ]
 
