@@ -10,7 +10,6 @@ import (
 	"regexp"
 	"runtime"
 	"strings"
-	"sync"
 
 	usbdrivedetecter "github.com/deepakjois/gousbdrivedetector"
 	moocfetcher "github.com/moocfetcher/moocfetcher-appliance/backend/lib"
@@ -29,7 +28,6 @@ type MOOCFetcherApplianceServer struct {
 	jobs              map[string]*CopyJob
 	currJobId         string
 	Copier            CourseCopier
-	sync.Mutex
 }
 
 func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) *MOOCFetcherApplianceServer {
@@ -67,8 +65,6 @@ func (s *MOOCFetcherApplianceServer) copyHandler(w http.ResponseWriter, r *http.
 }
 
 func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *http.Request) {
-	//s.Lock()
-	//defer s.Unlock()
 	// Get request JSON and parse
 	var courseData moocfetcher.CourseData
 
@@ -146,8 +142,6 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 		<-done
 		log.Println("Copy job complete")
 		s.writeStats()
-		//s.Lock()
-		//defer s.Unlock()
 		s.currJobId = ""
 	}()
 }
