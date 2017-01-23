@@ -53,6 +53,10 @@ func main() {
 			Name:  "log-file, l",
 			Usage: "If set, log all output to `FILE`",
 		},
+		cli.StringFlag{
+			Name:  "usb-drive, u",
+			Usage: "If set, use the value as location of USB pen drive on Windows",
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
@@ -69,6 +73,7 @@ func main() {
 
 		coursesDir := c.String("courses-dir")
 		port := c.Int("port")
+		usbDrive := c.String("usb-drive")
 
 		if coursesDir == "" {
 			return errors.New("courses-directory is required")
@@ -83,6 +88,7 @@ func main() {
 		}
 
 		s := server.NewServer(coursesDir, courseMetadata)
+		s.USBDriveOverride = usbDrive // FIXME Ugly hack for Windows
 
 		// Add handler for static content
 		s.Handle("/", http.FileServer(FS(false)))

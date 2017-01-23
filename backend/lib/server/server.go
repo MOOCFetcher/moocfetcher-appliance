@@ -28,6 +28,7 @@ type MOOCFetcherApplianceServer struct {
 	jobs              map[string]*CopyJob
 	currJobId         string
 	Copier            CourseCopier
+	USBDriveOverride  string // Ugly hack to make USB detection more robust on Windows
 }
 
 func NewServer(courseFoldersPath string, courseMetadata moocfetcher.CourseData) *MOOCFetcherApplianceServer {
@@ -91,21 +92,32 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 		return
 	}
 
+	// FIXME Ugly hack for Windows.
+	// Select either an overridden value, or last valid drive letter.
+	if len(drives) == 0 && runtime.GOOS == "windows" {
+		if s.USBDriveOverride != "" {
+			log.Printf("Overriding USB drive to %s\n", s.USBDriveOverride)
+			drives = append(drives, s.USBDriveOverride)
+		} else {
+			log.Println("Last ditch effort on Windows to detect USB Drive")
+			for _, drive := range "ZYXWVUTSRQPONMLKJIHGFEDCBA" {
+				_, err := os.Open(string(drive) + ":\\")
+				if err == nil {
+					log.Printf("Found %s as the last working drive letter.", drive)
+					drives = append(drives, string(drive))
+					break
+				}
+			}
+		}
+	}
+
 	// Filter out drive containing courses (if required)
 	for i := len(drives) - 1; i >= 0; i-- {
 		drive := drives[i]
 		if strings.Contains(s.courseFoldersPath, drive) {
+			log.Printf("Filtering out %s because it matches with courses path %s\n", drive, s.courseFoldersPath)
 			drives = append(drives[:i], drives[i+1:]...)
-		}
-	}
-
-	// FIXME Ugly hack for Windows, hardcoded for our setup.
-	// Try E:\
-	if len(drives) == 0 && runtime.GOOS == "windows" {
-		log.Println("Last ditch effort on Windows to detect USB Drive")
-		_, err := os.Open("E:\\")
-		if err == nil {
-			drives = []string{"E:\\"}
+			break
 		}
 	}
 
