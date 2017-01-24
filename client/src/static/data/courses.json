@@ -9391,6 +9391,26 @@
       "size": 851381332
     },
     {
+      "id": "BK89oxtsEeaEIQq1FSQEZQ",
+      "name": "Integrating Technology in the K-12 Classroom",
+      "courseType": "v2.ondemand",
+      "slug": "technology-k12",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 215933
+    },
+    {
+      "id": "wWkoAThyEea67A6Z1aCfuw",
+      "name": "Teaching Math Through Problem-Solving K-12",
+      "courseType": "v2.ondemand",
+      "slug": "math-through-problem-solving",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 715606
+    },
+    {
       "id": "xqk_extrEeammQ6NfVLBSw",
       "name": "Communicating in Math in the K-12 Classroom",
       "courseType": "v2.ondemand",
@@ -9399,6 +9419,3236 @@
         "en"
       ],
       "size": 229139
+    },
+    {
+      "id": "CppWWDhzEea7Aw7qCMa9-w",
+      "name": "Integrating CCRS and Literacy K-12",
+      "courseType": "v2.ondemand",
+      "slug": "literacy-k12",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3159148
+    },
+    {
+      "id": "0rve3VyYEeW9BBKT5ztNhQ",
+      "name": "Thoracic Oncology",
+      "courseType": "v2.ondemand",
+      "slug": "thoracic-oncology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1424681976
+    },
+    {
+      "id": "Q2u0W--MEeWj_AqhReL55Q",
+      "name": "Accounting for Business Decision Making: Part 2",
+      "courseType": "v2.ondemand",
+      "slug": "business-accounting-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 435587987
+    },
+    {
+      "id": "BvEMlUkvEeahWA4Td3Kvcw",
+      "name": "Corporate Finance I: Measuring and Promoting Value Creation",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-finance-copy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1347562065
+    },
+    {
+      "id": "dDoFzLi8EeW-DxJ4SAJAhQ",
+      "name": "Data-driven Decision Making",
+      "courseType": "v2.ondemand",
+      "slug": "decision-making",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 421992863
+    },
+    {
+      "id": "bMtIO8w2EeWBKQplU3nsJQ",
+      "name": "Introduction to Chemistry:  Reactions and Ratios",
+      "courseType": "v2.ondemand",
+      "slug": "intro-chemistry",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1265190280
+    },
+    {
+      "id": "0HiU7Oe4EeWTAQ4yevf_oQ",
+      "name": "Dealing With Missing Data",
+      "courseType": "v2.ondemand",
+      "slug": "missing-data",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 295821345
+    },
+    {
+      "id": "VuRXs3EiEeWrAxJQXw-8PQ",
+      "name": "Fundamentals of Visualization with Tableau",
+      "courseType": "v2.ondemand",
+      "slug": "dataviz",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 189745962
+    },
+    {
+      "id": "xPEJPExVEeWyUw4oVjG8nQ",
+      "name": "Our Earth: Its Climate, History, and Processes",
+      "courseType": "v2.ondemand",
+      "slug": "our-earth",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1286069181
+    },
+    {
+      "id": "bu-bs9_HEeSNQCIAC2-J5Q",
+      "name": "Fundamentals of Music Theory",
+      "courseType": "v2.ondemand",
+      "slug": "edinburgh-music-theory",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 484077514
+    },
+    {
+      "id": "kaEEZo2KEeWFxA4DZNEJOQ",
+      "name": "C++ For C Programmers, Part B",
+      "courseType": "v2.ondemand",
+      "slug": "c-plus-plus-b",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1058261142
+    },
+    {
+      "id": "uWrCG9mpEeWkdgqomU4otw",
+      "name": "Big Data Integration and Processing",
+      "courseType": "v2.ondemand",
+      "slug": "big-data-integration-processing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 9183084188
+    },
+    {
+      "id": "K1OOQOR5EeWwaBIy029mpQ",
+      "name": "Cybersecurity and the X-Factor",
+      "courseType": "v2.ondemand",
+      "slug": "cybersecurity-and-x-factor",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 161063952
+    },
+    {
+      "id": "KinX8iwGEeaA3A6P4rV07Q",
+      "name": "Financial Accounting: Advanced Topics",
+      "courseType": "v2.ondemand",
+      "slug": "financial-accounting-advanced",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 155574905
+    },
+    {
+      "id": "KD4-0r-yEeWaXhJquRNtDw",
+      "name": "Academic Listening and Note-Taking",
+      "courseType": "v2.ondemand",
+      "slug": "listening-notetaking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 101100060
+    },
+    {
+      "id": "pBwK6rTLEeWhzw6RmNsYkQ",
+      "name": "Advanced Java Concurrency",
+      "courseType": "v2.ondemand",
+      "slug": "advanced-java-concurrency",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1627779201
+    },
+    {
+      "id": "JQ3V0XdUEeWLqw7zlLhRzQ",
+      "name": "Finance for Everyone: Debt",
+      "courseType": "v2.ondemand",
+      "slug": "finance-debt",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 377651519
+    },
+    {
+      "id": "mm1Ej3HwEeWxvQr3acyajw",
+      "name": "The Marketing Plan",
+      "courseType": "v2.ondemand",
+      "slug": "marketingplan",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 717565124
+    },
+    {
+      "id": "RfJ9I6KTEeWM5RIHOLu8Dw",
+      "name": "Resilience in Children Exposed to Trauma, Disaster and War: Global Perspectives",
+      "courseType": "v2.ondemand",
+      "slug": "resilience-in-children",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 917932652
+    },
+    {
+      "id": "Mue2M1z0EeWqJhKypiGv4w",
+      "name": "How Music Can Change Your Life",
+      "courseType": "v2.ondemand",
+      "slug": "music-life",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 174985718
+    },
+    {
+      "id": "w7FFV3l0EeW53BJEfL52qQ",
+      "name": "Advanced Algorithms and Complexity",
+      "courseType": "v2.ondemand",
+      "slug": "advanced-algorithms-and-complexity",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 737322965
+    },
+    {
+      "id": "qxpmIMk9EeWfkQ5lkPEvxw",
+      "name": "Pattern Discovery in Data Mining",
+      "courseType": "v2.ondemand",
+      "slug": "data-patterns",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 406535155
+    },
+    {
+      "id": "mZ_Ph_cGEeW_Fg5kRHBRWw",
+      "name": "The History of Modern Israel -  Part II: Challenges of Israel as a sovereign state",
+      "courseType": "v2.ondemand",
+      "slug": "history-israel-sovereign-state",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 892476817
+    },
+    {
+      "id": "QfsUN8O4EeS36yIAC5JMTw",
+      "name": "eHealth: More than just an electronic record",
+      "courseType": "v2.ondemand",
+      "slug": "ehealth",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 543956264
+    },
+    {
+      "id": "y5G1vZheEeWF6gpQJiw6hQ",
+      "name": "Dino 101: Dinosaur Paleobiology",
+      "courseType": "v2.ondemand",
+      "slug": "dino101",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1437463705
+    },
+    {
+      "id": "yQcuJCOcEeagwg7hVay0BQ",
+      "name": "Algorithms, Part I",
+      "courseType": "v2.ondemand",
+      "slug": "introduction-to-algorithms",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1221025925
+    },
+    {
+      "id": "zwqURwiiEeahpQ5cgS1w4w",
+      "name": "Supply Chain Logistics",
+      "courseType": "v2.ondemand",
+      "slug": "supply-chain-logistics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 118114213
+    },
+    {
+      "id": "GNtVE1J0EeaAmBJfqzpttQ",
+      "name": "Success",
+      "courseType": "v2.ondemand",
+      "slug": "wharton-succcess",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 658963204
+    },
+    {
+      "id": "7vYbccxZEeWBKQplU3nsJQ",
+      "name": "Humanitarian communication : Addressing key challenges",
+      "courseType": "v2.ondemand",
+      "slug": "humanitarian-communication",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 683279384
+    },
+    {
+      "id": "7wD6e-TPEeWThQoLOXqDhw",
+      "name": "Philosophy and the Sciences: Introduction to the Philosophy of Cognitive Sciences",
+      "courseType": "v2.ondemand",
+      "slug": "philosophy-cognitive-sciences",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 385168226
+    },
+    {
+      "id": "gbs1RbnKEeW-xg611XxSbw",
+      "name": "Philosophy and the Sciences: Introduction to the Philosophy of Physical Sciences",
+      "courseType": "v2.ondemand",
+      "slug": "philosophy-physical-sciences",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 530365864
+    },
+    {
+      "id": "XDC_NbfLEeS4lSIAC1AIDw",
+      "name": "Multimodal Literacies: Communication and Learning in the Era of Digital Media ",
+      "courseType": "v2.ondemand",
+      "slug": "multimodal-literacies",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1354286782
+    },
+    {
+      "id": "7g2jVkeREeabNQ5k0FBNlQ",
+      "name": "Musicianship: Chord Charts, Diatonic Chords, and Minor Keys",
+      "courseType": "v2.ondemand",
+      "slug": "musicianship-chords",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 426572357
+    },
+    {
+      "id": "jOA_JhudEeWo5g5SXpDA8Q",
+      "name": "Classics of Chinese Humanities: Guided Readings",
+      "courseType": "v2.ondemand",
+      "slug": "classics-chinese-humanities",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 726123804
+    },
+    {
+      "id": "shPviriqEeWVcRIZgPr_Xw",
+      "name": "Natural Attenuation of Groundwater Contaminants: New Paradigms, Technologies, and Applications",
+      "courseType": "v2.ondemand",
+      "slug": "natural-attenuation-of-groundwater-contaminants",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1050067438
+    },
+    {
+      "id": "ZOqHNEONEeaeRgqQhMBV5Q",
+      "name": "Corruption",
+      "courseType": "v2.ondemand",
+      "slug": "wharton-corruption",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 423161940
+    },
+    {
+      "id": "raZNrgNGEeaJMgqy4cb6jQ",
+      "name": "Teach English Now! Technology Enriched Teaching",
+      "courseType": "v2.ondemand",
+      "slug": "tesol-technology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 544755777
+    },
+    {
+      "id": "TCmaO25NEeWdfRLY06XVmw",
+      "name": "Programming Languages, Part B",
+      "courseType": "v2.ondemand",
+      "slug": "programming-languages-part-b",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 630998857
+    },
+    {
+      "id": "xpe1YMjNEeWQSAqHNmfP4Q",
+      "name": "Managing Responsibly: Practicing Sustainability, Responsibility and Ethics",
+      "courseType": "v2.ondemand",
+      "slug": "responsiblemanagement",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1397558378
+    },
+    {
+      "id": "foWk0kzZEeWllxIBvPBb1w",
+      "name": "Teaching and Assessing Clinical Skills",
+      "courseType": "v2.ondemand",
+      "slug": "clinical-skills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1206855420
+    },
+    {
+      "id": "01MWvUeMEeaeRgqQhMBV5Q",
+      "name": "Finance for Non-Financial Managers",
+      "courseType": "v2.ondemand",
+      "slug": "finance-for-non-financial-managers",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 621744583
+    },
+    {
+      "id": "It7SNTe-EeWCYBKNeFwojw",
+      "name": "Single Page Web Applications with AngularJS",
+      "courseType": "v2.ondemand",
+      "slug": "single-page-web-apps-with-angularjs",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 240489635
+    },
+    {
+      "id": "nUT4BL5NEeWvOBL771qSDQ",
+      "name": "Understanding Korean Politics",
+      "courseType": "v2.ondemand",
+      "slug": "understanding-korean-politics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 798110671
+    },
+    {
+      "id": "EH0q6oysEeWIbw4397jVQw",
+      "name": "Graphic Design",
+      "courseType": "v2.ondemand",
+      "slug": "presentation-design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 355510142
+    },
+    {
+      "id": "qmTCN-vGEeW6zwpd54Xx5w",
+      "name": "The Impact of Technology",
+      "courseType": "v2.ondemand",
+      "slug": "impact-of-technology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 715201381
+    },
+    {
+      "id": "dWLeLeJREeWLHw5Kc9wFbw",
+      "name": "Maps and the Geospatial Revolution",
+      "courseType": "v2.ondemand",
+      "slug": "geospatial",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 218878509
+    },
+    {
+      "id": "bfE3GBnoEeWg_RJGAuFGjw",
+      "name": "Python Programming: A Concise Introduction",
+      "courseType": "v2.ondemand",
+      "slug": "python-programming-introduction",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 373557346
+    },
+    {
+      "id": "yeli1ehUEeSBtCIAC3lLIA",
+      "name": "Modern \u0026 Contemporary American Poetry",
+      "courseType": "v2.ondemand",
+      "slug": "modpo",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 198094363
+    },
+    {
+      "id": "BNfSeUQ_EeawVwo82dylKw",
+      "name": "Job Success: Get Hired or Promoted in 3 Steps",
+      "courseType": "v2.ondemand",
+      "slug": "get-hired",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 135998999
+    },
+    {
+      "id": "oIIVJqNXEeWM5RIHOLu8Dw",
+      "name": "Introduction to Chemistry:  Structures and Solutions",
+      "courseType": "v2.ondemand",
+      "slug": "basic-chemistry",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1199093094
+    },
+    {
+      "id": "lJgyVBhjEeammQ6NfVLBSw",
+      "name": "Introduction to Data Analytics for Business",
+      "courseType": "v2.ondemand",
+      "slug": "data-analytics-business",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 586734870
+    },
+    {
+      "id": "IJOwrRbLEeWKlgqs7LdhRw",
+      "name": "Learning to Teach Online",
+      "courseType": "v2.ondemand",
+      "slug": "teach-online",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2217155280
+    },
+    {
+      "id": "0MxqCTygEea1gAouz62QPw",
+      "name": "Introduction to Recommender Systems:  Non-Personalized and Content-Based",
+      "courseType": "v2.ondemand",
+      "slug": "recommender-systems-introduction",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 982513069
+    },
+    {
+      "id": "pBpdFgq4EeafmAoLZ2pYtw",
+      "name": "Introduction into General Theory of Relativity",
+      "courseType": "v2.ondemand",
+      "slug": "relativity-theory",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3113584481
+    },
+    {
+      "id": "YiRLBRFqEeaRgQ4evS8KlQ",
+      "name": "Finance for Non-Finance Professionals",
+      "courseType": "v2.ondemand",
+      "slug": "finance-for-non-finance-professionals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 674506646
+    },
+    {
+      "id": "TsI6pDypEea3LQ6P_ZHapQ",
+      "name": "Introduction to UI Design",
+      "courseType": "v2.ondemand",
+      "slug": "ui-design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 707204330
+    },
+    {
+      "id": "b-UZI43PEeWTzg6WBWinhQ",
+      "name": "Global Environmental Management",
+      "courseType": "v2.ondemand",
+      "slug": "global-environmental-management",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1066888177
+    },
+    {
+      "id": "2vaX6li0Eeaw3QoEHqdPHw",
+      "name": "The Power of Team Culture",
+      "courseType": "v2.ondemand",
+      "slug": "team-culture",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 543111818
+    },
+    {
+      "id": "FuHL-RuOEeSduyIAC0iV4g",
+      "name": "Economics of Money and Banking",
+      "courseType": "v2.ondemand",
+      "slug": "money-banking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 4546131774
+    },
+    {
+      "id": "0GYQX5MEEeWBAQoVMoNgNQ",
+      "name": "Public Economics",
+      "courseType": "v2.ondemand",
+      "slug": "public-economics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 950144955
+    },
+    {
+      "id": "nHYB8ucfEeWqfA4JDMODnw",
+      "name": "Problem Solving Skills for University Success",
+      "courseType": "v2.ondemand",
+      "slug": "problem-solving-skills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 569206559
+    },
+    {
+      "id": "bbxCwag3EeWbLRJn4j8c4Q",
+      "name": "Journalism Skills for Engaged Citizens",
+      "courseType": "v2.ondemand",
+      "slug": "citizenjournalism",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 892588247
+    },
+    {
+      "id": "xUxjEeztEeW4_wr--Yv6Aw",
+      "name": "Getting started with Augmented Reality",
+      "courseType": "v2.ondemand",
+      "slug": "augmented-reality",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 492261332
+    },
+    {
+      "id": "yWgLXKT1EeWn5gqSg7NNrQ",
+      "name": "Launching New Ventures",
+      "courseType": "v2.ondemand",
+      "slug": "new-ventures",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2814289396
+    },
+    {
+      "id": "Is9jHhyKEeaHoAovRHhd_Q",
+      "name": "Understanding Einstein: The Special Theory of Relativity",
+      "courseType": "v2.ondemand",
+      "slug": "einstein-relativity",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3837212255
+    },
+    {
+      "id": "JJ1g_B6sEeWFIxLDnS6_kQ",
+      "name": "The Meat We Eat",
+      "courseType": "v2.ondemand",
+      "slug": "meat-we-eat",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1248522840
+    },
+    {
+      "id": "hFgchlMeEeaVmgqzlkasOw",
+      "name": "Studying at Japanese Universities",
+      "courseType": "v2.ondemand",
+      "slug": "study-in-japan",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 493721825
+    },
+    {
+      "id": "At1XBOAAEeWoTg63tTECEQ",
+      "name": "Fundamentals of Fluid-Solid Interactions",
+      "courseType": "v2.ondemand",
+      "slug": "fluid-solid-interaction",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 932176852
+    },
+    {
+      "id": "H10rxZj0EeW5gxKDBxYMJw",
+      "name": "Evolution Today ",
+      "courseType": "v2.ondemand",
+      "slug": "evolution-today",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 360650147
+    },
+    {
+      "id": "QGl4qFJkEeauXRI4ypm_Yw",
+      "name": "Art \u0026 Ideas: Teaching with Themes",
+      "courseType": "v2.ondemand",
+      "slug": "ideas",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 196667211
+    },
+    {
+      "id": "schck0kuEealsQ4S5bCf-Q",
+      "name": "Operations Management",
+      "courseType": "v2.ondemand",
+      "slug": "operations-management-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1603052524
+    },
+    {
+      "id": "A97cQkR4EeawVwo82dylKw",
+      "name": "The R Programming Environment",
+      "courseType": "v2.ondemand",
+      "slug": "r-programming-environment",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 24246887
+    },
+    {
+      "id": "8zTRXygjEeaJ4A5nUusxQQ",
+      "name": "Configuring the World, part 1: Comparative Political Economy",
+      "courseType": "v2.ondemand",
+      "slug": "comparative-political-economy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 773127248
+    },
+    {
+      "id": "0QsUTZowEeWOGRJpcxIcbQ",
+      "name": "Transmedia Storytelling: Narrative worlds, emerging technologies, and global audiences",
+      "courseType": "v2.ondemand",
+      "slug": "transmedia-storytelling",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2377664256
+    },
+    {
+      "id": "fZAFN9XcEeWFqw71fuUDrw",
+      "name": "Identifying Social Entrepreneurship Opportunities",
+      "courseType": "v2.ondemand",
+      "slug": "social-entrepreneurship-opportunities",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 828213877
+    },
+    {
+      "id": "hVoJYnQ_EeWIfhKr_WcYsQ",
+      "name": "Introduction to Web Development",
+      "courseType": "v2.ondemand",
+      "slug": "web-development",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1269921737
+    },
+    {
+      "id": "Akz7SBbAEeaXaw7Yj6TwHQ",
+      "name": "Successful Career Development",
+      "courseType": "v2.ondemand",
+      "slug": "career-advancement",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 295802120
+    },
+    {
+      "id": "5uY2s0U4EeWbNhIvIryYow",
+      "name": "Ethical Social Media ",
+      "courseType": "v2.ondemand",
+      "slug": "ethical-social-media",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 757501762
+    },
+    {
+      "id": "PI5sDtTUEeWoww7Hc7148Q",
+      "name": "Personality Types at Work",
+      "courseType": "v2.ondemand",
+      "slug": "personality-types-at-work",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 422445334
+    },
+    {
+      "id": "Q655Lzy6Eea3LQ6P_ZHapQ",
+      "name": "GT-Linear Circuits 2: AC Analysis ",
+      "courseType": "v2.ondemand",
+      "slug": "gt-circuits-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 472839915
+    },
+    {
+      "id": "XjrHsxa5EeafuQ601mutQw",
+      "name": "Career Options: Exploring a New Career",
+      "courseType": "v2.ondemand",
+      "slug": "career-exploration",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 178639116
+    },
+    {
+      "id": "44nEtha_EeaGsAqy0mQCHw",
+      "name": "Career Planning:  A Pathway to Employment",
+      "courseType": "v2.ondemand",
+      "slug": "career-planning",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 193973148
+    },
+    {
+      "id": "n5YH8DMNEeafcg4Q-TkaVQ",
+      "name": "Meaningful Marketing Insights",
+      "courseType": "v2.ondemand",
+      "slug": "meaningful-marketing-insights",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 320950501
+    },
+    {
+      "id": "7-OlHzcAEeaG4w4uSkT3yQ",
+      "name": "Social Media Data Analytics",
+      "courseType": "v2.ondemand",
+      "slug": "social-media-data-analytics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 329326775
+    },
+    {
+      "id": "5a-7V8QTEeWnTgqWGQHgQw",
+      "name": "Writing in English at University",
+      "courseType": "v2.ondemand",
+      "slug": "writing-english-university",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 355887477
+    },
+    {
+      "id": "4IKVIdWxEeWlbgqNCYymGw",
+      "name": "Designing Your Personal Weight Loss Plan",
+      "courseType": "v2.ondemand",
+      "slug": "weight-loss-plan",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 284049676
+    },
+    {
+      "id": "4RYxEUkuEeahWA4Td3Kvcw",
+      "name": "Investments I: Fundamentals of Performance Evaluation",
+      "courseType": "v2.ondemand",
+      "slug": "investments-fundamentals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2565255656
+    },
+    {
+      "id": "alJRh0cPEeaeRgqQhMBV5Q",
+      "name": "Valuation for Startups Using Discounted Cash Flows Approach",
+      "courseType": "v2.ondemand",
+      "slug": "discounted-cash-flow",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 164219103
+    },
+    {
+      "id": "LANMc0UsEeaJwxI8cURk2w",
+      "name": "Journey of the Universe: The Unfolding of Life",
+      "courseType": "v2.ondemand",
+      "slug": "journey-unfolding-life",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 972362764
+    },
+    {
+      "id": "RdYEikUsEeawjgp7XHTShQ",
+      "name": "Journey Conversations: Weaving Knowledge and Action",
+      "courseType": "v2.ondemand",
+      "slug": "journey-knowledge-action",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2016516989
+    },
+    {
+      "id": "WXt3PEUsEeaDRhLb8lAaNw",
+      "name": "The Worldview of Thomas Berry:  The Flourishing of the Earth Community",
+      "courseType": "v2.ondemand",
+      "slug": "thomas-berry",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1340614932
+    },
+    {
+      "id": "4weFr0N-EeaNmhKFnqHOVQ",
+      "name": "Geopolitics of Europe",
+      "courseType": "v2.ondemand",
+      "slug": "geopolitics-europe",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 965472629
+    },
+    {
+      "id": "wwfQLxPgEea5AhKljEPF0Q",
+      "name": "Audio Signal Processing for Music Applications",
+      "courseType": "v2.ondemand",
+      "slug": "audio-signal-processing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1919093124
+    },
+    {
+      "id": "FlptMGk3EeSiViIACw8GlA",
+      "name": "Design: Creation of Artifacts in Society",
+      "courseType": "v2.ondemand",
+      "slug": "design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 5479430971
+    },
+    {
+      "id": "OUTGOrvTEeWuCAqiwoZfSw",
+      "name": "Introduction to Data Analysis Using Excel",
+      "courseType": "v2.ondemand",
+      "slug": "excel-data-analysis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 290160875
+    },
+    {
+      "id": "kRFdpru_EeW6QBIGzzljVw",
+      "name": "Global Financial Markets and Instruments",
+      "courseType": "v2.ondemand",
+      "slug": "global-financial-markets-instruments",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 745866213
+    },
+    {
+      "id": "d0UNEU9UEeagxwr1Kg22cw",
+      "name": "Managing Social and Human Capital",
+      "courseType": "v2.ondemand",
+      "slug": "wharton-managing-human-capital",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 574935692
+    },
+    {
+      "id": "1_0XfstIEeWRERK7eSqctw",
+      "name": "De-Mystifying Mindfulness",
+      "courseType": "v2.ondemand",
+      "slug": "mindfulness",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1766829788
+    },
+    {
+      "id": "qlAYiungEeW83RLVcuc3IQ",
+      "name": "International Law In Action: Investigating and Prosecuting International Crimes",
+      "courseType": "v2.ondemand",
+      "slug": "international-law-in-action-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 916974225
+    },
+    {
+      "id": "JVtxhFi2EeWPXA4vXFBIfw",
+      "name": "Becoming a Sports Agent",
+      "courseType": "v2.ondemand",
+      "slug": "sports-agent",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2224941891
+    },
+    {
+      "id": "QrJStTJkEeaVZA5K9cHVCQ",
+      "name": "Big Data, Genes, and Medicine",
+      "courseType": "v2.ondemand",
+      "slug": "data-genes-medicine",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 766306975
+    },
+    {
+      "id": "CMriWkeSEea9IA5mW7znqQ",
+      "name": "Musicianship: Tensions, Harmonic Function, and Modal Interchange",
+      "courseType": "v2.ondemand",
+      "slug": "musicianship-harmony",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 332907998
+    },
+    {
+      "id": "CU9gIddfEeWO_AoFkZ30NQ",
+      "name": "Presentations: Speaking so that People Listen",
+      "courseType": "v2.ondemand",
+      "slug": "presentations-speaking-so-that-people-listen",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 157921044
+    },
+    {
+      "id": "UFSkjArtEeaLXQp-QzuOHQ",
+      "name": "Building the Business Model for Corporate Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-entrepreneurs-business-model",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 487036878
+    },
+    {
+      "id": "0w0JAG9JEeSp0iIAC12Jpw",
+      "name": "Computational Neuroscience",
+      "courseType": "v2.ondemand",
+      "slug": "computational-neurosciencecompneuro",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1186894868
+    },
+    {
+      "id": "o4yIjxxHEeWo5g5SXpDA8Q",
+      "name": "Learn to Program: The Fundamentals",
+      "courseType": "v2.ondemand",
+      "slug": "learn-to-program",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 470280983
+    },
+    {
+      "id": "gHycGx0uEeaP7xL2JHHq4w",
+      "name": "Cloud Computing Applications, Part 2",
+      "courseType": "v2.ondemand",
+      "slug": "cloud-applications-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1603952715
+    },
+    {
+      "id": "8TE-KTw4Eea67A6Z1aCfuw",
+      "name": "Making Architecture",
+      "courseType": "v2.ondemand",
+      "slug": "making-architecture",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 818378054
+    },
+    {
+      "id": "A8jZQQrtEeaZqQ6zm77UFw",
+      "name": "Developing the Opportunity for Corporate Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-entrepreneurs-opportunity",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1001953786
+    },
+    {
+      "id": "l6wYG8nwEeWlsQro2YjIaQ",
+      "name": "Sales Strategies: Mastering the Selling Process",
+      "courseType": "v2.ondemand",
+      "slug": "sales-strategies",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 510142420
+    },
+    {
+      "id": "baZUuQruEeafmAoLZ2pYtw",
+      "name": "Financing and Profiting from Innovation for Corporate Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-entrepreneurs-financing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 469920696
+    },
+    {
+      "id": "OmP4nwi9EeajCxI_63r-IQ",
+      "name": "Construction Project Management",
+      "courseType": "v2.ondemand",
+      "slug": "construction-project-management",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2055551222
+    },
+    {
+      "id": "AEO-tQrvEeaKUQp9KGWIdQ",
+      "name": "Master Class for Corporate Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-entrepreneurship-project",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1378566896
+    },
+    {
+      "id": "09t_rNv7EeWyqBL0ju_dbQ",
+      "name": "ART of the MOOC: Public Art and Pedagogy",
+      "courseType": "v2.ondemand",
+      "slug": "moocs",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 356885388
+    },
+    {
+      "id": "iOTtVQrtEealfRJMyunKyw",
+      "name": "Crafting Strategies for Innovation Initiatives for Corporate Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "corporate-entrepreneurs-innovation-strategy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 592421645
+    },
+    {
+      "id": "hAmXWT_PEea7ZAqJqREw5Q",
+      "name": "ART of the MOOC: Activism and Social Movements",
+      "courseType": "v2.ondemand",
+      "slug": "activism-social-movements",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 255519620
+    },
+    {
+      "id": "guqOkAKDEeaG2A4kH1tj-w",
+      "name": "Probabilistic Graphical Models",
+      "courseType": "v2.ondemand",
+      "slug": "probabilistic-graphical-models",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 725203097
+    },
+    {
+      "id": "RqlA4gpEEeaBDA63TXyi5Q",
+      "name": "Academic Literacy",
+      "courseType": "v2.ondemand",
+      "slug": "academic-literacy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 646480942
+    },
+    {
+      "id": "qLLPzy21EeaASgqTzMCNWQ",
+      "name": "Verb Tenses and Passives",
+      "courseType": "v2.ondemand",
+      "slug": "verb-passives",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 194727320
+    },
+    {
+      "id": "sIzu4R5yEeaCoQrM2bnbCQ",
+      "name": "Julia Scientific Programming",
+      "courseType": "v2.ondemand",
+      "slug": "julia-programming",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 805759090
+    },
+    {
+      "id": "0ShPcru2EeWuCAqiwoZfSw",
+      "name": "The Social Context of Mental Health and Illness",
+      "courseType": "v2.ondemand",
+      "slug": "mental-health",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 865179437
+    },
+    {
+      "id": "JLygJMCgEeWP5g5dlaZx4w",
+      "name": "Introduction to Logic",
+      "courseType": "v2.ondemand",
+      "slug": "logic-introduction",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 11971238
+    },
+    {
+      "id": "wgFxEtoZEeWXug64M90gpQ",
+      "name": "Osteoarchaeology: The Truth in Our Bones",
+      "courseType": "v2.ondemand",
+      "slug": "truthinourbones-osteoarchaeology-archaeology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 771966504
+    },
+    {
+      "id": "DGwMEm01EeWbyw5d8C-Blw",
+      "name": "Android App Components and Data Persistence",
+      "courseType": "v2.ondemand",
+      "slug": "androidapps",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 629179635
+    },
+    {
+      "id": "llW5zlnXEeaw3QoEHqdPHw",
+      "name": "透过摄影看世界",
+      "courseType": "v2.ondemand",
+      "slug": "photography-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 42813080
+    },
+    {
+      "id": "ix84hqAPEeS1LCIACxcNEQ",
+      "name": "An Introduction to Consumer Neuroscience \u0026 Neuromarketing ",
+      "courseType": "v2.ondemand",
+      "slug": "neuromarketing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1199194902
+    },
+    {
+      "id": "CoMY5S2GEeaSWQ5Q7JoZ8w",
+      "name": "Israel State and Society ",
+      "courseType": "v2.ondemand",
+      "slug": "israel",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2112886163
+    },
+    {
+      "id": "_eIWXiykEeaibBJMku26Gw",
+      "name": "Jacobi modular forms: 30 ans après",
+      "courseType": "v2.ondemand",
+      "slug": "modular-forms-jacobi",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1596337259
+    },
+    {
+      "id": "ifD-vNG7EeW_sQqlOUlMew",
+      "name": "Advertising and Society",
+      "courseType": "v2.ondemand",
+      "slug": "role-of-advertising",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 946306458
+    },
+    {
+      "id": "LAsCMVNlEeaLwg5UuE_6KQ",
+      "name": "Luther and the West",
+      "courseType": "v2.ondemand",
+      "slug": "luther-and-the-west",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 554894283
+    },
+    {
+      "id": "mxVLADEqEeaA3xIl-CKqow",
+      "name": "Chinese for HSK 1",
+      "courseType": "v2.ondemand",
+      "slug": "hsk-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 791913539
+    },
+    {
+      "id": "jR9V5XvKEea2bgrd8gaF3w",
+      "name": "Protected Areas Management in Africa",
+      "courseType": "v2.ondemand",
+      "slug": "protected-areas",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1622046808
+    },
+    {
+      "id": "Ghed6Re6Eea2RhIcpmzQWw",
+      "name": "Understanding Russians: Contexts of Intercultural Communication",
+      "courseType": "v2.ondemand",
+      "slug": "intercultural-communication-russians",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3199780647
+    },
+    {
+      "id": "jZVi525OEeW8nw5ORrHGtQ",
+      "name": "Programming Languages, Part C",
+      "courseType": "v2.ondemand",
+      "slug": "programming-languages-part-c",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 688944095
+    },
+    {
+      "id": "yI4JGU-dEea4egrzKxnr0w",
+      "name": "Social Innovation and Entrepreneurship for Social Impact",
+      "courseType": "v2.ondemand",
+      "slug": "social-impact",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 383670143
+    },
+    {
+      "id": "05ISI2XaEeadpwpiiuGnhw",
+      "name": "Hands-on Text Mining and Analytics",
+      "courseType": "v2.ondemand",
+      "slug": "text-mining-analytics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 588049248
+    },
+    {
+      "id": "THkzKaBPEeWm9xJA1YXcWQ",
+      "name": "Discrete Optimization",
+      "courseType": "v2.ondemand",
+      "slug": "optimization",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3357814421
+    },
+    {
+      "id": "LD8hNEdxEeaDoBKORUcroQ",
+      "name": "Essentials of Global Health",
+      "courseType": "v2.ondemand",
+      "slug": "essentials-global-health",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1779738957
+    },
+    {
+      "id": "RvfSs4J8EeWXmQ4F86nmrw",
+      "name": "Assessment and Teaching of 21st Century Skills",
+      "courseType": "v2.ondemand",
+      "slug": "atc21s",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 495606044
+    },
+    {
+      "id": "Yvk6kRJGEeabcArTdRgM4Q",
+      "name": "Powerful Tools for Teaching and Learning: Web 2.0 Tools",
+      "courseType": "v2.ondemand",
+      "slug": "teaching-learning-tools",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 310504773
+    },
+    {
+      "id": "Gn2FwjeBEeSauSIAC0iVUQ",
+      "name": "Understanding the Brain: The Neurobiology of Everyday Life",
+      "courseType": "v2.ondemand",
+      "slug": "neurobiology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3491491172
+    },
+    {
+      "id": "0aUP7wZzEeaLEgr-JmYMWw",
+      "name": "Media Platforms",
+      "courseType": "v2.ondemand",
+      "slug": "media-platforms",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1689729473
+    },
+    {
+      "id": "2NULnOvKEeWtYRLS6TLjGQ",
+      "name": "Cluster Analysis in Data Mining",
+      "courseType": "v2.ondemand",
+      "slug": "cluster-analysis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 403946705
+    },
+    {
+      "id": "meQ0ic9uEeWu4RLrx6VBYw",
+      "name": "Neural Networks for Machine Learning",
+      "courseType": "v2.ondemand",
+      "slug": "neural-networks",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1024251537
+    },
+    {
+      "id": "SDx25kqlEeaZRQ4866lvJw",
+      "name": "Innovate on Demand",
+      "courseType": "v2.ondemand",
+      "slug": "innovate-on-demand",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1004130150
+    },
+    {
+      "id": "rnrk4DeLEearmA40arQLXw",
+      "name": "Mandarin Chinese 1: Chinese for Beginners",
+      "courseType": "v2.ondemand",
+      "slug": "mandarin-chinese-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 249530345
+    },
+    {
+      "id": "tTIZY0EqEeaYxQofsrK9hw",
+      "name": "Improving your statistical inferences",
+      "courseType": "v2.ondemand",
+      "slug": "statistical-inferences",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 735173553
+    },
+    {
+      "id": "hVq52T0SEeayDAowXtL2xQ",
+      "name": "Deception Detox - How solid science can help you save the world ",
+      "courseType": "v2.ondemand",
+      "slug": "deceptiondetox",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1323567676
+    },
+    {
+      "id": "yO1M0Hj6EeWX2xK7ROQidQ",
+      "name": "Digital Systems: From Logic Gates to Processors",
+      "courseType": "v2.ondemand",
+      "slug": "digital-systems",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 957595124
+    },
+    {
+      "id": "dScDad8bEeWNrAqe1RXmgw",
+      "name": "English for Career Development",
+      "courseType": "v2.ondemand",
+      "slug": "careerdevelopment",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 470538228
+    },
+    {
+      "id": "B8E2c3blEear9RKoJLO5Cw",
+      "name": "Divide and Conquer, Sorting and Searching, and Randomized Algorithms",
+      "courseType": "v2.ondemand",
+      "slug": "algorithms-divide-conquer",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 962424381
+    },
+    {
+      "id": "UK1ovVnFEeaRew7c3D-FCQ",
+      "name": "Self Awareness and the Effective Leader",
+      "courseType": "v2.ondemand",
+      "slug": "self-awareness",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 643385891
+    },
+    {
+      "id": "aP4oxqOgEeWLMQ7U9Z8-1Q",
+      "name": "Leadership and Influence",
+      "courseType": "v2.ondemand",
+      "slug": "leadership-influence",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1018599338
+    },
+    {
+      "id": "9UNXvxRxEeajWgpXwy6yqw",
+      "name": "Predictive Modeling and Analytics ",
+      "courseType": "v2.ondemand",
+      "slug": "predictive-modeling-analytics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 252318506
+    },
+    {
+      "id": "T4_v6hfTEeaUCRJWL-pjpQ",
+      "name": "Organizational Analysis (Self-Paced)",
+      "courseType": "v2.ondemand",
+      "slug": "organizational-analysis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2483625090
+    },
+    {
+      "id": "6yVj1ucPEeWxKxKZYzDvkw",
+      "name": "Clinical Terminology for International and U.S. Students",
+      "courseType": "v2.ondemand",
+      "slug": "clinical-terminology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 260942097
+    },
+    {
+      "id": "xAECfPJkEeWVjQ7bG9CKSw",
+      "name": "Advanced Neurobiology II",
+      "courseType": "v2.ondemand",
+      "slug": "advancedneurobiologyii",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2225583846
+    },
+    {
+      "id": "wAOL80JGEeWBrBIWi3mmCw",
+      "name": "Digital Signal Processing",
+      "courseType": "v2.ondemand",
+      "slug": "dsp",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 869320501
+    },
+    {
+      "id": "otXDLXvUEeaahA7WQe-h_w",
+      "name": "Drug Discovery ",
+      "courseType": "v2.ondemand",
+      "slug": "drug-discovery",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 448735055
+    },
+    {
+      "id": "Ek7v3bokEeWPfQod2hINJQ",
+      "name": "Planning \u0026 Design of Sanitation Systems and Technologies",
+      "courseType": "v2.ondemand",
+      "slug": "sanitation",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1493541718
+    },
+    {
+      "id": "2iG_GsYMEeWJGhLlUd0b5w",
+      "name": "Tropical Parasitology: Protozoans, Worms, Vectors and Human Diseases",
+      "courseType": "v2.ondemand",
+      "slug": "parasitology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1028628014
+    },
+    {
+      "id": "Pv40_UR4Eeawjgp7XHTShQ",
+      "name": "Advanced R Programming",
+      "courseType": "v2.ondemand",
+      "slug": "advanced-r",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 4473856
+    },
+    {
+      "id": "jYxDYeJXEeWYOBIRup69HQ",
+      "name": "Globalization of Business Enterprise",
+      "courseType": "v2.ondemand",
+      "slug": "global-business",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1522850490
+    },
+    {
+      "id": "CpOs5DyhEea_QBJ9iBnl3w",
+      "name": "Nearest Neighbor Collaborative Filtering",
+      "courseType": "v2.ondemand",
+      "slug": "collaborative-filtering",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 465876485
+    },
+    {
+      "id": "PH-8AiHaEeaCoQrM2bnbCQ",
+      "name": "Reasoning Across the Disciplines",
+      "courseType": "v2.ondemand",
+      "slug": "critical-reasoning",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 429535285
+    },
+    {
+      "id": "WIhvslYxEeSFRiIACycBKQ",
+      "name": "Introduction to Psychology",
+      "courseType": "v2.ondemand",
+      "slug": "introduction-psych",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2173203374
+    },
+    {
+      "id": "evGYoZ65EeW6bw4ogk2HGQ",
+      "name": "The Bilingual Brain",
+      "courseType": "v2.ondemand",
+      "slug": "bilingual",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1482333816
+    },
+    {
+      "id": "kr6NmTypEea1eg6YQeunOw",
+      "name": "User Research and Design",
+      "courseType": "v2.ondemand",
+      "slug": "design-research",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 444113790
+    },
+    {
+      "id": "Af9tmQitEeaXahL027DW1w",
+      "name": "Supply Chain Operations",
+      "courseType": "v2.ondemand",
+      "slug": "operations",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3659840534
+    },
+    {
+      "id": "Son1XEcREeaDoBKORUcroQ",
+      "name": "Valuation for Startups Using Multiple Approach",
+      "courseType": "v2.ondemand",
+      "slug": "valuation-multiples",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 130731021
+    },
+    {
+      "id": "ttA3QVfJEeWT8xIUiEQHHQ",
+      "name": "Ebola and Beyond: High Level Biocontainment for Healthcare Facilities",
+      "courseType": "v2.ondemand",
+      "slug": "biocontainment",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 548719770
+    },
+    {
+      "id": "aWeQOYdaEeacLAowENVELw",
+      "name": "Business English: Marketing and Sales",
+      "courseType": "v2.ondemand",
+      "slug": "marketing-sales-english",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 459695492
+    },
+    {
+      "id": "s_UQK4dZEea7gQ7SGpLMJw",
+      "name": "Business English: Finance and Economics",
+      "courseType": "v2.ondemand",
+      "slug": "finance-economics-english",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 401415311
+    },
+    {
+      "id": "gTD10IdYEeaG-BL9miwwYw",
+      "name": "Business English: Management and Leadership",
+      "courseType": "v2.ondemand",
+      "slug": "management-leadership-english",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 536397697
+    },
+    {
+      "id": "Ta6IMur8EeWeThJDJYT0Zw",
+      "name": "Web Connectivity and Security in Embedded Systems",
+      "courseType": "v2.ondemand",
+      "slug": "iot-connectivity-security",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 656977820
+    },
+    {
+      "id": "tUN_dJg7EeWECQ40bkXGkQ",
+      "name": "Health in Complex Humanitarian Emergencies",
+      "courseType": "v2.ondemand",
+      "slug": "health-che",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 473826264
+    },
+    {
+      "id": "RGh8fgWwEeakgQ4xJu4oAw",
+      "name": "Problem Solving with Excel ",
+      "courseType": "v2.ondemand",
+      "slug": "excel-analysis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 394902286
+    },
+    {
+      "id": "aF0NmQC4Eea_zg6oQWTINQ",
+      "name": "Machine Design Part I",
+      "courseType": "v2.ondemand",
+      "slug": "machine-design1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 684676100
+    },
+    {
+      "id": "8cqMUG6eEea2_hI5YizWBw",
+      "name": "Building blocks of trading strategies",
+      "courseType": "v2.ondemand",
+      "slug": "building-blocks",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 561658212
+    },
+    {
+      "id": "xcnSEUkuEeaS0App9RAxLw",
+      "name": "Process Improvement",
+      "courseType": "v2.ondemand",
+      "slug": "process-improvement-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1880982420
+    },
+    {
+      "id": "N0WEeCJBEeaDJw40-0xSFQ",
+      "name": "Digital Transformations",
+      "courseType": "v2.ondemand",
+      "slug": "digital-transformations",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 562986452
+    },
+    {
+      "id": "BpXc5-SWEeWThQoLOXqDhw",
+      "name": "Cloud Networking",
+      "courseType": "v2.ondemand",
+      "slug": "cloud-networking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2032124893
+    },
+    {
+      "id": "YXDFz6KXEeWM5RIHOLu8Dw",
+      "name": "Chemerinsky on Constitutional Law - The Structure of Government",
+      "courseType": "v2.ondemand",
+      "slug": "chemerinsky-on-constitutional-law-structure-of-government",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1329317408
+    },
+    {
+      "id": "Kdf551i6Eeaw3QoEHqdPHw",
+      "name": "Building High-Performing Teams",
+      "courseType": "v2.ondemand",
+      "slug": "high-performing-teams",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 456786531
+    },
+    {
+      "id": "nGCOUS22EeamRw4FTpNrUQ",
+      "name": "Conjunctions, Connectives, and Adverb Clauses",
+      "courseType": "v2.ondemand",
+      "slug": "conjunctions-connectives-adverb-clauses",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 152814487
+    },
+    {
+      "id": "P_O_iZfiEeWZyg6bf_Oxkw",
+      "name": "Implant Dentistry",
+      "courseType": "v2.ondemand",
+      "slug": "implant-dentistry",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 656735274
+    },
+    {
+      "id": "RZ1S0B0MEeacvQ6cODzg5Q",
+      "name": "Introduction to Data Science in Python",
+      "courseType": "v2.ondemand",
+      "slug": "python-data-analysis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 408235977
+    },
+    {
+      "id": "8WhRBnAyEeauNQq0iWkxiw",
+      "name": "The Making of the US President: A Short History in Five Elections",
+      "courseType": "v2.ondemand",
+      "slug": "making-us-president",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 651534117
+    },
+    {
+      "id": "dRFPgC-GEeWUWxIOAnoaFQ",
+      "name": "System Validation (2): Model process behaviour",
+      "courseType": "v2.ondemand",
+      "slug": "system-validation-behavior",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 360844053
+    },
+    {
+      "id": "W9fZBNdhEeWVxxJZNAJSHQ",
+      "name": "Academic Discussions in English",
+      "courseType": "v2.ondemand",
+      "slug": "academic-discussion-english",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 123076023
+    },
+    {
+      "id": "UinDuXYNEea55hKVJ963NQ",
+      "name": "ART of the MOOC: Arte Público y Pedagogía",
+      "courseType": "v2.ondemand",
+      "slug": "arte-publico-pedagogia",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1417602118
+    },
+    {
+      "id": "AJrvmCjuEeam2xJnFSlCww",
+      "name": "Strategies for Teaching Perfect Tenses and Modals",
+      "courseType": "v2.ondemand",
+      "slug": "teaching-verb-tenses",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 266878914
+    },
+    {
+      "id": "SFoKPKjcEeWbLRJn4j8c4Q",
+      "name": "AstroTech: The Science and Technology behind Astronomical Discovery",
+      "courseType": "v2.ondemand",
+      "slug": "astronomy-technology",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 528319219
+    },
+    {
+      "id": "7BnPwFAnEeal6Q45aayEvw",
+      "name": "Social Business Model and Planning for Social Innovation",
+      "courseType": "v2.ondemand",
+      "slug": "social-business-model",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 722095833
+    },
+    {
+      "id": "FmDuCnEzEeWKsgrp3VnvAw",
+      "name": "Ancient Egypt",
+      "courseType": "v2.ondemand",
+      "slug": "ancientegypt",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 627962670
+    },
+    {
+      "id": "BjlSsD4pEeaz7A4rbi9N3w",
+      "name": "Social Norms, Social Change II",
+      "courseType": "v2.ondemand",
+      "slug": "change",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3224399449
+    },
+    {
+      "id": "uwDWjLu_EeWH_w6eDJDPoQ",
+      "name": "Portfolio Selection and Risk Management",
+      "courseType": "v2.ondemand",
+      "slug": "portfolio-selection-risk-management",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 984258636
+    },
+    {
+      "id": "dLJlLLvTEeWH_w6eDJDPoQ",
+      "name": "Basic Data Descriptors, Statistical Distributions, and Application to Business Decisions",
+      "courseType": "v2.ondemand",
+      "slug": "descriptive-statistics-statistical-distributions-business-application",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 310475731
+    },
+    {
+      "id": "f6s8aXQ3EeWIfhKr_WcYsQ",
+      "name": "Essential Design Principals for Tableau",
+      "courseType": "v2.ondemand",
+      "slug": "dataviz-design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 372211052
+    },
+    {
+      "id": "hIc_pBqaEeWwrBKfKrqlSQ",
+      "name": "Strategic Innovation for Managers",
+      "courseType": "v2.ondemand",
+      "slug": "strategic-innovation",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1132665432
+    },
+    {
+      "id": "ZqfR0mMmEeaCYxJIZlTIQQ",
+      "name": "Construction Scheduling",
+      "courseType": "v2.ondemand",
+      "slug": "construction-scheduling",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2146368333
+    },
+    {
+      "id": "I4RbHTTPEeaU3A4B1dNclw",
+      "name": "Managing Uncertainty in Marketing Analytics",
+      "courseType": "v2.ondemand",
+      "slug": "uncertainty-marketing-decisions",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 289451013
+    },
+    {
+      "id": "hEMZ5zJuEeaGtRI0HQleow",
+      "name": "HI-FIVE: Health Informatics For Innovation, Value \u0026 Enrichment (Clinical Perspective)",
+      "courseType": "v2.ondemand",
+      "slug": "hi-five-clinical",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2527239866
+    },
+    {
+      "id": "gni-lkeREeaNmhKFnqHOVQ",
+      "name": "Investments II: Lessons and Applications",
+      "courseType": "v2.ondemand",
+      "slug": "investments-applications",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2197684520
+    },
+    {
+      "id": "s6_Z4SBAEeWcQw5YiljpGw",
+      "name": "Major Depression in the Population: A Public Health Approach",
+      "courseType": "v2.ondemand",
+      "slug": "public-health-depression",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 392435578
+    },
+    {
+      "id": "pW_Of3vUEeaCZBIelfdoiQ",
+      "name": "Drug Development",
+      "courseType": "v2.ondemand",
+      "slug": "drug-development",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 448546872
+    },
+    {
+      "id": "qLtWVV2nEea6OBIvyzcuGw",
+      "name": "Fundamentals of Public Speaking",
+      "courseType": "v2.ondemand",
+      "slug": "fundamentals-of-public-speaking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 686371585
+    },
+    {
+      "id": "wQ9FD3b0EeaahA7WQe-h_w",
+      "name": "Graph Search, Shortest Paths, and Data Structures",
+      "courseType": "v2.ondemand",
+      "slug": "algorithms-graphs-data-structures",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 760676416
+    },
+    {
+      "id": "oeHwKhiDEea2Gw5ROLcooQ",
+      "name": "Business Analytics for Decision Making",
+      "courseType": "v2.ondemand",
+      "slug": "business-analytics-decision-making",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 438809982
+    },
+    {
+      "id": "ouoDtVM7EeaUyhJ5kBsouw",
+      "name": "Advanced Linear Models for Data Science 2: Statistical Linear Models",
+      "courseType": "v2.ondemand",
+      "slug": "linear-models-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 205956069
+    },
+    {
+      "id": "8gkNsucfEeW1aA7Yx3Citw",
+      "name": "Communication Skills for University Success",
+      "courseType": "v2.ondemand",
+      "slug": "communication-skills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 811041405
+    },
+    {
+      "id": "XdQwhCQcEeapkBKJ0Y_FqQ",
+      "name": "Arts and Heritage Management",
+      "courseType": "v2.ondemand",
+      "slug": "arts-heritage",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1151954992
+    },
+    {
+      "id": "1pTpF9v9EeWcBg435JRSdw",
+      "name": "Healthcare Innovation and Entrepreneurship",
+      "courseType": "v2.ondemand",
+      "slug": "healthcare-innovation",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1096211012
+    },
+    {
+      "id": "b4OfB0R4EeaL3g5tgt_P6Q",
+      "name": "Building R Packages",
+      "courseType": "v2.ondemand",
+      "slug": "r-packages",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 12977410
+    },
+    {
+      "id": "sRAtPGhtEeab8hJTez1v6w",
+      "name": "Relationship Management ",
+      "courseType": "v2.ondemand",
+      "slug": "relationship-managment",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 34110445
+    },
+    {
+      "id": "Os1G1HbSEeaqVg4Elh7mAQ",
+      "name": "Mandarin Chinese 2: Chinese for Beginners",
+      "courseType": "v2.ondemand",
+      "slug": "mandarin-chinese-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 186613866
+    },
+    {
+      "id": "ZearHHitEeaYNAqJlKFl8Q",
+      "name": "Probabilistic Graphical Models 2: Inference",
+      "courseType": "v2.ondemand",
+      "slug": "probabilistic-graphical-models-2-inference",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 584404323
+    },
+    {
+      "id": "sCnDCtBhEeWFqw71fuUDrw",
+      "name": "ICT in Primary Education: Transforming children's learning across the curriculum",
+      "courseType": "v2.ondemand",
+      "slug": "ict-primary-education",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 538488991
+    },
+    {
+      "id": "mG_-am-IEeWbbw5cIAKQrw",
+      "name": "Quantitative Model Checking",
+      "courseType": "v2.ondemand",
+      "slug": "quantitative-model-checking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 450535189
+    },
+    {
+      "id": "K_-FlpkfEeWjfxIrc5BW9Q",
+      "name": "Fundamentals of Computer Architecture",
+      "courseType": "v2.ondemand",
+      "slug": "computer-architecture-fundamentals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 982169311
+    },
+    {
+      "id": "FF_W8C0fEea8-BJ7AvBU3Q",
+      "name": "Wireless Communications for Everybody",
+      "courseType": "v2.ondemand",
+      "slug": "wireless-communications",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 658781251
+    },
+    {
+      "id": "UMooQlv8EeWzUQ41NnCQkQ",
+      "name": "Film, Images \u0026 Historical Interpretation in the 20th Century: The Camera Never Lies",
+      "courseType": "v2.ondemand",
+      "slug": "film-images",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1124659926
+    },
+    {
+      "id": "EmkjvJ-SEeW_wArffOXkOw",
+      "name": "Introduction to Human Behavioral Genetics",
+      "courseType": "v2.ondemand",
+      "slug": "behavioralgenetics",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2296557110
+    },
+    {
+      "id": "q3gL1le_EeaUyhJ5kBsouw",
+      "name": "Human Rights for Open Societies",
+      "courseType": "v2.ondemand",
+      "slug": "humanrights",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 431347698
+    },
+    {
+      "id": "KlAJ6oysEeW79RIwiAyGoQ",
+      "name": "Successful Presentation",
+      "courseType": "v2.ondemand",
+      "slug": "presentation-skills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 594132821
+    },
+    {
+      "id": "-Ph0DnwyEeaA7w6yFE2sWQ",
+      "name": "HPV-Associated Oral and Throat Cancer: What You Need to Know",
+      "courseType": "v2.ondemand",
+      "slug": "hpv-oral-throat-cancer",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 77617237
+    },
+    {
+      "id": "A--9GrmqEeW6YA7MjVrgzw",
+      "name": "Training and Learning Programs for Volunteer Community Health Workers",
+      "courseType": "v2.ondemand",
+      "slug": "commhealthworkers",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 699080692
+    },
+    {
+      "id": "KRRDpBa-EeaXaw7Yj6TwHQ",
+      "name": "Understanding Cancer Metastasis",
+      "courseType": "v2.ondemand",
+      "slug": "cancer-metastasis",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 238490121
+    },
+    {
+      "id": "Bs9QiVi6Eea61wp4tFKGLQ",
+      "name": "Optimizing Diversity on Teams",
+      "courseType": "v2.ondemand",
+      "slug": "diverse-teams",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 540847740
+    },
+    {
+      "id": "LiOKcgInEeaC3QpVD3K7WQ",
+      "name": "Strategy and Sustainability",
+      "courseType": "v2.ondemand",
+      "slug": "strategysustainability",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 629082502
+    },
+    {
+      "id": "yteyqC22EeaU1xK12iolBQ",
+      "name": "Noun Clauses and Conditionals",
+      "courseType": "v2.ondemand",
+      "slug": "noun-clauses-conditionals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 228347748
+    },
+    {
+      "id": "k9LPPi_EEeWv_w7cMMH1Uw",
+      "name": "Bitcoin and Cryptocurrency Technologies",
+      "courseType": "v2.ondemand",
+      "slug": "cryptocurrency",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1645508630
+    },
+    {
+      "id": "m4P_9jaeEeWBMQ5pdIoFkQ",
+      "name": "Big History - From the Big Bang until Today",
+      "courseType": "v2.ondemand",
+      "slug": "bighistory",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 872011927
+    },
+    {
+      "id": "hUPm20cPEea9IA5mW7znqQ",
+      "name": "Financial Analysis for Startups",
+      "courseType": "v2.ondemand",
+      "slug": "financial-ratios",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 128405373
+    },
+    {
+      "id": "A0_iymMnEea_8A7Guyve4Q",
+      "name": "Construction Cost Estimating and Cost Control",
+      "courseType": "v2.ondemand",
+      "slug": "construction-cost-estimating",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1976582344
+    },
+    {
+      "id": "W1GYfZBWEeaPiw57oPj_hQ",
+      "name": "Chinese Culture and Contemporary China ",
+      "courseType": "v2.ondemand",
+      "slug": "china-culture-contemporary",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 390090139
+    },
+    {
+      "id": "psfwxCxHEeaC6BJp2dvj0w",
+      "name": "Techniques for Teaching Adjectives and Adjective Clauses",
+      "courseType": "v2.ondemand",
+      "slug": "teaching-adjective-clauses",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 227334504
+    },
+    {
+      "id": "NbrGjQi-EeajCxI_63r-IQ",
+      "name": "Supply Chain Planning",
+      "courseType": "v2.ondemand",
+      "slug": "planning",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 119234892
+    },
+    {
+      "id": "rrCvQ2CfEeaFYA4dzi3AFw",
+      "name": "Interest Rate Models",
+      "courseType": "v2.ondemand",
+      "slug": "interest-rate-models",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 364669961
+    },
+    {
+      "id": "QuKyoTrbEeWJaxK5AT4frw",
+      "name": "Deciphering Secrets: The Illuminated Manuscripts of Medieval Europe",
+      "courseType": "v2.ondemand",
+      "slug": "medieval-europe",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1968174771
+    },
+    {
+      "id": "rWODgk58EeaSCRItpK5oLQ",
+      "name": "Health Care IT: Challenges and Opportunities",
+      "courseType": "v2.ondemand",
+      "slug": "healthcare-it",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1244697736
+    },
+    {
+      "id": "XjmslaE3Eea7DQoksxKcjg",
+      "name": "Data Processing Using Python",
+      "courseType": "v2.ondemand",
+      "slug": "python-data-processing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 602569857
+    },
+    {
+      "id": "eUWBVhk4Eeag3wpmDUdcTQ",
+      "name": "Communicating Business Analytics Results",
+      "courseType": "v2.ondemand",
+      "slug": "communicating-business-analytics-results",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 310839965
+    },
+    {
+      "id": "2hftuq2dEeW8PhJ7jZ5xaQ",
+      "name": "The Finite Element Method for Problems in Physics",
+      "courseType": "v2.ondemand",
+      "slug": "finite-element-method",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3628375836
+    },
+    {
+      "id": "5Cs2XHYqEeaSCApOYA7A_Q",
+      "name": "Accounting and Finance for Managers",
+      "courseType": "v2.ondemand",
+      "slug": "finance-and-accounting",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 978070542
+    },
+    {
+      "id": "3pcDEiQkEeaIHgpDgxwMuQ",
+      "name": "Intellectual Humility: Theory",
+      "courseType": "v2.ondemand",
+      "slug": "intellectual-humility-theory",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 587686129
+    },
+    {
+      "id": "NYVeK3blEea0bBInbpCXBQ",
+      "name": "Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming",
+      "courseType": "v2.ondemand",
+      "slug": "algorithms-greedy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 889503764
+    },
+    {
+      "id": "06MZFeI6EeWLHw5Kc9wFbw",
+      "name": "Living with Dementia: Impact on Individuals, Caregivers, Communities and Societies",
+      "courseType": "v2.ondemand",
+      "slug": "dementia-care",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 709294771
+    },
+    {
+      "id": "EwG0wVcFEeWoihJUyvgO6w",
+      "name": "The Cycle: Management of Successful Arts and Cultural Organizations",
+      "courseType": "v2.ondemand",
+      "slug": "the-cycle",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 927954703
+    },
+    {
+      "id": "OJ2qDir8EeWccAqzeA4VPw",
+      "name": "European Business Law: Competing in Europe",
+      "courseType": "v2.ondemand",
+      "slug": "eu-competition-law",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 795537955
+    },
+    {
+      "id": "q4jrAUR4Eea5xg7_DSTNnw",
+      "name": "Building Data Visualization Tools",
+      "courseType": "v2.ondemand",
+      "slug": "r-data-visualization",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 8493619
+    },
+    {
+      "id": "OjZYLlApEeaAmBJfqzpttQ",
+      "name": "Unleashing the Impact of your Social Enterprise",
+      "courseType": "v2.ondemand",
+      "slug": "social-impact-growth",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 454131192
+    },
+    {
+      "id": "A5jeDWhuEeak0hLPfPzoPw",
+      "name": "Action Planning",
+      "courseType": "v2.ondemand",
+      "slug": "action-planning",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 45045236
+    },
+    {
+      "id": "fcqBEnxQEeaXRRKK7mMjqw",
+      "name": "Drug Commercialization ",
+      "courseType": "v2.ondemand",
+      "slug": "drug-commercialization",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 639747787
+    },
+    {
+      "id": "yVwkLZ2IEeW4xRJkiwxnYw",
+      "name": "Global Health Policy",
+      "courseType": "v2.ondemand",
+      "slug": "global-health-policy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 637850385
+    },
+    {
+      "id": "lZs98-WIEeWy1RKsaf3f1w",
+      "name": "Metaliteracy: Empowering Yourself in a Connected World",
+      "courseType": "v2.ondemand",
+      "slug": "information-literacy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 466124293
+    },
+    {
+      "id": "Ttk7iI8lEeaNrQrkg4diMQ",
+      "name": "Exploring Beethoven’s Piano Sonatas Part 2",
+      "courseType": "v2.ondemand",
+      "slug": "exploring-beethoven-piano-sonatas-2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1096288975
+    },
+    {
+      "id": "bPNkFHQ_EeWi0g6YoSAL-w",
+      "name": "Wine Tasting: Sensory Techniques for Wine Analysis",
+      "courseType": "v2.ondemand",
+      "slug": "wine",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 861921130
+    },
+    {
+      "id": "CpAH2rZIEeW-DxJ4SAJAhQ",
+      "name": "3D Printing Software",
+      "courseType": "v2.ondemand",
+      "slug": "3d-printing-software",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 647174211
+    },
+    {
+      "id": "OQqd3CKUEea_Tw6lQjVd3w",
+      "name": "Accounting and Finance for IT professionals",
+      "courseType": "v2.ondemand",
+      "slug": "accounting-finance",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 321968088
+    },
+    {
+      "id": "4ftx8FVoEeWoihJUyvgO6w",
+      "name": "Children's Human Rights - An Interdisciplinary Introduction",
+      "courseType": "v2.ondemand",
+      "slug": "childrens-rights",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1154975495
+    },
+    {
+      "id": "RugeU1pBEeaw3QoEHqdPHw",
+      "name": "Building Arduino robots and devices",
+      "courseType": "v2.ondemand",
+      "slug": "arduino",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1801260035
+    },
+    {
+      "id": "IIZBW6-mEeaHBgqkZt_jWA",
+      "name": "Configuration Management on Google Cloud Platform",
+      "courseType": "v2.ondemand",
+      "slug": "gcp-configuration-management",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 67124737
+    },
+    {
+      "id": "bKb57q0GEea2UQpM2-WzDg",
+      "name": "Computing, Storage and Security with Google Cloud Platform",
+      "courseType": "v2.ondemand",
+      "slug": "gcp-security",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 376994076
+    },
+    {
+      "id": "UyptSa-mEeauxBIk_RF-8A",
+      "name": "Designing Highly Scalable Web Apps on Google Cloud Platform",
+      "courseType": "v2.ondemand",
+      "slug": "gcp-scalable-web-apps",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 77634064
+    },
+    {
+      "id": "-KDHP5UFEeaPOA7y0lv8VQ",
+      "name": "Diabetes – the Essential Facts",
+      "courseType": "v2.ondemand",
+      "slug": "diabetes-essential-facts",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 392165630
+    },
+    {
+      "id": "h9LqVq-lEeauxBIk_RF-8A",
+      "name": "Google Cloud Platform Fundamentals",
+      "courseType": "v2.ondemand",
+      "slug": "gcp-fundamentals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 240565698
+    },
+    {
+      "id": "xbYnwBHeEea4YAq244u_Cw",
+      "name": "Heritage under Threat",
+      "courseType": "v2.ondemand",
+      "slug": "heritage",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 3507979652
+    },
+    {
+      "id": "TGvAlli6Eea6OBIvyzcuGw",
+      "name": "Creating a Team Culture of Continuous Learning",
+      "courseType": "v2.ondemand",
+      "slug": "continuous-learning-culture",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 731024714
+    },
+    {
+      "id": "yq6ZPOvGEeWvGQrWsIkLlw",
+      "name": "Innovation \u0026 Entrepreneurship - From Basics to Open Innovation",
+      "courseType": "v2.ondemand",
+      "slug": "open-innovation-entrepreneurship",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 334746393
+    },
+    {
+      "id": "vwcoxOyuEeWLaBLI8fdMlw",
+      "name": "The Changing Global Order",
+      "courseType": "v2.ondemand",
+      "slug": "changing-global-order",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1068085821
+    },
+    {
+      "id": "kKwHoIP4Eea_HA7U3gpEVw",
+      "name": "The Art of Vocal Production",
+      "courseType": "v2.ondemand",
+      "slug": "vocal-production",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 283295031
+    },
+    {
+      "id": "P3b7g0eKEeaDRhLb8lAaNw",
+      "name": "Marketing Management I",
+      "courseType": "v2.ondemand",
+      "slug": "marketing-management",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 678201039
+    },
+    {
+      "id": "NuTWp2MnEeaeIg4x_IP1iQ",
+      "name": "Construction Finance",
+      "courseType": "v2.ondemand",
+      "slug": "construction-finance",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1453810591
+    },
+    {
+      "id": "_WUVFwpFEeafmAoLZ2pYtw",
+      "name": "Grant Proposal",
+      "courseType": "v2.ondemand",
+      "slug": "grant-proposal",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 370888543
+    },
+    {
+      "id": "R6m--DTPEeaZvBKk_jPuSQ",
+      "name": "Forecasting Models for Marketing Decisions",
+      "courseType": "v2.ondemand",
+      "slug": "forecasting-models-marketing-decisions",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 283397840
+    },
+    {
+      "id": "nax4Y2oHEeak0hLPfPzoPw",
+      "name": "The Strategy of Content Marketing",
+      "courseType": "v2.ondemand",
+      "slug": "content-marketing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 731546391
+    },
+    {
+      "id": "Fvjz5_3aEeWosAqqqSjfcQ",
+      "name": "Chemerinsky on Constitutional Law – Individual Rights and Liberties",
+      "courseType": "v2.ondemand",
+      "slug": "chemerinsky-individual-rights",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1114985595
+    },
+    {
+      "id": "KdOvri-GEeWl3A7Kuc0JCQ",
+      "name": "System Validation (4): Modelling Software, Protocols, and other behaviour",
+      "courseType": "v2.ondemand",
+      "slug": "system-validation-software-protocols",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 260109734
+    },
+    {
+      "id": "xJrJ5XQ3EeWLqw7zlLhRzQ",
+      "name": "Explaining Your Data Using Tableau",
+      "courseType": "v2.ondemand",
+      "slug": "dataviz-explain",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 183957620
+    },
+    {
+      "id": "3Rm7wSxHEeanqw4SNWFJ8Q",
+      "name": "Teaching Tips for Tricky English Grammar",
+      "courseType": "v2.ondemand",
+      "slug": "teaching-common-grammar-mistakes",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 254157748
+    },
+    {
+      "id": "2dQBCHwBEeadzAr8QEFyQQ",
+      "name": "Digital Business Models",
+      "courseType": "v2.ondemand",
+      "slug": "digital-business-models",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 202004204
+    },
+    {
+      "id": "MX3iQy-EEeWl3A7Kuc0JCQ",
+      "name": "System Validation (3): Requirements by modal formulas",
+      "courseType": "v2.ondemand",
+      "slug": "system-validation-modal-formulas",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 241574781
+    },
+    {
+      "id": "rgBZRpwaEeafIQpJGWIzpg",
+      "name": "Economics from a pluralist perspective",
+      "courseType": "v2.ondemand",
+      "slug": "economicsfromapluralistperspective",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2360507321
+    },
+    {
+      "id": "2gp3M9IPEeaskwrhgK9PcA",
+      "name": "Selenium Prod Private Group Sessions testing 1",
+      "courseType": "v2.ondemand",
+      "slug": "selenium-prod-private-group-sessions-1",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2897
+    },
+    {
+      "id": "sUpST4RAEeawAApvKZgcCQ",
+      "name": "A developer's guide to Exploring and Visualizing IoT Data",
+      "courseType": "v2.ondemand",
+      "slug": "exploring-visualizing-iot-data",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 223832955
+    },
+    {
+      "id": "r5impOF4EeWVyArzYsqChQ",
+      "name": "Image and Video Processing: From Mars to Hollywood with a Stop at the Hospital",
+      "courseType": "v2.ondemand",
+      "slug": "image-processing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1445719439
+    },
+    {
+      "id": "2RGeY3RDEeatvg5z1JaMJw",
+      "name": "Data Science Math Skills",
+      "courseType": "v2.ondemand",
+      "slug": "datasciencemathskills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 393663622
+    },
+    {
+      "id": "L9xlYnblEeaCZBIelfdoiQ",
+      "name": "Shortest Paths Revisited, NP-Complete Problems and What To Do About Them",
+      "courseType": "v2.ondemand",
+      "slug": "algorithms-npcomplete",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 760289053
+    },
+    {
+      "id": "GGdJZCEZEeaFdg7FFZQVLw",
+      "name": "Orchestrating Whole Classroom Discussion",
+      "courseType": "v2.ondemand",
+      "slug": "classdiscussion",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 231805926
+    },
+    {
+      "id": "zpI1GMQ_EeW2JxKnR3RyOw",
+      "name": "Music \u0026 Society",
+      "courseType": "v2.ondemand",
+      "slug": "musicandsociety",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 904081104
+    },
+    {
+      "id": "PsTsfU0LEeWfzRIay-bDMQ",
+      "name": "Mountains 101",
+      "courseType": "v2.ondemand",
+      "slug": "mountains-101",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2090530505
+    },
+    {
+      "id": "VncqK1pcEeaf-Qp81ahtrQ",
+      "name": "Strategic Organization Design",
+      "courseType": "v2.ondemand",
+      "slug": "organization-design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 756113995
+    },
+    {
+      "id": "oS2FlU5kEeaRUwokXvhjDw",
+      "name": "Professional Skills for International Business",
+      "courseType": "v2.ondemand",
+      "slug": "professional-skills-networking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1053746811
+    },
+    {
+      "id": "4FUch7u_EeW6QBIGzzljVw",
+      "name": "Biases and Portfolio Selection",
+      "courseType": "v2.ondemand",
+      "slug": "biases-portfolio-selection",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 760340630
+    },
+    {
+      "id": "S1JYY05lEeaNVA7r6h-zAw",
+      "name": "Statistics for International Business",
+      "courseType": "v2.ondemand",
+      "slug": "statistics-international-business",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 352676648
+    },
+    {
+      "id": "InPZ8m01EeW8nRIpKnwp7Q",
+      "name": "Building and Deploying Android App Projects",
+      "courseType": "v2.ondemand",
+      "slug": "badaap",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 661678591
+    },
+    {
+      "id": "mVX5M7vTEeWxRxJALS-oFw",
+      "name": "Business Applications of Hypothesis Testing and Confidence Interval Estimation ",
+      "courseType": "v2.ondemand",
+      "slug": "hypothesis-testing-confidence-intervals",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 417329738
+    },
+    {
+      "id": "BDi_LU5lEea1YwoX0DxdQQ",
+      "name": "Quantitative Foundations for International Business",
+      "courseType": "v2.ondemand",
+      "slug": "quantitative-foundations-international-business",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 415350040
+    },
+    {
+      "id": "g4sFEnitEeaCZBIelfdoiQ",
+      "name": "Probabilistic Graphical Models 3: Learning",
+      "courseType": "v2.ondemand",
+      "slug": "probabilistic-graphical-models-3-learning",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 606403073
+    },
+    {
+      "id": "y7qvxOcfEeWObApR1RokEw",
+      "name": "Critical Thinking Skills for University Success",
+      "courseType": "v2.ondemand",
+      "slug": "critical-thinking-skills",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 585994988
+    },
+    {
+      "id": "ZJW66DyqEeaLPBLO22JV-w",
+      "name": "Prototyping and Design",
+      "courseType": "v2.ondemand",
+      "slug": "prototyping-design",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 920587166
+    },
+    {
+      "id": "-YfaPOvGEeWMXQ7KUwccNw",
+      "name": "Marketing Strategy for Entrepreneurs",
+      "courseType": "v2.ondemand",
+      "slug": "marketing-strategy-entrepreneurs",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 513738051
+    },
+    {
+      "id": "MzsOlyp0EeaP6w5GAwccDw",
+      "name": "Getting Started With Music Theory",
+      "courseType": "v2.ondemand",
+      "slug": "music-theory",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 301785152
+    },
+    {
+      "id": "istduPpxEeWLNRKTxmetJQ",
+      "name": "An Intuitive Introduction to Probability",
+      "courseType": "v2.ondemand",
+      "slug": "introductiontoprobability",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 687694815
+    },
+    {
+      "id": "OEZ3_J-PEeWaZBIXh-2nQw",
+      "name": "Introduction to Mathematical Thinking",
+      "courseType": "v2.ondemand",
+      "slug": "mathematical-thinking",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2287608559
+    },
+    {
+      "id": "7uQXLZIsEeWBSw79YYA_8Q",
+      "name": "Making Sense of the News: News Literacy Lessons for Digital Citizens",
+      "courseType": "v2.ondemand",
+      "slug": "news-literacy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 379986737
+    },
+    {
+      "id": "AGFuxG4WEeaROwpt0rzXOQ",
+      "name": "Oral Communication for Engineering Leaders",
+      "courseType": "v2.ondemand",
+      "slug": "oral-communication",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 303344372
+    },
+    {
+      "id": "DHMCDqzpEeaPvQ5eOPtN_A",
+      "name": "Research kitchen",
+      "courseType": "v2.ondemand",
+      "slug": "research-kitchen",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 255466445
+    },
+    {
+      "id": "_Qlp8ziAEeWYbg7p2_3OHQ",
+      "name": "Financial Planning for Young Adults",
+      "courseType": "v2.ondemand",
+      "slug": "personal-finance",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1063474366
+    },
+    {
+      "id": "_OZnMzM1EeaFHgo3JFU79w",
+      "name": "EU policy and implementation: making Europe work! ",
+      "courseType": "v2.ondemand",
+      "slug": "eu-making-europe-work",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 371069015
+    },
+    {
+      "id": "Vp4oX3WkEeWYyRL_9oqa4Q",
+      "name": "Build a Modern Computer from First Principles: Nand to Tetris Part II (project-centered course)",
+      "courseType": "v2.ondemand",
+      "slug": "nand2tetris2",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 2979411584
+    },
+    {
+      "id": "hAyhDM-IEeWWPA4Ee96j6Q",
+      "name": "Geodesign: Change Your World",
+      "courseType": "v2.ondemand",
+      "slug": "geodesign",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 427086006
+    },
+    {
+      "id": "GxvylYQ4EealyAq9mBiU-w",
+      "name": "Spanish Vocabulary: Meeting People",
+      "courseType": "v2.ondemand",
+      "slug": "spanish-vocabulary-meeting-people",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 133361357
+    },
+    {
+      "id": "U4ljqwi-EeaKMxIJoYbSpQ",
+      "name": "Supply Chain Sourcing",
+      "courseType": "v2.ondemand",
+      "slug": "sourcing",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 160046512
+    },
+    {
+      "id": "R3GxfaEUEeaifQ4a5unFVA",
+      "name": "Archaeoastronomy",
+      "courseType": "v2.ondemand",
+      "slug": "archaeoastronomy",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 669109280
+    },
+    {
+      "id": "FHRfjx4bEea5XBKU2ED_yw",
+      "name": "Basic Modeling for Discrete Optimization",
+      "courseType": "v2.ondemand",
+      "slug": "basic-modeling",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1092656292
+    },
+    {
+      "id": "uiP_SfLiEeWkFQ5XCM9Arw",
+      "name": "Understanding Obesity",
+      "courseType": "v2.ondemand",
+      "slug": "understanding-obesity",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 352190554
+    },
+    {
+      "id": "xiJGs05kEeagxwr1Kg22cw",
+      "name": "Management Skills for International Business",
+      "courseType": "v2.ondemand",
+      "slug": "management-skills-international-business",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1067496373
+    },
+    {
+      "id": "Ga5r-tz4EeawIQ6pepwUtg",
+      "name": "Selenium Prod Authoring Left Hand Nav Pages Tests",
+      "courseType": "v2.ondemand",
+      "slug": "selenium-prod-test-left-hand-nav-pages",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 1102
+    },
+    {
+      "id": "g2L5AXbSEeaYRA7akyNfJw",
+      "name": "Mandarin Chinese 3: Chinese for Beginners",
+      "courseType": "v2.ondemand",
+      "slug": "mandarin-chinese-3",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 277364760
+    },
+    {
+      "id": "pIqvGqhJEeaZwBIdLOcDZg",
+      "name": "Understanding Prostate Cancer",
+      "courseType": "v2.ondemand",
+      "slug": "prostate-cancer",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 210005416
+    },
+    {
+      "id": "Wi2dvnjIEea2bgrd8gaF3w",
+      "name": "Security \u0026 Safety Challenges in a Globalized World",
+      "courseType": "v2.ondemand",
+      "slug": "security-safety-globalized-world",
+      "primaryLanguageCodes": [
+        "en"
+      ],
+      "size": 382674494
     }
   ]
 }
