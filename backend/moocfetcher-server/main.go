@@ -5,9 +5,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/NYTimes/gziphandler"
 	"github.com/justinas/alice"
@@ -80,7 +82,18 @@ func main() {
 		}
 
 		// Parse Course Metadata
-		cm := FSMustByte(false, courseMetadataFile)
+		var cm []byte
+		onDiskCourseMetadata := filepath.Join(coursesDir, "courses.json")
+		if _, err := os.Stat(onDiskCourseMetadata); err == nil {
+			log.Println("Found metadata in courses directory. Reading…")
+			cm, err = ioutil.ReadFile(onDiskCourseMetadata)
+			if err != nil {
+				log.Fatalf("Could not read file %s:\n", onDiskCourseMetadata)
+			}
+		} else {
+			// Load from bundled assets
+			cm = FSMustByte(false, courseMetadataFile)
+		}
 		var courseMetadata moocfetcher.CourseData
 		err := json.Unmarshal(cm, &courseMetadata)
 		if err != nil {
