@@ -92,6 +92,7 @@ func main() {
 			}
 		} else {
 			// Load from bundled assets
+			log.Println("Cannot find course metadata. Using embedded metadata file.")
 			cm = FSMustByte(false, courseMetadataFile)
 		}
 		var courseMetadata moocfetcher.CourseData

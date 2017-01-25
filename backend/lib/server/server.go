@@ -103,7 +103,7 @@ func (s *MOOCFetcherApplianceServer) copyStartHandler(w http.ResponseWriter, r *
 			for _, drive := range "ZYXWVUTSRQPONMLKJIHGFEDCBA" {
 				_, err := os.Open(string(drive) + ":\\")
 				if err == nil {
-					log.Printf("Found %s as the last working drive letter.", drive)
+					log.Printf("Found %c as the last working drive letter.", drive)
 					drives = append(drives, string(drive))
 					break
 				}
@@ -205,9 +205,13 @@ func (s *MOOCFetcherApplianceServer) statsHandler(w http.ResponseWriter, r *http
 }
 
 func (s *MOOCFetcherApplianceServer) readStats() {
-	file, err := ioutil.ReadFile("./stats.json")
+	file, err := ioutil.ReadFile("stats.json")
 	if err != nil {
-		log.Printf("Unable to read stats file: %s\n", err)
+		if os.IsNotExist(err) {
+			log.Println("Cannot find stats file. Will create one.")
+		} else {
+			log.Printf("Unable to read stats file: %s\n", err)
+		}
 		return
 	}
 
