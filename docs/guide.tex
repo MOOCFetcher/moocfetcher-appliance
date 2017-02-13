@@ -1,0 +1,99 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Baskerville}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={MOOCFetcher User Guide},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{MOOCFetcher User Guide}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}\label{introduction}
+
+\section{Installing MOOCFetcher
+Kiosk}\label{installing-moocfetcher-kiosk}
+
+\subsection{Locating Bundled MOOCFetcher Kiosk on Hard
+Drive}\label{locating-bundled-moocfetcher-kiosk-on-hard-drive}
+
+\subsection{Downloading Latest Release from the
+Internet}\label{downloading-latest-release-from-the-internet}
+
+\subsection{Installing a fresh copy of MOOCFetcher
+Kiosk}\label{installing-a-fresh-copy-of-moocfetcher-kiosk}
+
+\section{Using MOOCFetcher}\label{using-moocfetcher}
+
+\subsection{Step 1: Launch MOOCFetcher Client in Web
+Browser}\label{step-1-launch-moocfetcher-client-in-web-browser}
+
+\subsection{Step 2: Search for Courses}\label{step-2-search-for-courses}
+
+\subsection{Step 3: Select Courses to
+Copy}\label{step-3-select-courses-to-copy}
+
+\subsection{Step 4: View Full List of
+Courses}\label{step-4-view-full-list-of-courses}
+
+\subsection{Step 5: Prepare USB Flash Drive and Begin
+Copy}\label{step-5-prepare-usb-flash-drive-and-begin-copy}
+
+\subsection{Step 6: Monitor Progress}\label{step-6-monitor-progress}
+
+\subsection{Step 7: Remove USB Flash
+Drive}\label{step-7-remove-usb-flash-drive}
+
+\end{document}
