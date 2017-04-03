@@ -25,10 +25,19 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={MOOCFetcher User Guide},
+            pdftitle={MOOCFetcher Kiosk Installation Guide},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -54,8 +63,9 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\setlength{\footnotesep}{0.5cm}
 
-\title{MOOCFetcher User Guide}
+\title{MOOCFetcher Kiosk Installation Guide}
 \date{}
 
 \begin{document}
@@ -63,37 +73,123 @@
 
 \section{Introduction}\label{introduction}
 
+MOOCFetcher Kiosk is a browser-based application that can be used to
+browse, search and copy MOOCs from a hard drive. MOOCFetcher is a
+resource for places and communities which do not have access to a high
+bandwidth internet connection to download large-sized lecture videos and
+other course materials.
+
+\section{Prerequisites}\label{prerequisites}
+
+Before following this guide, you need to obtain a hard drive containing
+the MOOCs from us\footnote{Email us at
+  \href{mailto:contact@moocfetcher.com}{\nolinkurl{contact@moocfetcher.com}}
+  to get a hard drive containing MOOCs shipped to you.}, and connect it
+to a computer on which the MOOCFetcher Kiosk software is going to be
+installed. The computer that the hard drive is connected to, should have
+the following software installed:
+
+\begin{itemize}
+\tightlist
+\item
+  Windows 8 Operating System or higher\footnote{MOOCFetcher Kiosk can
+    also run on Linux and OS X operating systems. The instructions are
+    similar, but may need some familiarity with using the commandline.
+    Please contact us for additional instructions.}
+\item
+  Google Chrome Browser
+\end{itemize}
+
 \section{Installing MOOCFetcher
 Kiosk}\label{installing-moocfetcher-kiosk}
+
+Normally, the hard drive containing the MOOCs that you have should
+already contain the MOOCFetcher Kiosk software, and it can be run
+directly from it. Follow the instructions in the section below to locate
+the software on the hard drive, and skip to the next section to start
+using it. You will still need to follow the installation instructions if
+you wish to upgrade your current installation of MOOCFetcher Kiosk to a
+newer one that may be available online.
 
 \subsection{Locating Bundled MOOCFetcher Kiosk on Hard
 Drive}\label{locating-bundled-moocfetcher-kiosk-on-hard-drive}
 
-\subsection{Downloading Latest Release from the
-Internet}\label{downloading-latest-release-from-the-internet}
+Navigate to the top level folder of the hard disk containing the MOOCs
+in File Explorer. It should contain the following files:
 
-\subsection{Installing a fresh copy of MOOCFetcher
-Kiosk}\label{installing-a-fresh-copy-of-moocfetcher-kiosk}
+\begin{itemize}
+\tightlist
+\item
+  \emph{moocfetcher-server.exe}
+\item
+  \emph{run.ps1}
+\item
+  \emph{run.bat}
+\end{itemize}
 
-\section{Using MOOCFetcher}\label{using-moocfetcher}
+Refer to Figure \ref{moocfroot} below for what the folder would look
+like.
 
-\subsection{Step 1: Launch MOOCFetcher Client in Web
-Browser}\label{step-1-launch-moocfetcher-client-in-web-browser}
+\begin{figure}
+\centering
+\includegraphics{moocfroot.jpg}
+\caption{Directory listing containing MOOCFetcher Kiosk related files
+\label{moocfroot}}
+\end{figure}
 
-\subsection{Step 2: Search for Courses}\label{step-2-search-for-courses}
+\subsection{Downloading and Installing Latest
+Release}\label{downloading-and-installing-latest-release}
 
-\subsection{Step 3: Select Courses to
-Copy}\label{step-3-select-courses-to-copy}
+Open your web browser and navigate to the MOOCFetcher Kiosk releases
+page:
 
-\subsection{Step 4: View Full List of
-Courses}\label{step-4-view-full-list-of-courses}
+\textbf{\url{https://github.com/MOOCFetcher/moocfetcher-appliance/releases}}
 
-\subsection{Step 5: Prepare USB Flash Drive and Begin
-Copy}\label{step-5-prepare-usb-flash-drive-and-begin-copy}
+You should see a page like in Figure \ref{releases}. Download the file
+\textbf{moocfetcher.zip}, and extract the contents into the hard drive
+containing the MOOCs.
 
-\subsection{Step 6: Monitor Progress}\label{step-6-monitor-progress}
+\begin{figure}
+\centering
+\includegraphics{releases.jpg}
+\caption{MOOCFetcher Kiosk Releases Page on Github \label{releases}}
+\end{figure}
 
-\subsection{Step 7: Remove USB Flash
-Drive}\label{step-7-remove-usb-flash-drive}
+\section{Using MOOCFetcher Kiosk}\label{using-moocfetcher-kiosk}
+
+\subsubsection{Launching the MOOCFetcher Kiosk
+application}\label{launching-the-moocfetcher-kiosk-application}
+
+Navigate to the top level folder of the hard disk containing the MOOCs
+in File Explorer, and then double-click the file \textbf{run.bat}. This
+should launch the MOOCFetcher Kiosk application in a new window, as
+shown in Figure \ref{launch}.
+
+\begin{figure}
+\centering
+\includegraphics{launch.jpg}
+\caption{MOOCFetcher Kiosk Application Launch \label{launch}}
+\end{figure}
+
+\subsection{Opening the start page in Google
+Chrome}\label{opening-the-start-page-in-google-chrome}
+
+Open the Chrome web browser, and navigate to the following location:
+\textbf{http://localhost:8080}.
+
+You should see a screen like in Figure \ref{startpage}.
+
+\begin{figure}
+\centering
+\includegraphics{step1.jpg}
+\caption{MOOCFetcher Kiosk Start Page \label{startpage}}
+\end{figure}
+
+\section{Troubleshooting and
+Questions}\label{troubleshooting-and-questions}
+
+If you encounter any problems following the instructions, or have any
+further questions, please e-mail us at
+\textbf{\href{mailto:contact@moocfetcher.com}{\nolinkurl{contact@moocfetcher.com}}}.
 
 \end{document}

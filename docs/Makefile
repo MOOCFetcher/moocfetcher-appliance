@@ -1,4 +1,4 @@
-.PHONY: all watch clean pdf tex
+.PHONY: all watch clean
 
 OPTIONS := --latex-engine=lualatex
 
@@ -10,8 +10,8 @@ clean:
 watch:
 	fswatch -o . | xargs -n 1 -I_ make
 
-pdf: guide.md
+guide.pdf: guide.md
 	pandoc $(OPTIONS) guide.md -s -o guide.pdf 
 
-tex: guide.md
+guide.tex: guide.md
 	pandoc $(OPTIONS) guide.md  -s -o guide.tex 
