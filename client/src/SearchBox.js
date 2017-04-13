@@ -2,7 +2,6 @@ import {CourseActions} from './CourseStore'
 import React from 'react'
 
 export default class SearchBox extends React.Component {
-
   handleInput = (e) => {
     CourseActions.filter(e.target.value)
   }

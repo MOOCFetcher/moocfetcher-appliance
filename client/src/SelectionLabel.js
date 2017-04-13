@@ -60,4 +60,3 @@ export default class SelectionLabel extends React.Component {
     return <p className='text-xs-center lead'>{children}</p>
   }
 }
-

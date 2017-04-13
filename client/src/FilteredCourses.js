@@ -40,4 +40,3 @@ export default class FilteredCourses extends React.Component {
     return <CourseList courses={this.state.courses} />
   }
 }
-

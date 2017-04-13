@@ -68,4 +68,3 @@ export default class SelectedCourses extends React.Component {
     )
   }
 }
-
